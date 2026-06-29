@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indra Kurniawan | Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Animate.css untuk Animasi Instan Profesional -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #020617;
+        }
+        .glow-effect {
+            box-shadow: 0 0 35px -5px rgba(59, 130, 246, 0.3);
+        }
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .hover-lift:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px -10px rgba(59, 130, 246, 0.4);
+        }
+        .content-wrapper {
+            min-height: calc(100vh - 180px);
+        }
+        
+        /* 🌌 ANIMASI BACKGROUND BINTANG JATUH (SHOOTING STARS) MURNI CSS */
+        .space-bg {
+            background-color: #030712;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .space-bg::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: 
+                radial-gradient(1.5px 1.5px at 10% 20%, rgba(255, 255, 255, 0.8), transparent),
+                radial-gradient(2px 2px at 30% 40%, rgba(255, 255, 255, 0.7), transparent),
+                radial-gradient(1px 1px at 50% 15%, rgba(255, 255, 255, 0.6), transparent),
+                radial-gradient(2px 2px at 75% 60%, rgba(255, 255, 255, 0.8), transparent),
+                radial-gradient(1.5px 1.5px at 90% 30%, rgba(255, 255, 255, 0.5), transparent),
+                radial-gradient(2px 2px at 25% 75%, rgba(255, 255, 255, 0.7), transparent),
+                radial-gradient(1px 1px at 60% 85%, rgba(255, 255, 255, 0.6), transparent);
+            background-size: 100% 100%;
+            pointer-events: none;
+        }
+
+        .shooting-stars {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            transform: rotate(-45deg) translateX(-50%);
+            pointer-events: none;
+        }
+
+        .star {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 2px;
+            background: linear-gradient(-45deg, #578cb8, rgba(59, 130, 246, 1), transparent);
+            border-radius: 999px;
+            filter: drop-shadow(0 0 6px rgba(59, 130, 246, 0.8));
+            animation: tail 4000s ease-in-out infinite, shooting 4s ease-in-out infinite;
+        }
+
+        .star:nth-child(1) { top: 10%; left: 20%; animation-delay: 0s; animation-duration: 3.5s; }
+        .star:nth-child(2) { top: 30%; left: 60%; animation-delay: 1.5s; animation-duration: 4.2s; }
+        .star:nth-child(3) { top: 0%; left: 80%; animation-delay: 0.7s; animation-duration: 3s; }
+        .star:nth-child(4) { top: 50%; left: 10%; animation-delay: 2.3s; animation-duration: 5s; }
+        .star:nth-child(5) { top: 20%; left: 40%; animation-delay: 3.1s; animation-duration: 3.8s; }
+
+        @keyframes tail {
+            0% { width: 0; }
+            30% { width: 100px; }
+            100% { width: 0; }
+        }
+
+        @keyframes shooting {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(350px); }
+        }
+    </style>
+</head>
+<body class="text-slate-200 antialiased selection:bg-blue-500 selection:text-white flex flex-col min-h-screen">
+
+    <!-- NAVIGATION BAR -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-slate-950/70 backdrop-blur-md border-b border-slate-900">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-17 flex items-center justify-between py-4">
+            <div class="text-2xl font-black tracking-tighter bg-gradient-to-r from-blue-400 via-teal-400 to-blue-500 bg-clip-text text-transparent cursor-pointer" onclick="switchTab('about')">
+                IK.
+            </div>
+            
+            <!-- Menu Desktop (Laptop/PC) -->
+            <div class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-400">
+                <button onclick="switchTab('about')" id="nav-about" class="nav-link text-blue-400 transition-colors font-semibold">Tentang</button>
+                <button onclick="switchTab('skills')" id="nav-skills" class="nav-link hover:text-blue-400 transition-colors">Keahlian</button>
+                <button onclick="switchTab('experience')" id="nav-experience" class="nav-link hover:text-blue-400 transition-colors">Pengalaman</button>
+                <button onclick="switchTab('certificates')" id="nav-certificates" class="nav-link hover:text-blue-400 transition-colors">Sertifikat</button>
+                <button onclick="switchTab('stats')" id="nav-stats" class="nav-link hover:text-blue-400 transition-colors">Aktivitas</button>
+                <button onclick="switchTab('contact')" id="nav-contact" class="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-xl transition-all shadow-lg shadow-blue-600/20 hover:scale-105 active:scale-95">Kontak</button>
+            </div>
+
+            <!-- Tombol Hamburger (HP) -->
+            <div class="md:hidden flex items-center">
+                <button id="menu-btn" class="text-slate-400 hover:text-white focus:outline-none p-2 z-50" aria-label="Toggle Menu">
+                    <svg class="h-6 w-6 fill-current transition-transform duration-300" id="hamburger-icon" viewBox="0 0 24 24">
+                        <path id="nav-path-1" fill-rule="evenodd" d="M4 5h16a1 1 0 010 2H4a1 1 0 110-2zm0 6h16a1 1 0 010 2H4a1 1 0 010-2zm0 6h16a1 1 0 010 2H4a1 1 0 010-2z" clip-rule="evenodd"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Menu Mobile Dropdown (HP) - State Awal Tersembunyi Lewat Style Inline -->
+        <div id="mobile-menu" style="display: none;" class="md:hidden bg-slate-950 border-b border-slate-900 shadow-xl w-full">
+            <div class="px-4 pt-2 pb-6 space-y-3 font-medium flex flex-col">
+                <button onclick="switchTab('about')" class="w-full text-left text-slate-300 hover:text-blue-400 py-2 px-3 rounded-lg hover:bg-slate-900 transition-all">Tentang</button>
+                <button onclick="switchTab('skills')" class="w-full text-left text-slate-300 hover:text-blue-400 py-2 px-3 rounded-lg hover:bg-slate-900 transition-all">Keahlian</button>
+                <button onclick="switchTab('experience')" class="w-full text-left text-slate-300 hover:text-blue-400 py-2 px-3 rounded-lg hover:bg-slate-900 transition-all">Pengalaman Kerja</button>
+                <button onclick="switchTab('certificates')" class="w-full text-left text-slate-300 hover:text-blue-400 py-2 px-3 rounded-lg hover:bg-slate-900 transition-all">Sertifikat</button>
+                <button onclick="switchTab('stats')" class="w-full text-left text-slate-300 hover:text-blue-400 py-2 px-3 rounded-lg hover:bg-slate-900 transition-all">Aktivitas</button>
+                <div class="pt-2">
+                    <button onclick="switchTab('contact')" class="w-full text-center bg-blue-600 hover:bg-blue-500 text-white py-2.5 rounded-xl font-medium shadow-md">Kontak</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- CONTAINER UTAMA KONTEN -->
+    <main class="content-wrapper flex-grow flex items-center justify-center pt-16">
+
+        <!-- 1. TENTANG SECTION -->
+        <section id="sec-about" class="tab-section py-16 px-4 max-w-6xl mx-auto sm:px-6 lg:px-8 w-full animate__animated animate__fadeIn space-bg relative rounded-3xl overflow-hidden my-4 border border-slate-800/60 shadow-2xl">
+            <div class="shooting-stars">
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+            </div>
+            <div class="absolute inset-0 bg-slate-950/30 backdrop-blur-[0.5px] pointer-events-none"></div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="flex flex-col sm:flex-row items-center sm:items-left text-center sm:text-left gap-6 mb-2">
+                        <div class="relative group flex-shrink-0">
+                            <div class="absolute -inset-1.5 bg-gradient-to-r from-blue-500 via-teal-400 to-purple-600 rounded-full blur opacity-75 group-hover:opacity-100 transition duration-500 animate-pulse"></div>
+                            <div class="relative w-32 h-32 sm:w-36 sm:h-36 rounded-full overflow-hidden border-4 border-slate-950 bg-slate-900 flex items-center justify-center shadow-2xl">
+                                <img src="foto/foto profil.jpeg" alt="Indra Kurniawan">
+                            </div>
+                        </div>
+                        <div class="space-y-2 py-2 flex-grow">
+                            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold tracking-wide uppercase">
+                                <span class="w-2 h-2 rounded-full bg-blue-400 animate-ping"></span> Civil Engineer 
+                            </div>
+                            <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
+                                Indra Kurniawan
+                            </h1>
+                        </div>
+                    </div>
+
+                    <p class="text-lg text-slate-300/90 leading-relaxed">
+                        Saya adalah seorang <strong class="text-white">Civil Engineer</strong> dan <strong class="text-white">Web Developer</strong> dengan pengalaman lebih dari 5 tahun di dunia konstruksi. Berperan aktif dalam berbagai proyek infrastruktur berskala kecil hingga besar, dengan keahlian utama di bidang pengawasan teknis, pengendalian mutu, dan manajemen lapangan.
+                    </p>
+                    <p class="text-slate-400 leading-relaxed text-sm">
+                        Memiliki pemahaman mendalam terhadap Manajemen Proyek, tangguh bekerja di bawah tekanan, serta andal dalam menjembatani koordinasi lapangan menggunakan pendekatan teknologi digital yang efisien.
+                    </p>
+                    
+                    <div class="pt-2 flex flex-wrap items-center justify-center sm:justify-start gap-4">
+                        <a href="https://linkedin.com/in/https://www.linkedin.com/in/indra-kurniawan-7870aa357" target="_blank" class="flex items-center gap-2 px-5 py-3 rounded-xl bg-slate-900/90 border border-slate-800 hover:border-blue-500 hover:text-blue-400 transition-all text-sm font-medium text-white shadow-sm hover:scale-105">
+                            <i class="fab fa-linkedin text-blue-400 text-lg"></i> LinkedIn Professional
+                        </a>
+                        <div class="flex items-center gap-3">
+                            <a href="https://instagram.com/indr_akurniawan1104" target="_blank" class="w-12 h-12 rounded-xl bg-slate-900/90 border border-slate-800 flex items-center justify-center hover:text-pink-400 hover:border-pink-500 transition-all hover:scale-110">
+                                <i class="fab fa-instagram text-lg"></i>
+                            </a>
+                            <a href="mailto:megakurniawan1410@gmail.com" class="w-12 h-12 rounded-xl bg-slate-900/90 border border-slate-800 flex items-center justify-center hover:text-red-400 hover:border-red-500 transition-all hover:scale-110">
+                                <i class="far fa-envelope text-lg"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SISI KANAN: RESUME SINGKAT -->
+                <div class="lg:col-span-5 bg-slate-950/70 border border-slate-900/80 rounded-3xl p-8 glow-effect backdrop-blur-md hover-lift">
+                    <h3 class="text-lg font-bold text-white mb-6 flex items-center gap-2">
+                        <i class="fas fa-id-card text-blue-500"></i> Resume Singkat
+                    </h3>
+                    <div class="space-y-4 text-sm">
+                        <div class="flex justify-between border-b border-slate-900 pb-3">
+                            <span class="text-slate-400">Pengalaman Lapangan</span>
+                            <span class="font-semibold text-white">5+ Tahun</span>
+                        </div>
+                        <div class="flex justify-between border-b border-slate-900 pb-3">
+                            <span class="text-slate-400">Keahlian Utama</span>
+                            <span class="font-semibold text-white text-right">Manajemen & Mutu K3</span>
+                        </div>
+                        <div class="flex justify-between border-b border-slate-900 pb-3">
+                            <span class="text-slate-400">Interdisipliner</span>
+                            <span class="font-semibold text-teal-400">Konstruksi × IT</span>
+                        </div>
+                        <div class="flex justify-between pt-1">
+                            <span class="text-slate-400">Total Bersaudara</span>
+                            <span class="font-semibold text-white">Anak ke-3 dari 4</span>
+                        </div>
+                    </div>
+                    <div class="mt-8 pt-6 border-t border-slate-900">
+                        <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=dark" alt="Dev Quote" class="w-full rounded-xl">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. KEAHLIAN SECTION -->
+        <section id="sec-skills" class="tab-section hidden py-12 px-4 max-w-6xl mx-auto sm:px-6 lg:px-8 w-full animate__animated animate__fadeIn">
+            <div class="text-center">
+                <h2 class="text-3xl font-bold text-white tracking-tight mb-2">Perangkat Kerja & Kompetensi</h2>
+                <p class="text-slate-400 max-w-xl mx-auto text-sm mb-12">Kombinasi sistem rekayasa sipil modern dan tumpukan teknologi pengembangan web.</p>
+                <div class="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
+                    <div class="transition-transform duration-300 hover:scale-110"><img src="https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E" alt="JavaScript" class="h-9"></div>
+                    <div class="transition-transform duration-300 hover:scale-110"><img src="https://img.shields.io/badge/php-%23777BB4.svg?style=for-the-badge&logo=php&logoColor=white" alt="PHP" class="h-9"></div>
+                    <div class="transition-transform duration-300 hover:scale-110"><img src="https://img.shields.io/badge/Render-%46E3B7.svg?style=for-the-badge&logo=render&logoColor=white" alt="Render" class="h-9"></div>
+                    <div class="transition-transform duration-300 hover:scale-110"><img src="https://img.shields.io/badge/webpack-%238DD6F9.svg?style=for-the-badge&logo=webpack&logoColor=black" alt="Webpack" class="h-9"></div>
+                    <div class="transition-transform duration-300 hover:scale-110"><img src="https://img.shields.io/badge/AutoCAD-%23E21D38.svg?style=for-the-badge&logo=autodesk&logoColor=white" alt="AutoCAD" class="h-9"></div>
+                    <div class="transition-transform duration-300 hover:scale-110"><img src="https://img.shields.io/badge/SAP2000-%23005493.svg?style=for-the-badge&logoColor=white" alt="SAP2000" class="h-9"></div>
+                    <div class="transition-transform duration-300 hover:scale-110"><img src="https://img.shields.io/badge/ETABS-%23107C41.svg?style=for-the-badge&logoColor=white" alt="ETABS" class="h-9"></div>
+                    <div class="transition-transform duration-300 hover:scale-110"><img src="https://img.shields.io/badge/SketchUp-005F9E?style=for-the-badge&logo=sketchup&logoColor=white" alt="SketchUp" class="h-9"></div>
+                    <div class="transition-transform duration-300 hover:scale-110"><img src="https://img.shields.io/badge/blender-%23F5792A.svg?style=for-the-badge&logo=blender&logoColor=white" alt="Blender" class="h-9"></div>
+                    <div class="transition-transform duration-300 hover:scale-110"><img src="https://img.shields.io/badge/adobe%20photoshop-%2331A8FF.svg?style=for-the-badge&logo=adobe%20photoshop&logoColor=white" alt="Photoshop" class="h-9"></div>
+                    <div class="transition-transform duration-300 hover:scale-110"><img src="https://img.shields.io/badge/Sketch-FFB387?style=for-the-badge&logo=sketch&logoColor=black" alt="Sketch" class="h-9"></div>
+                    <div class="transition-transform duration-300 hover:scale-110"><img src="https://img.shields.io/badge/Canva-%2300C4CC.svg?style=for-the-badge&logo=Canva&logoColor=white" alt="Canva" class="h-9"></div>
+                    <div class="transition-transform duration-300 hover:scale-110"><img src="https://img.shields.io/badge/Adobe%20Acrobat%20Reader-EC1C24.svg?style=for-the-badge&logo=Adobe%20Acrobat%20Reader&logoColor=white" alt="Adobe Acrobat" class="h-9"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. PENGALAMAN KERJA SECTION -->
+        <section id="sec-experience" class="tab-section hidden py-12 px-4 max-w-4xl mx-auto sm:px-6 lg:px-8 w-full animate__animated animate__fadeIn">
+            <h2 class="text-3xl font-bold text-white tracking-tight mb-2 text-center">Rekam Jejak Profesional</h2>
+            <p class="text-slate-400 text-center text-sm mb-12">Pengalaman kerja pengawasan teknis dan manajemen konstruksi di PT. ROSA AGUNG MULIA KONSULTAN.</p>
+            
+            <div class="space-y-8 relative before:absolute before:inset-0 before:left-4 sm:before:left-1/2 before:w-0.5 before:bg-slate-800">
+                <div class="relative flex flex-col sm:flex-row items-start sm:items-center group">
+                    <div class="absolute left-4 sm:left-1/2 w-4 h-4 bg-blue-500 rounded-full border-4 border-slate-900 -translate-x-1.5 z-10"></div>
+                    <div class="w-full sm:w-1/2 sm:pr-8 pl-8 sm:pl-0 sm:text-right">
+                        <div class="p-6 bg-slate-950/60 border border-slate-900 rounded-2xl hover-lift">
+                            <span class="text-xs font-bold text-blue-400">Mei 2023 - Saat ini</span>
+                            <h3 class="text-lg font-bold text-white mt-1">Civil Drafter & Pengawas</h3>
+                            <p class="text-xs text-slate-400 font-medium">PT. ROSA AGUNG MULIA KONSULTAN</p>
+                            <p class="text-sm text-slate-400">Melakukan pemodelan visual engineering, perancangan struktural, estimasi volume, sekaligus pengawasan operasional langsung di lapangan.</p>
+                        <span class="text-xs bg-slate-900 text-slate-300 px-2 py-1 rounded border border-slate-800"><i class="fas fa-cube text-teal-400 mr-1"></i> SketchUp</span>
+                        <span class="text-xs bg-slate-900 text-slate-300 px-2 py-1 rounded border border-slate-800"><i class="fas fa-cube text-teal-400 mr-1"></i> Autocad</span>
+                                <span class="text-xs bg-slate-900 text-slate-300 px-2 py-1 rounded border border-slate-800"><i class="fas fa-calculator text-teal-400 mr-1"></i> RAB</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative flex flex-col sm:flex-row items-start sm:items-center group">
+                    <div class="absolute left-4 sm:left-1/2 w-4 h-4 bg-teal-400 rounded-full border-4 border-slate-900 -translate-x-1.5 z-10"></div>
+                    <div class="w-full sm:w-1/2 sm:pl-8 pl-8 sm:ml-auto">
+                        <div class="p-6 bg-slate-950/60 border border-slate-900 rounded-2xl hover-lift">
+                            <span class="text-xs font-bold text-teal-400">Jun 2025 - Oktober 2025</span>
+                            <h3 class="text-lg font-bold text-white mt-1">Pengawas Pembangunan Renovasi Gedung Poli Spesialis Lt 3</h3>
+                            <p class="text-xs text-slate-400 font-medium mb-3">PT. ROSA AGUNG MULIA KONSULTAN </p>
+                            <p class="text-xs text-slate-500 mb-3">RS BHAYANGKARA PUSDIK PORONG SIDOARJO</p>
+                            <p class="text-sm text-slate-400 mb-3">Bertanggung jawab penuh atas pengawasan teknis pembangunan pelaksanaan renovasi berkala fasilitas kesehatan pada lantai 3 RS Bhayangkara Pusdik Sabhara Porong Sidoarjo.</p>
+                            <div class="flex flex-wrap gap-2 sm:justify-start">
+                                <span class="text-xs bg-slate-900 text-slate-300 px-2 py-1 rounded border border-slate-800"><i class="fas fa-cube text-teal-400 mr-1"></i> SketchUp</span>
+                                <span class="text-xs bg-slate-900 text-slate-300 px-2 py-1 rounded border border-slate-800"><i class="fas fa-calculator text-teal-400 mr-1"></i> RAB</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative flex flex-col sm:flex-row items-start sm:items-center group">
+                    <div class="absolute left-4 sm:left-1/2 w-4 h-4 bg-blue-500 rounded-full border-4 border-slate-900 -translate-x-1.5 z-10"></div>
+                    <div class="w-full sm:w-1/2 sm:pr-8 pl-8 sm:pl-0 sm:text-right">
+                        <div class="p-6 bg-slate-950/60 border border-slate-900 rounded-2xl hover-lift">
+                            <span class="text-xs font-bold text-blue-400">Mei 2024 - Okt 2024</span>
+                            <h3 class="text-lg font-bold text-white mt-1">Pengawasan & Perencanaan Gedung Rawat Inap Anggrek 3 lt</h3>
+                            <p class="text-xs text-slate-400 font-medium mb-3">PT. ROSA AGUNG MULIA KONSULTAN (6 bln)</p>
+                            <p class="text-sm text-slate-400 mb-3">Mengelola manajemen risiko struktural, merencanakan gambar arsitektural teknis, dan menghitung total rencana anggaran biaya bangunan.</p>
+                            <div class="flex flex-wrap gap-2 justify-start sm:justify-end">
+                                <span class="text-xs bg-slate-900 text-slate-300 px-2 py-1 rounded border border-slate-800"><i class="fas fa-tasks text-blue-400 mr-1"></i> Manajemen Proyek</span>
+                                <span class="text-xs bg-slate-900 text-slate-300 px-2 py-1 rounded border border-slate-800"><i class="fas fa-file-invoice-dollar text-blue-400 mr-1"></i> RAB</span>
+                                <span class="text-xs bg-slate-900 text-slate-300 px-2 py-1 rounded border border-slate-800"><i class="fas fa-cube text-teal-400 mr-1"></i> Autocad</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative flex flex-col sm:flex-row items-start sm:items-center group">
+                    <div class="absolute left-4 sm:left-1/2 w-4 h-4 bg-teal-400 rounded-full border-4 border-slate-900 -translate-x-1.5 z-10"></div>
+                    <div class="w-full sm:w-1/2 sm:pl-8 pl-8 sm:ml-auto">
+                        <div class="p-6 bg-slate-950/60 border border-slate-900 rounded-2xl hover-lift">
+                            <span class="text-xs font-bold text-teal-400">Mei 2024 - Agu 2024</span>
+                            <h3 class="text-lg font-bold text-white mt-1">Pengawasan Pembangunan Kanopi SD & SMP</h3>
+                            <p class="text-xs text-slate-400 font-medium mb-1">PT. ROSA AGUNG MULIA KONSULTAN (4 bln)</p>
+                            <p class="text-xs text-slate-500 mb-3">Kemala Bhayangkari Porong Sidoarjo</p>
+                            <p class="text-sm text-slate-400 mb-3">Memantau instalasi fabrikasi struktur atap kanopi lingkungan sekolah dasar dan menengah agar presisi serta aman digunakan.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-xs bg-slate-900 text-slate-300 px-2 py-1 rounded border border-slate-800"><i class="fas fa-tasks text-teal-400 mr-1"></i> Manajemen Proyek</span>
+                                <span class="text-xs bg-slate-900 text-slate-300 px-2 py-1 rounded border border-slate-800"><i class="fas fa-file-invoice-dollar text-teal-400 mr-1"></i> RAB</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative flex flex-col sm:flex-row items-start sm:items-center group">
+                    <div class="absolute left-4 sm:left-1/2 w-4 h-4 bg-blue-500 rounded-full border-4 border-slate-900 -translate-x-1.5 z-10"></div>
+                    <div class="w-full sm:w-1/2 sm:pr-8 pl-8 sm:pl-0 sm:text-right">
+                        <div class="p-6 bg-slate-950/60 border border-slate-900 rounded-2xl hover-lift">
+                            <span class="text-xs font-bold text-blue-400">Mei 2023 - Okt 2023</span>
+                            <h3 class="text-lg font-bold text-white mt-1">Pengawasan Pembangunan Gedung Rawat Inap Mawar 3 lt</h3>
+                            <p class="text-xs text-slate-400 font-medium mb-3">PT. ROSA AGUNG MULIA KONSULTAN (6 bln)</p>
+                            <p class="text-sm text-slate-400 mb-3">Melakukan fungsi monitoring mutu material beton, pengawasan pembesian, dan ketepatan schedule pembangunan berkala.</p>
+                            <div class="flex flex-wrap gap-2 justify-start sm:justify-end">
+                                <span class="text-xs bg-slate-900 text-slate-300 px-2 py-1 rounded border border-slate-800"><i class="fas fa-tasks text-blue-400 mr-1"></i> Manajemen Proyek</span>
+                                <span class="text-xs bg-slate-900 text-slate-300 px-2 py-1 rounded border border-slate-800"><i class="fas fa-file-invoice-dollar text-blue-400 mr-1"></i> RAB</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. SERTIFIKAT SECTION -->
+        <section id="sec-certificates" class="tab-section hidden py-12 px-4 max-w-5xl mx-auto sm:px-6 lg:px-8 w-full animate__animated animate__fadeIn">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-slate-900/60 border border-slate-900 p-6 rounded-2xl hover-lift flex flex-col justify-between">
+                    <div>
+                        <div class="text-3xl text-blue-500 mb-4"><i class="fas fa-hard-hat"></i></div>
+                        <h3 class="text-md font-bold text-white">Sertifikat Ahli K3 Konstruksi</h3>
+                        <p class="text-xs text-slate-500 mt-1">Badan Sertifikasi Nasional</p>
+                        <p class="text-sm text-slate-400 mt-3">Kompetensi tingkat lanjut untuk pemeliharaan keselamatan, kesehatan kerja, dan penjaminan mutu zero-accident di lapangan.</p>
+                    </div>
+                    <span class="inline-block text-xs font-semibold text-blue-400 mt-4 bg-blue-500/10 px-2.5 py-1 rounded-md w-max">Verified Credential</span>
+                </div>
+                <div class="bg-slate-900/60 border border-slate-900 p-6 rounded-2xl hover-lift flex flex-col justify-between">
+                    <div>
+                        <div class="text-3xl text-teal-400 mb-4"><i class="fas fa-drafting-compass"></i></div>
+                        <h3 class="text-md font-bold text-white">Keahlian AutoCAD & Perancangan</h3>
+                        <p class="text-xs text-slate-500 mt-1">Autodesk Certification Center</p>
+                        <p class="text-sm text-slate-400 mt-3">Sertifikasi kemahiran teknis penggambaran detail 2D/3D struktur jembatan, sanitasi kawasan, dan utilitas bangunan.</p>
+                    </div>
+                    <span class="inline-block text-xs font-semibold text-teal-400 mt-4 bg-teal-500/10 px-2.5 py-1 rounded-md w-max">Professional</span>
+                </div>
+                <div class="bg-slate-900/60 border border-slate-900 p-6 rounded-2xl hover-lift flex flex-col justify-between">
+                    <div>
+                        <div class="text-3xl text-purple-400 mb-4"><i class="fas fa-code"></i></div>
+                        <h3 class="text-md font-bold text-white">Full-Stack Web Engineering</h3>
+                        <p class="text-xs text-slate-500 mt-1">Tech Digital Academy</p>
+                        <p class="text-sm text-slate-400 mt-3">Kompetensi integrasi arsitektur web modern menggunakan basis ekosistem JavaScript, pemrograman PHP, dan deployment server cloud.</p>
+                    </div>
+                    <span class="inline-block text-xs font-semibold text-purple-400 mt-4 bg-purple-500/10 px-2.5 py-1 rounded-md w-max">Digital Competency</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. AKTIVITAS SECTION -->
+        <section id="sec-stats" class="tab-section hidden py-12 px-4 max-w-6xl mx-auto sm:px-6 lg:px-8 w-full animate__animated animate__fadeIn">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                <div class="p-5 bg-slate-900 border border-slate-900 rounded-2xl flex justify-center hover-lift"><img src="https://github-readme-stats.vercel.app/api?username=Sukseskan1&theme=dark&hide_border=true" alt="GitHub Stats" class="w-full max-w-md"></div>
+                <div class="p-5 bg-slate-900 border border-slate-900 rounded-2xl flex justify-center items-center hover-lift"><img src="https://nirzak-streak-stats.vercel.app/?user=Sukseskan1&theme=dark&hide_border=true" alt="Streak Stats" class="w-full max-w-md"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="p-5 bg-slate-900 border border-slate-900 rounded-2xl flex justify-center hover-lift"><img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Sukseskan1&theme=dark&hide_border=true&layout=compact" alt="Top Languages" class="w-full max-w-md"></div>
+                <div class="p-5 bg-slate-900 border border-slate-900 rounded-2xl flex justify-center items-center hover-lift"><img src="https://github-contributor-stats.vercel.app/api?username=Sukseskan1&limit=5&theme=dark&combine_all_yearly_contributions=true" alt="Top Contributed Repos" class="w-full max-w-md"></div>
+            </div>
+            <div class="mt-8 p-6 bg-slate-900/30 border border-slate-900 rounded-2xl">
+                <h4 class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-4 text-center">GitHub Profile Trophies</h4>
+                <div class="flex justify-center overflow-x-auto py-2">
+                    <img src="https://github-profile-trophy.vercel.app/?username=Sukseskan1&theme=radical&no-frame=true&no-bg=true&margin-w=4" alt="GitHub Trophies" class="max-w-full">
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. KONTAK SECTION -->
+        <section id="sec-contact" class="tab-section hidden py-12 px-4 max-w-4xl mx-auto sm:px-6 lg:px-8 w-full animate__animated animate__fadeIn">
+            <div class="bg-slate-900 border border-slate-900 rounded-3xl p-8 md:p-12 text-center glow-effect">
+                <div class="w-16 h-16 bg-blue-600/10 border border-blue-500/20 text-blue-400 flex items-center justify-center rounded-2xl mx-auto text-2xl mb-6">
+                    <i class="far fa-comments"></i>
+                </div>
+                <h2 class="text-3xl font-bold text-white mb-2">Mari Mulai Kolaborasi</h2>
+                <p class="text-slate-400 max-w-lg mx-auto text-sm mb-8">Hubungi saya untuk kebutuhan konsultasi pengawasan teknis konstruksi rekayasa sipil atau integrasi sistem platform digital web.</p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="mailto:megakurniawan1410@gmail.com" class="w-full sm:w-auto bg-blue-600 hover:bg-blue-500 text-white font-semibold px-8 py-4 rounded-xl transition-all flex items-center justify-center gap-2 shadow-lg shadow-blue-600/20 hover:scale-105">
+                        <i class="far fa-envelope text-lg"></i> Kirim Email Sekarang
+                    </a>
+                </div>
+                <div class="mt-12 pt-8 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-chart-line text-blue-500/60"></i>
+                        <span>Statistik Pengunjung Utama:</span>
+                    </div>
+                    <img src="https://visitcount.itsvg.in/api?id=Sukseskan1&icon=0&color=0" alt="Visitor Count" class="opacity-60">
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-950 border-t border-slate-900 py-6 text-center text-xs text-slate-600 tracking-wide">
+        &copy; 2026 Indra Kurniawan. Hak Cipta Dilindungi.
+    </footer>
+
+    <!-- JAVASCRIPT PERBAIKAN TOTAL SYSTEM MENU MOBILE -->
+    <script>
+        // Sytem Navigasi Utama (SPA)
+        function switchTab(tabId) {
+            const sections = document.querySelectorAll('.tab-section');
+            sections.forEach(sec => {
+                sec.classList.add('hidden');
+            });
+
+            const targetSection = document.getElementById('sec-' + tabId);
+            if (targetSection) {
+                targetSection.classList.remove('hidden');
+            }
+
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.classList.remove('text-blue-400', 'font-semibold');
+                link.classList.add('text-slate-400');
+            });
+
+            const activeNavLink = document.getElementById('nav-' + tabId);
+            if (activeNavLink && tabId !== 'contact') {
+                activeNavLink.classList.add('text-blue-400', 'font-semibold');
+                activeNavLink.classList.remove('text-slate-400');
+            }
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // KONTROL HAMBURGER DENGAN FORCE INLINE STYLE (ANTI-BUG)
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const hamburgerIcon = document.getElementById('hamburger-icon');
+        const navPath1 = document.getElementById('nav-path-1');
+
+        const hamburgerPath = "M4 5h16a1 1 0 010 2H4a1 1 0 110-2zm0 6h16a1 1 0 010 2H4a1 1 0 010-2zm0 6h16a1 1 0 010 2H4a1 1 0 010-2z";
+        const closePath = "M18.364 19.778L12 13.414l-6.364 6.364-1.414-1.414 6.364-6.364-6.364-6.364 1.414-1.414L12 10.586l6.364-6.364 1.414 1.414-6.364 6.364 6.364 6.364-1.414 1.414z";
+
+        function closeMobileMenu() {
+            mobileMenu.style.display = "none";
+            mobileMenu.classList.remove('opacity-100', 'translate-y-0');
+            mobileMenu.classList.add('opacity-0', '-translate-y-4');
+            navPath1.setAttribute('d', hamburgerPath);
+            hamburgerIcon.classList.remove('rotate-90');
+        }
+
+        menuBtn.addEventListener('click', (e) => {
+            e.stopPropagation(); // Mencegah bentrokan klik luar bubble
+            if (mobileMenu.style.display === "none" || mobileMenu.style.display === "") {
+                // BUKA MENU
+                mobileMenu.style.display = "block";
+                setTimeout(() => {
+                    mobileMenu.classList.remove('opacity-0', '-translate-y-4');
+                    mobileMenu.classList.add('opacity-100', 'translate-y-0');
+                }, 10);
+                navPath1.setAttribute('d', closePath);
+                hamburgerIcon.classList.add('rotate-90');
+            } else {
+                // TUTUP MENU
+                closeMobileMenu();
+            }
+        });
+
+        // Menutup menu mobile otomatis jika tombol link di dalam menu diklik
+        const mobileButtons = mobileMenu.querySelectorAll('button');
+        mobileButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                closeMobileMenu();
+            });
+        });
+
+        // Menutup menu mobile jika pengguna melakukan klik di luar menu navigasi
+        document.addEventListener('click', () => {
+            if (mobileMenu.style.display === "block") {
+                closeMobileMenu();
+            }
+        });
+    </script>
+</body>
+</html>
