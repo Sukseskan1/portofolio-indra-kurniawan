@@ -106,16 +106,29 @@
             
             <!-- Menu Desktop (Laptop/PC) -->
             <div class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-400">
-                <button onclick="switchTab('about')" id="nav-about" class="nav-link text-blue-400 transition-colors font-semibold">Tentang</button>
-                <button onclick="switchTab('skills')" id="nav-skills" class="nav-link hover:text-blue-400 transition-colors">Keahlian</button>
-                <button onclick="switchTab('experience')" id="nav-experience" class="nav-link hover:text-blue-400 transition-colors">Pengalaman</button>
-                <button onclick="switchTab('certificates')" id="nav-certificates" class="nav-link hover:text-blue-400 transition-colors">Sertifikat</button>
-                <button onclick="switchTab('stats')" id="nav-stats" class="nav-link hover:text-blue-400 transition-colors">Aktivitas</button>
-                <button onclick="switchTab('contact')" id="nav-contact" class="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-xl transition-all shadow-lg shadow-blue-600/20 hover:scale-105 active:scale-95">Kontak</button>
+                <button onclick="switchTab('about')" id="nav-about" class="nav-link text-blue-400 transition-colors font-semibold" data-i18n="nav_about">Tentang</button>
+                <button onclick="switchTab('skills')" id="nav-skills" class="nav-link hover:text-blue-400 transition-colors" data-i18n="nav_skills">Keahlian</button>
+                <button onclick="switchTab('experience')" id="nav-experience" class="nav-link hover:text-blue-400 transition-colors" data-i18n="nav_experience">Pengalaman</button>
+                <button onclick="switchTab('certificates')" id="nav-certificates" class="nav-link hover:text-blue-400 transition-colors" data-i18n="nav_certs">Sertifikat</button>
+                <button onclick="switchTab('stats')" id="nav-stats" class="nav-link hover:text-blue-400 transition-colors" data-i18n="nav_portfolio">Portofolio</button>
+                <button onclick="switchTab('contact')" id="nav-contact" class="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-xl transition-all shadow-lg shadow-blue-600/20 hover:scale-105 active:scale-95" data-i18n="nav_contact">Kontak</button>
+                
+                <!-- Pilihan Bahasa Desktop -->
+                <div class="relative inline-block text-left ml-2">
+                    <select id="lang-select-desktop" onchange="changeLanguage(this.value)" class="bg-slate-900 border border-slate-800 text-slate-300 text-xs rounded-lg px-2 py-1 focus:outline-none focus:border-blue-500 cursor-pointer">
+                        <option value="id">🇲🇩 ID</option>
+                        <option value="en">🇬🇧 EN</option>
+                    </select>
+                </div>
             </div>
 
             <!-- Tombol Hamburger (HP) -->
-            <div class="md:hidden flex items-center">
+            <div class="md:hidden flex items-center gap-3">
+                <!-- Pilihan Bahasa Mini untuk Mobile Navbar -->
+                <select id="lang-select-mobile-nav" onchange="changeLanguage(this.value)" class="bg-slate-900 border border-slate-800 text-slate-300 text-xs rounded-lg px-2 py-1 focus:outline-none cursor-pointer">
+                    <option value="id">ID</option>
+                    <option value="en">EN</option>
+                </select>
                 <button id="menu-btn" class="text-slate-400 hover:text-white focus:outline-none p-2 z-50" aria-label="Toggle Menu">
                     <svg class="h-6 w-6 fill-current transition-transform duration-300" id="hamburger-icon" viewBox="0 0 24 24">
                         <path id="nav-path-1" fill-rule="evenodd" d="M4 5h16a1 1 0 010 2H4a1 1 0 110-2zm0 6h16a1 1 0 010 2H4a1 1 0 010-2zm0 6h16a1 1 0 010 2H4a1 1 0 010-2z" clip-rule="evenodd"></path>
@@ -124,16 +137,16 @@
             </div>
         </div>
 
-        <!-- Menu Mobile Dropdown (HP) - State Awal Tersembunyi Lewat Style Inline -->
+        <!-- Menu Mobile Dropdown (HP) -->
         <div id="mobile-menu" style="display: none;" class="md:hidden bg-slate-950 border-b border-slate-900 shadow-xl w-full">
             <div class="px-4 pt-2 pb-6 space-y-3 font-medium flex flex-col">
-                <button onclick="switchTab('about')" class="w-full text-left text-slate-300 hover:text-blue-400 py-2 px-3 rounded-lg hover:bg-slate-900 transition-all">Tentang</button>
-                <button onclick="switchTab('skills')" class="w-full text-left text-slate-300 hover:text-blue-400 py-2 px-3 rounded-lg hover:bg-slate-900 transition-all">Keahlian</button>
-                <button onclick="switchTab('experience')" class="w-full text-left text-slate-300 hover:text-blue-400 py-2 px-3 rounded-lg hover:bg-slate-900 transition-all">Pengalaman Kerja</button>
-                <button onclick="switchTab('certificates')" class="w-full text-left text-slate-300 hover:text-blue-400 py-2 px-3 rounded-lg hover:bg-slate-900 transition-all">Sertifikat</button>
-                <button onclick="switchTab('stats')" class="w-full text-left text-slate-300 hover:text-blue-400 py-2 px-3 rounded-lg hover:bg-slate-900 transition-all">Aktivitas</button>
+                <button onclick="switchTab('about')" class="w-full text-left text-slate-300 hover:text-blue-400 py-2 px-3 rounded-lg hover:bg-slate-900 transition-all" data-i18n="nav_about">Tentang</button>
+                <button onclick="switchTab('skills')" class="w-full text-left text-slate-300 hover:text-blue-400 py-2 px-3 rounded-lg hover:bg-slate-900 transition-all" data-i18n="nav_skills">Keahlian</button>
+                <button onclick="switchTab('experience')" class="w-full text-left text-slate-300 hover:text-blue-400 py-2 px-3 rounded-lg hover:bg-slate-900 transition-all" data-i18n="nav_experience_mb">Pengalaman Kerja</button>
+                <button onclick="switchTab('certificates')" class="w-full text-left text-slate-300 hover:text-blue-400 py-2 px-3 rounded-lg hover:bg-slate-900 transition-all" data-i18n="nav_certs">Sertifikat</button>
+                <button onclick="switchTab('stats')" class="w-full text-left text-slate-300 hover:text-blue-400 py-2 px-3 rounded-lg hover:bg-slate-900 transition-all" data-i18n="nav_portfolio">Portofolio</button>
                 <div class="pt-2">
-                    <button onclick="switchTab('contact')" class="w-full text-center bg-blue-600 hover:bg-blue-500 text-white py-2.5 rounded-xl font-medium shadow-md">Kontak</button>
+                    <button onclick="switchTab('contact')" class="w-full text-center bg-blue-600 hover:bg-blue-500 text-white py-2.5 rounded-xl font-medium shadow-md" data-i18n="nav_contact">Kontak</button>
                 </div>
             </div>
         </div>
@@ -172,10 +185,10 @@
                         </div>
                     </div>
 
-                    <p class="text-lg text-slate-300/90 leading-relaxed">
+                    <p class="text-lg text-slate-300/90 leading-relaxed" data-i18n="about_p1">
                         Saya adalah seorang <strong class="text-white">Civil Engineer</strong> dan <strong class="text-white">Web Developer</strong> dengan pengalaman lebih dari 5 tahun di dunia konstruksi. Berperan aktif dalam berbagai proyek infrastruktur berskala kecil hingga besar, dengan keahlian utama di bidang pengawasan teknis, pengendalian mutu, dan manajemen lapangan.
                     </p>
-                    <p class="text-slate-400 leading-relaxed text-sm">
+                    <p class="text-slate-400 leading-relaxed text-sm" data-i18n="about_p2">
                         Memiliki pemahaman mendalam terhadap Manajemen Proyek, tangguh bekerja di bawah tekanan, serta andal dalam menjembatani koordinasi lapangan menggunakan pendekatan teknologi digital yang efisien.
                     </p>
                     
@@ -197,24 +210,24 @@
                 <!-- SISI KANAN: RESUME SINGKAT -->
                 <div class="lg:col-span-5 bg-slate-950/70 border border-slate-900/80 rounded-3xl p-8 glow-effect backdrop-blur-md hover-lift">
                     <h3 class="text-lg font-bold text-white mb-6 flex items-center gap-2">
-                        <i class="fas fa-id-card text-blue-500"></i> Resume Singkat
+                        <i class="fas fa-id-card text-blue-500"></i> <span data-i18n="resume_title">Resume Singkat</span>
                     </h3>
                     <div class="space-y-4 text-sm">
                         <div class="flex justify-between border-b border-slate-900 pb-3">
-                            <span class="text-slate-400">Pengalaman Lapangan</span>
-                            <span class="font-semibold text-white">+5 Tahun</span>
+                            <span class="text-slate-400" data-i18n="resume_field_exp">Pengalaman Lapangan</span>
+                            <span class="font-semibold text-white" data-i18n="resume_val_exp">+5 Tahun</span>
                         </div>
                         <div class="flex justify-between border-b border-slate-900 pb-3">
-                            <span class="text-slate-400">Keahlian Utama</span>
-                            <span class="font-semibold text-white text-right">Pengawasan Proyek & Drafter </span>
+                            <span class="text-slate-400" data-i18n="resume_field_skill">Keahlian Utama</span>
+                            <span class="font-semibold text-white text-right" data-i18n="resume_val_skill">Pengawasan Proyek & Drafter</span>
                         </div>
                         <div class="flex justify-between border-b border-slate-900 pb-3">
-                            <span class="text-slate-400">Interdisipliner</span>
-                            <span class="font-semibold text-teal-400">Konstruksi </span>
+                            <span class="text-slate-400" data-i18n="resume_field_inter">Interdisipliner</span>
+                            <span class="font-semibold text-teal-400" data-i18n="resume_val_inter">Konstruksi</span>
                         </div>
                         <div class="flex justify-between pt-1">
-                            <span class="text-slate-400">Total Bersaudara</span>
-                            <span class="font-semibold text-white">Anak ke-3 dari 4</span>
+                            <span class="text-slate-400" data-i18n="resume_field_sib">Total Bersaudara</span>
+                            <span class="font-semibold text-white" data-i18n="resume_val_sib">Anak ke-3 dari 4</span>
                         </div>
                     </div>
                     <div class="mt-8 pt-6 border-t border-slate-900">
@@ -227,8 +240,8 @@
         <!-- 2. KEAHLIAN SECTION -->
         <section id="sec-skills" class="tab-section hidden py-12 px-4 max-w-6xl mx-auto sm:px-6 lg:px-8 w-full animate__animated animate__fadeIn">
             <div class="text-center">
-                <h2 class="text-3xl font-bold text-white tracking-tight mb-2">Perangkat Kerja & Kompetensi</h2>
-                <p class="text-slate-400 max-w-xl mx-auto text-sm mb-12">Kombinasi sistem rekayasa sipil modern dan tumpukan teknologi pengembangan web.</p>
+                <h2 class="text-3xl font-bold text-white tracking-tight mb-2" data-i18n="skills_title">Perangkat Kerja & Kompetensi</h2>
+                <p class="text-slate-400 max-w-xl mx-auto text-sm mb-12" data-i18n="skills_subtitle">Kombinasi sistem rekayasa sipil modern dan tumpukan teknologi pengembangan web.</p>
                 <div class="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
                     <div class="transition-transform duration-300 hover:scale-110"><img src="https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E" alt="JavaScript" class="h-9"></div>
                     <div class="transition-transform duration-300 hover:scale-110"><img src="https://img.shields.io/badge/php-%23777BB4.svg?style=for-the-badge&logo=php&logoColor=white" alt="PHP" class="h-9"></div>
@@ -249,21 +262,21 @@
 
         <!-- 3. PENGALAMAN KERJA SECTION -->
         <section id="sec-experience" class="tab-section hidden py-12 px-4 max-w-4xl mx-auto sm:px-6 lg:px-8 w-full animate__animated animate__fadeIn">
-            <h2 class="text-3xl font-bold text-white tracking-tight mb-2 text-center">Rekam Jejak Profesional</h2>
-            <p class="text-slate-400 text-center text-sm mb-12">Pengalaman kerja pengawasan teknis dan manajemen konstruksi di PT. ROSA AGUNG MULIA KONSULTAN.</p>
+            <h2 class="text-3xl font-bold text-white tracking-tight mb-2 text-center" data-i18n="exp_title">Rekam Jejak Profesional</h2>
+            <p class="text-slate-400 text-center text-sm mb-12" data-i18n="exp_subtitle">Pengalaman kerja pengawasan teknis dan manajemen konstruksi di PT. ROSA AGUNG MULIA KONSULTAN.</p>
             
             <div class="space-y-8 relative before:absolute before:inset-0 before:left-4 sm:before:left-1/2 before:w-0.5 before:bg-slate-800">
                 <div class="relative flex flex-col sm:flex-row items-start sm:items-center group">
                     <div class="absolute left-4 sm:left-1/2 w-4 h-4 bg-blue-500 rounded-full border-4 border-slate-900 -translate-x-1.5 z-10"></div>
                     <div class="w-full sm:w-1/2 sm:pr-8 pl-8 sm:pl-0 sm:text-right">
                         <div class="p-6 bg-slate-950/60 border border-slate-900 rounded-2xl hover-lift">
-                            <span class="text-xs font-bold text-blue-400">Mei 2023 - Sekarang</span>
-                            <h3 class="text-lg font-bold text-white mt-1">Civil Drafter & Pengawas</h3>
+                            <span class="text-xs font-bold text-blue-400" data-i18n="exp1_date">Mei 2023 - Sekarang</span>
+                            <h3 class="text-lg font-bold text-white mt-1" data-i18n="exp1_role">Civil Drafter & Pengawas</h3>
                             <p class="text-xs text-slate-400 font-medium">PT. ROSA AGUNG MULIA KONSULTAN</p>
-                            <p class="text-sm text-slate-400">Melakukan pemodelan visual engineering, perancangan struktural, estimasi volume, sekaligus pengawasan operasional langsung di lapangan.</p>
-                        <span class="text-xs bg-slate-900 text-slate-300 px-2 py-1 rounded border border-slate-800"><i class="fas fa-cube text-teal-400 mr-1"></i> SketchUp</span>
-                        <span class="text-xs bg-slate-900 text-slate-300 px-2 py-1 rounded border border-slate-800"><i class="fas fa-cube text-teal-400 mr-1"></i> Autocad</span>
-                                <span class="text-xs bg-slate-900 text-slate-300 px-2 py-1 rounded border border-slate-800"><i class="fas fa-calculator text-teal-400 mr-1"></i> RAB</span>
+                            <p class="text-sm text-slate-400 mb-3" data-i18n="exp1_desc">Melakukan pemodelan visual engineering, perancangan struktural, estimasi volume, sekaligus pengawasan operasional langsung di lapangan.</p>
+                            <span class="text-xs bg-slate-900 text-slate-300 px-2 py-1 rounded border border-slate-800"><i class="fas fa-cube text-teal-400 mr-1"></i> SketchUp</span>
+                            <span class="text-xs bg-slate-900 text-slate-300 px-2 py-1 rounded border border-slate-800"><i class="fas fa-cube text-teal-400 mr-1"></i> Autocad</span>
+                            <span class="text-xs bg-slate-900 text-slate-300 px-2 py-1 rounded border border-slate-800"><i class="fas fa-calculator text-teal-400 mr-1"></i> RAB</span>
                         </div>
                     </div>
                 </div>
@@ -271,11 +284,11 @@
                     <div class="absolute left-4 sm:left-1/2 w-4 h-4 bg-teal-400 rounded-full border-4 border-slate-900 -translate-x-1.5 z-10"></div>
                     <div class="w-full sm:w-1/2 sm:pl-8 pl-8 sm:ml-auto">
                         <div class="p-6 bg-slate-950/60 border border-slate-900 rounded-2xl hover-lift">
-                            <span class="text-xs font-bold text-teal-400">Jun 2025 - Oktober 2025</span>
-                            <h3 class="text-lg font-bold text-white mt-1">Pengawas Pembangunan Renovasi Gedung Poli Spesialis Lt 3</h3>
+                            <span class="text-xs font-bold text-teal-400" data-i18n="exp2_date">Jun 2025 - Oktober 2025</span>
+                            <h3 class="text-lg font-bold text-white mt-1" data-i18n="exp2_role">Pengawas Pembangunan Renovasi Gedung Poli Spesialis Lt 3</h3>
                             <p class="text-xs text-slate-400 font-medium mb-3">PT. ROSA AGUNG MULIA KONSULTAN </p>
                             <p class="text-xs text-slate-500 mb-3">RS BHAYANGKARA PUSDIK PORONG SIDOARJO</p>
-                            <p class="text-sm text-slate-400 mb-3">Bertanggung jawab penuh atas pengawasan teknis pembangunan pelaksanaan renovasi berkala fasilitas kesehatan pada lantai 3 RS Bhayangkara Pusdik Sabhara Porong Sidoarjo.</p>
+                            <p class="text-sm text-slate-400 mb-3" data-i18n="exp2_desc">Bertanggung jawab penuh atas pengawasan teknis pembangunan pelaksanaan renovasi berkala fasilitas kesehatan pada lantai 3 RS Bhayangkara Pusdik Sabhara Porong Sidoarjo.</p>
                             <div class="flex flex-wrap gap-2 sm:justify-start">
                                 <span class="text-xs bg-slate-900 text-slate-300 px-2 py-1 rounded border border-slate-800"><i class="fas fa-cube text-teal-400 mr-1"></i> SketchUp</span>
                                 <span class="text-xs bg-slate-900 text-slate-300 px-2 py-1 rounded border border-slate-800"><i class="fas fa-calculator text-teal-400 mr-1"></i> RAB</span>
@@ -287,10 +300,10 @@
                     <div class="absolute left-4 sm:left-1/2 w-4 h-4 bg-blue-500 rounded-full border-4 border-slate-900 -translate-x-1.5 z-10"></div>
                     <div class="w-full sm:w-1/2 sm:pr-8 pl-8 sm:pl-0 sm:text-right">
                         <div class="p-6 bg-slate-950/60 border border-slate-900 rounded-2xl hover-lift">
-                            <span class="text-xs font-bold text-blue-400">Mei 2024 - Okt 2024</span>
-                            <h3 class="text-lg font-bold text-white mt-1">Pengawasan & Perencanaan Gedung Rawat Inap Anggrek 3 lt</h3>
-                            <p class="text-xs text-slate-400 font-medium mb-3">PT. ROSA AGUNG MULIA KONSULTAN (6 bln)</p>
-                            <p class="text-sm text-slate-400 mb-3">Mengelola manajemen risiko struktural, merencanakan gambar arsitektural teknis, dan menghitung total rencana anggaran biaya bangunan.</p>
+                            <span class="text-xs font-bold text-blue-400" data-i18n="exp3_date">Mei 2024 - Okt 2024</span>
+                            <h3 class="text-lg font-bold text-white mt-1" data-i18n="exp3_role">Pengawasan & Perencanaan Gedung Rawat Inap Anggrek 3 lt</h3>
+                            <p class="text-xs text-slate-400 font-medium mb-3">PT. ROSA AGUNG MULIA KONSULTAN <span data-i18n="exp_6m">(6 bln)</span></p>
+                            <p class="text-sm text-slate-400 mb-3" data-i18n="exp3_desc">Mengelola manajemen risiko struktural, merencanakan gambar arsitektural teknis, dan menghitung total rencana anggaran biaya bangunan.</p>
                             <div class="flex flex-wrap gap-2 justify-start sm:justify-end">
                                 <span class="text-xs bg-slate-900 text-slate-300 px-2 py-1 rounded border border-slate-800"><i class="fas fa-tasks text-blue-400 mr-1"></i> Manajemen Proyek</span>
                                 <span class="text-xs bg-slate-900 text-slate-300 px-2 py-1 rounded border border-slate-800"><i class="fas fa-file-invoice-dollar text-blue-400 mr-1"></i> RAB</span>
@@ -303,11 +316,11 @@
                     <div class="absolute left-4 sm:left-1/2 w-4 h-4 bg-teal-400 rounded-full border-4 border-slate-900 -translate-x-1.5 z-10"></div>
                     <div class="w-full sm:w-1/2 sm:pl-8 pl-8 sm:ml-auto">
                         <div class="p-6 bg-slate-950/60 border border-slate-900 rounded-2xl hover-lift">
-                            <span class="text-xs font-bold text-teal-400">Mei 2024 - Agu 2024</span>
-                            <h3 class="text-lg font-bold text-white mt-1">Pengawasan Pembangunan Kanopi SD & SMP</h3>
-                            <p class="text-xs text-slate-400 font-medium mb-1">PT. ROSA AGUNG MULIA KONSULTAN (4 bln)</p>
+                            <span class="text-xs font-bold text-teal-400" data-i18n="exp4_date">Mei 2024 - Agu 2024</span>
+                            <h3 class="text-lg font-bold text-white mt-1" data-i18n="exp4_role">Pengawasan Pembangunan Kanopi SD & SMP</h3>
+                            <p class="text-xs text-slate-400 font-medium mb-1">PT. ROSA AGUNG MULIA KONSULTAN <span data-i18n="exp_4m">(4 bln)</span></p>
                             <p class="text-xs text-slate-500 mb-3">Kemala Bhayangkari Porong Sidoarjo</p>
-                            <p class="text-sm text-slate-400 mb-3">Memantau instalasi fabrikasi struktur atap kanopi lingkungan sekolah dasar dan menengah agar presisi serta aman digunakan.</p>
+                            <p class="text-sm text-slate-400 mb-3" data-i18n="exp4_desc">Memantau instalasi fabrikasi struktur atap kanopi lingkungan sekolah dasar dan menengah agar presisi serta aman digunakan.</p>
                             <div class="flex flex-wrap gap-2">
                                 <span class="text-xs bg-slate-900 text-slate-300 px-2 py-1 rounded border border-slate-800"><i class="fas fa-tasks text-teal-400 mr-1"></i> Manajemen Proyek</span>
                                 <span class="text-xs bg-slate-900 text-slate-300 px-2 py-1 rounded border border-slate-800"><i class="fas fa-file-invoice-dollar text-teal-400 mr-1"></i> RAB</span>
@@ -319,10 +332,10 @@
                     <div class="absolute left-4 sm:left-1/2 w-4 h-4 bg-blue-500 rounded-full border-4 border-slate-900 -translate-x-1.5 z-10"></div>
                     <div class="w-full sm:w-1/2 sm:pr-8 pl-8 sm:pl-0 sm:text-right">
                         <div class="p-6 bg-slate-950/60 border border-slate-900 rounded-2xl hover-lift">
-                            <span class="text-xs font-bold text-blue-400">Mei 2023 - Okt 2023</span>
-                            <h3 class="text-lg font-bold text-white mt-1">Pengawasan Pembangunan Gedung Rawat Inap Mawar 3 lt</h3>
-                            <p class="text-xs text-slate-400 font-medium mb-3">PT. ROSA AGUNG MULIA KONSULTAN (6 bln)</p>
-                            <p class="text-sm text-slate-400 mb-3">Melakukan fungsi monitoring mutu material beton, pengawasan pembesian, dan ketepatan schedule pembangunan berkala.</p>
+                            <span class="text-xs font-bold text-blue-400" data-i18n="exp5_date">Mei 2023 - Okt 2023</span>
+                            <h3 class="text-lg font-bold text-white mt-1" data-i18n="exp5_role">Pengawasan Pembangunan Gedung Rawat Inap Mawar 3 lt</h3>
+                            <p class="text-xs text-slate-400 font-medium mb-3">PT. ROSA AGUNG MULIA KONSULTAN <span data-i18n="exp_6m">(6 bln)</span></p>
+                            <p class="text-sm text-slate-400 mb-3" data-i18n="exp5_desc">Melakukan fungsi monitoring mutu material beton, pengawasan pembesian, dan ketepatan schedule pembangunan berkala.</p>
                             <div class="flex flex-wrap gap-2 justify-start sm:justify-end">
                                 <span class="text-xs bg-slate-900 text-slate-300 px-2 py-1 rounded border border-slate-800"><i class="fas fa-tasks text-blue-400 mr-1"></i> Manajemen Proyek</span>
                                 <span class="text-xs bg-slate-900 text-slate-300 px-2 py-1 rounded border border-slate-800"><i class="fas fa-file-invoice-dollar text-blue-400 mr-1"></i> RAB</span>
@@ -339,49 +352,36 @@
                 <div class="bg-slate-900/60 border border-slate-900 p-6 rounded-2xl hover-lift flex flex-col justify-between">
                     <div>
                         <div class="text-3xl text-blue-500 mb-4"><i class="fas fa-hard-hat"></i></div>
-                        <h3 class="text-md font-bold text-white">Sertifikat Ahli K3 Konstruksi</h3>
-                        <p class="text-xs text-slate-500 mt-1">Badan Sertifikasi Nasional</p>
-                        <p class="text-sm text-slate-400 mt-3">Kompetensi tingkat lanjut untuk pemeliharaan keselamatan, kesehatan kerja, dan penjaminan mutu zero-accident di lapangan.</p>
+                        <h3 class="text-md font-bold text-white" data-i18n="cert1_title">Sertifikat Ahli K3 Konstruksi</h3>
+                        <p class="text-xs text-slate-500 mt-1" data-i18n="cert_body1">Badan Sertifikasi Nasional</p>
+                        <p class="text-sm text-slate-400 mt-3" data-i18n="cert1_desc">Kompetensi tingkat lanjut untuk pemeliharaan keselamatan, kesehatan kerja, dan penjaminan mutu zero-accident di lapangan.</p>
                     </div>
                     <span class="inline-block text-xs font-semibold text-blue-400 mt-4 bg-blue-500/10 px-2.5 py-1 rounded-md w-max">Verified Credential</span>
                 </div>
                 <div class="bg-slate-900/60 border border-slate-900 p-6 rounded-2xl hover-lift flex flex-col justify-between">
                     <div>
                         <div class="text-3xl text-teal-400 mb-4"><i class="fas fa-drafting-compass"></i></div>
-                        <h3 class="text-md font-bold text-white">Keahlian AutoCAD & Perancangan</h3>
+                        <h3 class="text-md font-bold text-white" data-i18n="cert2_title">Keahlian AutoCAD & Perancangan</h3>
                         <p class="text-xs text-slate-500 mt-1">Autodesk Certification Center</p>
-                        <p class="text-sm text-slate-400 mt-3">Sertifikasi kemahiran teknis penggambaran detail 2D/3D struktur jembatan, sanitasi kawasan, dan utilitas bangunan.</p>
+                        <p class="text-sm text-slate-400 mt-3" data-i18n="cert2_desc">Sertifikasi kemahiran teknis penggambaran detail 2D/3D struktur jembatan, sanitasi kawasan, dan utilitas bangunan.</p>
                     </div>
                     <span class="inline-block text-xs font-semibold text-teal-400 mt-4 bg-teal-500/10 px-2.5 py-1 rounded-md w-max">Professional</span>
                 </div>
                 <div class="bg-slate-900/60 border border-slate-900 p-6 rounded-2xl hover-lift flex flex-col justify-between">
                     <div>
                         <div class="text-3xl text-purple-400 mb-4"><i class="fas fa-code"></i></div>
-                        <h3 class="text-md font-bold text-white">Full-Stack Web Engineering</h3>
+                        <h3 class="text-md font-bold text-white" data-i18n="cert3_title">Full-Stack Web Engineering</h3>
                         <p class="text-xs text-slate-500 mt-1">Tech Digital Academy</p>
-                        <p class="text-sm text-slate-400 mt-3">Kompetensi integrasi arsitektur web modern menggunakan basis ekosistem JavaScript, pemrograman PHP, dan deployment server cloud.</p>
+                        <p class="text-sm text-slate-400 mt-3" data-i18n="cert3_desc">Kompetensi integrasi arsitektur web modern menggunakan basis ekosistem JavaScript, pemrograman PHP, dan deployment server cloud.</p>
                     </div>
                     <span class="inline-block text-xs font-semibold text-purple-400 mt-4 bg-purple-500/10 px-2.5 py-1 rounded-md w-max">Digital Competency</span>
                 </div>
             </div>
         </section>
 
-        <!-- 5. AKTIVITAS SECTION -->
+        <!-- 5. PORTOFOLIO SECTION (KOSONG) -->
         <section id="sec-stats" class="tab-section hidden py-12 px-4 max-w-6xl mx-auto sm:px-6 lg:px-8 w-full animate__animated animate__fadeIn">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-                <div class="p-5 bg-slate-900 border border-slate-900 rounded-2xl flex justify-center hover-lift"><img src="https://github-readme-stats.vercel.app/api?username=Sukseskan1&theme=dark&hide_border=true" alt="GitHub Stats" class="w-full max-w-md"></div>
-                <div class="p-5 bg-slate-900 border border-slate-900 rounded-2xl flex justify-center items-center hover-lift"><img src="https://nirzak-streak-stats.vercel.app/?user=Sukseskan1&theme=dark&hide_border=true" alt="Streak Stats" class="w-full max-w-md"></div>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="p-5 bg-slate-900 border border-slate-900 rounded-2xl flex justify-center hover-lift"><img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Sukseskan1&theme=dark&hide_border=true&layout=compact" alt="Top Languages" class="w-full max-w-md"></div>
-                <div class="p-5 bg-slate-900 border border-slate-900 rounded-2xl flex justify-center items-center hover-lift"><img src="https://github-contributor-stats.vercel.app/api?username=Sukseskan1&limit=5&theme=dark&combine_all_yearly_contributions=true" alt="Top Contributed Repos" class="w-full max-w-md"></div>
-            </div>
-            <div class="mt-8 p-6 bg-slate-900/30 border border-slate-900 rounded-2xl">
-                <h4 class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-4 text-center">GitHub Profile Trophies</h4>
-                <div class="flex justify-center overflow-x-auto py-2">
-                    <img src="https://github-profile-trophy.vercel.app/?username=Sukseskan1&theme=radical&no-frame=true&no-bg=true&margin-w=4" alt="GitHub Trophies" class="max-w-full">
-                </div>
-            </div>
+            <!-- Konten dikosongkan sementara -->
         </section>
 
         <!-- 6. KONTAK SECTION -->
@@ -390,17 +390,17 @@
                 <div class="w-16 h-16 bg-blue-600/10 border border-blue-500/20 text-blue-400 flex items-center justify-center rounded-2xl mx-auto text-2xl mb-6">
                     <i class="far fa-comments"></i>
                 </div>
-                <h2 class="text-3xl font-bold text-white mb-2">Mari Mulai Kolaborasi</h2>
-                <p class="text-slate-400 max-w-lg mx-auto text-sm mb-8">Hubungi saya untuk kebutuhan konsultasi pengawasan teknis konstruksi rekayasa sipil atau integrasi sistem platform digital web.</p>
+                <h2 class="text-3xl font-bold text-white mb-2" data-i18n="contact_title">Mari Mulai Kolaborasi</h2>
+                <p class="text-slate-400 max-w-lg mx-auto text-sm mb-8" data-i18n="contact_subtitle">Hubungi saya untuk kebutuhan konsultasi pengawasan teknis konstruksi rekayasa sipil atau integrasi sistem platform digital web.</p>
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
                     <a href="mailto:megakurniawan1410@gmail.com" class="w-full sm:w-auto bg-blue-600 hover:bg-blue-500 text-white font-semibold px-8 py-4 rounded-xl transition-all flex items-center justify-center gap-2 shadow-lg shadow-blue-600/20 hover:scale-105">
-                        <i class="far fa-envelope text-lg"></i> Kirim Email Sekarang
+                        <i class="far fa-envelope text-lg"></i> <span data-i18n="contact_btn">Kirim Email Sekarang</span>
                     </a>
                 </div>
                 <div class="mt-12 pt-8 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
                     <div class="flex items-center gap-2">
                         <i class="fas fa-chart-line text-blue-500/60"></i>
-                        <span>Statistik Pengunjung Utama:</span>
+                        <span data-i18n="contact_stats">Statistik Pengunjung Utama:</span>
                     </div>
                     <img src="https://visitcount.itsvg.in/api?id=Sukseskan1&icon=0&color=0" alt="Visitor Count" class="opacity-60">
                 </div>
@@ -410,13 +410,83 @@
     </main>
 
     <!-- FOOTER -->
-    <footer class="bg-slate-950 border-t border-slate-900 py-6 text-center text-xs text-slate-600 tracking-wide">
+    <footer class="bg-slate-950 border-t border-slate-900 py-6 text-center text-xs text-slate-600 tracking-wide" id="footer-text">
         &copy; 2026 Indra Kurniawan. Hak Cipta Dilindungi.
     </footer>
 
-    <!-- JAVASCRIPT PERBAIKAN TOTAL SYSTEM MENU MOBILE -->
+    <!-- JAVASCRIPT SYSTEM MULTI-BAHASA & MENU -->
     <script>
-        // Sytem Navigasi Utama (SPA)
+        // Objek Kamus Penerjemahan 2 Bahasa (ID dan EN)
+        const i18n = {
+            id: {
+                nav_about: "Tentang", nav_skills: "Keahlian", nav_experience: "Pengalaman", nav_experience_mb: "Pengalaman Kerja", nav_certs: "Sertifikat", nav_portfolio: "Portofolio", nav_contact: "Kontak",
+                about_p1: "Saya adalah seorang <strong class='text-white'>Civil Engineer</strong> dan <strong class='text-white'>Web Developer</strong> dengan pengalaman lebih dari 5 tahun di dunia konstruksi. Berperan aktif dalam berbagai proyek infrastruktur berskala kecil hingga besar, dengan keahlian utama di bidang pengawasan teknis, pengendalian mutu, dan manajemen lapangan.",
+                about_p2: "Memiliki pemahaman mendalam terhadap Manajemen Proyek, tangguh bekerja di bawah tekanan, serta andal dalam menjembatani koordinasi lapangan menggunakan pendekatan teknologi digital yang efisien.",
+                resume_title: "Resume Singkat", resume_field_exp: "Pengalaman Lapangan", resume_val_exp: "+5 Tahun", resume_field_skill: "Keahlian Utama", resume_val_skill: "Pengawasan Proyek & Drafter", resume_field_inter: "Interdisipliner", resume_val_inter: "Konstruksi", resume_field_sib: "Total Bersaudara", resume_val_sib: "Anak ke-3 dari 4",
+                skills_title: "Perangkat Kerja & Kompetensi", skills_subtitle: "Kombinasi sistem rekayasa sipil modern dan tumpukan teknologi pengembangan web.",
+                exp_title: "Rekam Jejak Profesional", exp_subtitle: "Pengalaman kerja pengawasan teknis dan manajemen konstruksi di PT. ROSA AGUNG MULIA KONSULTAN.",
+                exp1_date: "Mei 2023 - Sekarang", exp1_role: "Civil Drafter & Pengawas", exp1_desc: "Melakukan pemodelan visual engineering, perancangan struktural, estimasi volume, sekaligus pengawasan operasional langsung di lapangan.",
+                exp2_date: "Jun 2025 - Oktober 2025", exp2_role: "Pengawas Pembangunan Renovasi Gedung Poli Spesialis Lt 3", exp2_desc: "Bertanggung jawab penuh atas pengawasan teknis pembangunan pelaksanaan renovasi berkala fasilitas kesehatan pada lantai 3 RS Bhayangkara Pusdik Sabhara Porong Sidoarjo.",
+                exp3_date: "Mei 2024 - Okt 2024", exp3_role: "Pengawasan & Perencanaan Gedung Rawat Inap Anggrek 3 lt", exp3_desc: "Mengelola manajemen risiko struktural, merencanakan gambar arsitektural teknis, dan menghitung total rencana anggaran biaya bangunan.",
+                exp4_date: "Mei 2024 - Agu 2024", exp4_role: "Pengawasan Pembangunan Kanopi SD & SMP", exp4_desc: "Memantau instalasi fabrikasi struktur atap kanopi lingkungan sekolah dasar dan menengah agar presisi serta aman digunakan.",
+                exp5_date: "Mei 2023 - Okt 2023", exp5_role: "Pengawasan Pembangunan Gedung Rawat Inap Mawar 3 lt", exp5_desc: "Melakukan fungsi monitoring mutu material beton, pengawasan pembesian, dan ketepatan schedule pembangunan berkala.",
+                exp_6m: "(6 bln)", exp_4m: "(4 bln)",
+                cert1_title: "Sertifikat Ahli K3 Konstruksi", cert_body1: "Badan Sertifikasi Nasional", cert1_desc: "Kompetensi tingkat lanjut untuk pemeliharaan keselamatan, kesehatan kerja, dan penjaminan mutu zero-accident di lapangan.",
+                cert2_title: "Keahlian AutoCAD & Perancangan", cert2_desc: "Sertifikasi kemahiran teknis penggambaran detail 2D/3D struktur jembatan, sanitasi kawasan, dan utilitas bangunan.",
+                cert3_title: "Full-Stack Web Engineering", cert3_desc: "Kompetensi integrasi arsitektur web modern menggunakan basis ekosistem JavaScript, pemrograman PHP, dan deployment server cloud.",
+                contact_title: "Mari Mulai Kolaborasi", contact_subtitle: "Hubungi saya untuk kebutuhan konsultasi pengawasan teknis konstruksi rekayasa sipil atau integrasi sistem platform digital web.",
+                contact_btn: "Kirim Email Sekarang", contact_stats: "Statistik Pengunjung Utama:",
+                footer: "&copy; 2026 Indra Kurniawan. Hak Cipta Dilindungi."
+            },
+            en: {
+                nav_about: "About", nav_skills: "Skills", nav_experience: "Experience", nav_experience_mb: "Work Experience", nav_certs: "Certificates", nav_portfolio: "Portfolio", nav_contact: "Contact",
+                about_p1: "I am a <strong class='text-white'>Civil Engineer</strong> and <strong class='text-white'>Web Developer</strong> with over 5 years of experience in the construction industry. Actively involved in various small to large-scale infrastructure projects, specializing in technical supervision, quality control, and field management.",
+                about_p2: "Possessing a deep understanding of Project Management, resilient under pressure, and adept at bridging field coordination using efficient digital technology approaches.",
+                resume_title: "Brief Resume", resume_field_exp: "Field Experience", resume_val_exp: "+5 Years", resume_field_skill: "Core Specialty", resume_val_skill: "Project Supervision & Drafter", resume_field_inter: "Interdisciplinary", resume_val_inter: "Construction", resume_field_sib: "Siblings Position", resume_val_sib: "3rd child of 4",
+                skills_title: "Tools & Competencies", skills_subtitle: "A combination of modern civil engineering systems and full-stack web development technologies.",
+                exp_title: "Professional Track Record", exp_subtitle: "Work experience in technical supervision and construction management at PT. ROSA AGUNG MULIA KONSULTAN.",
+                exp1_date: "May 2023 - Present", exp1_role: "Civil Drafter & Supervisor", exp1_desc: "Performing visual engineering modeling, structural design, volume estimation, and direct operational field supervision.",
+                exp2_date: "Jun 2025 - October 2025", exp2_role: "Supervisor for Phase 3 Specialist Clinic Building Renovation", exp2_desc: "Fully responsible for the technical supervision of the periodic renovation of healthcare facilities on the 3rd floor of RS Bhayangkara Pusdik Sabhara Porong Sidoarjo.",
+                exp3_date: "May 2024 - Oct 2024", exp3_role: "Supervision & Design of 3-Story Anggrek Inpatient Building", exp3_desc: "Managing structural risk control, planning detailed technical architectural drawings, and calculating the total budget estimation.",
+                exp4_date: "May 2024 - Aug 2024", exp4_role: "Supervision of Elementary & Junior High School Canopy Construction", exp4_desc: "Monitoring the installation and fabrication of canopy roof structures in primary and secondary school environments to ensure precision and safety.",
+                exp5_date: "May 2023 - Oct 2023", exp5_role: "Supervision of 3-Story Mawar Inpatient Building Construction", exp5_desc: "Conducting quality monitoring of concrete materials, steel reinforcement inspection, and ensuring periodic schedule precision.",
+                exp_6m: "(6 mos)", exp_4m: "(4 mos)",
+                cert1_title: "Construction HSE Expert Certificate", cert_body1: "National Certification Body", cert1_desc: "Advanced competency for occupational safety, health maintenance, and field zero-accident quality assurance.",
+                cert2_title: "AutoCAD Proficiency & Design", cert2_desc: "Technical proficiency certification in 2D/3D drafting for bridges, regional sanitation, and building utilities.",
+                cert3_title: "Full-Stack Web Engineering", cert3_desc: "Competency in modern web architecture integration using JavaScript ecosystem, PHP programming, and cloud server deployment.",
+                contact_title: "Let's Start a Collaboration", contact_subtitle: "Contact me for technical civil engineering consultation or full-stack web platform digital integration needs.",
+                contact_btn: "Send Email Now", contact_stats: "Main Visitor Statistics:",
+                footer: "&copy; 2026 Indra Kurniawan. All Rights Reserved."
+            }
+        };
+
+        // Fungsi Pemroses Bahasa
+        function changeLanguage(lang) {
+            document.getElementById('lang-select-desktop').value = lang;
+            document.getElementById('lang-select-mobile-nav').value = lang;
+
+            const elements = document.querySelectorAll('[data-i18n]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (i18n[lang] && i18n[lang][key]) {
+                    el.innerHTML = i18n[lang][key];
+                }
+            });
+
+            if(i18n[lang] && i18n[lang]['footer']) {
+                document.getElementById('footer-text').innerHTML = i18n[lang]['footer'];
+            }
+            
+            localStorage.setItem('preferred-language', lang);
+        }
+
+        // Jalankan setelan bahasa awal saat halaman selesai dimuat
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('preferred-language') || 'id';
+            changeLanguage(savedLang);
+        });
+
+        // System Navigasi Utama (SPA)
         function switchTab(tabId) {
             const sections = document.querySelectorAll('.tab-section');
             sections.forEach(sec => {
@@ -461,9 +531,8 @@
         }
 
         menuBtn.addEventListener('click', (e) => {
-            e.stopPropagation(); // Mencegah bentrokan klik luar bubble
+            e.stopPropagation(); 
             if (mobileMenu.style.display === "none" || mobileMenu.style.display === "") {
-                // BUKA MENU
                 mobileMenu.style.display = "block";
                 setTimeout(() => {
                     mobileMenu.classList.remove('opacity-0', '-translate-y-4');
@@ -472,12 +541,10 @@
                 navPath1.setAttribute('d', closePath);
                 hamburgerIcon.classList.add('rotate-90');
             } else {
-                // TUTUP MENU
                 closeMobileMenu();
             }
         });
 
-        // Menutup menu mobile otomatis jika tombol link di dalam menu diklik
         const mobileButtons = mobileMenu.querySelectorAll('button');
         mobileButtons.forEach(btn => {
             btn.addEventListener('click', () => {
@@ -485,7 +552,6 @@
             });
         });
 
-        // Menutup menu mobile jika pengguna melakukan klik di luar menu navigasi
         document.addEventListener('click', () => {
             if (mobileMenu.style.display === "block") {
                 closeMobileMenu();
