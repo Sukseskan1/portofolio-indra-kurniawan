@@ -41,8 +41,8 @@
         body.light-mode .text-main { color: #0f172a; }
         body.light-mode .text-muted { color: #64748b; }
         body.light-mode .space-bg { background-color: #f1f5f9; border-color: #e2e8f0; }
-        body.light-mode .space-bg::before { display: none; } /* Sembunyikan efek bintang statis di mode terang */
-        body.light-mode .shooting-stars { display: none; } /* Sembunyikan bintang jatuh di mode terang */
+        body.light-mode .space-bg::before { display: none; }
+        body.light-mode .shooting-stars { display: none; }
 
         .glow-effect {
             box-shadow: 0 0 35px -5px rgba(59, 130, 246, 0.3);
@@ -172,6 +172,7 @@
 
     <main class="content-wrapper flex-grow flex items-center justify-center pt-16">
 
+        <!-- 1. TENTANG SECTION -->
         <section id="sec-about" class="tab-section py-16 px-4 max-w-6xl mx-auto sm:px-6 lg:px-8 w-full animate__animated animate__fadeIn space-bg relative rounded-3xl overflow-hidden my-4 border shadow-2xl">
             <div class="shooting-stars">
                 <div class="star"></div>
@@ -185,7 +186,7 @@
                         <div class="relative group flex-shrink-0">
                             <div class="absolute -inset-1.5 bg-gradient-to-r from-blue-500 via-teal-400 to-purple-600 rounded-full blur opacity-75 group-hover:opacity-100 transition duration-500 animate-pulse"></div>
                             <div class="relative w-32 h-32 sm:w-36 sm:h-36 rounded-full overflow-hidden border-4 border-slate-950 bg-slate-900 flex items-center justify-center shadow-2xl">
-                                <img src="foto profil.jpeg" alt="Indra Kurniawan">
+                                <img src="foto profil.jpeg" onerror="this.src='https://images.unsplash.com/photo-1590069261209-f8e9b8642343?auto=format&fit=crop&q=80&w=300&h=300';" alt="Indra Kurniawan" class="w-full h-full object-cover">
                             </div>
                         </div>
                         <div class="space-y-2 py-2 flex-grow">
@@ -225,15 +226,15 @@
                         <i class="fas fa-id-card text-blue-500"></i> <span data-i18n="resume_title">Resume Singkat</span>
                     </h3>
                     <div class="space-y-4 text-sm">
-                        <div class="flex justify-between border-b border-slate-900 pb-3">
+                        <div class="flex justify-between border-b border-slate-900/50 pb-3">
                             <span class="text-muted" data-i18n="resume_field_exp">Pengalaman Lapangan</span>
                             <span class="font-semibold text-main" data-i18n="resume_val_exp">+5 Tahun</span>
                         </div>
-                        <div class="flex justify-between border-b border-slate-900 pb-3">
+                        <div class="flex justify-between border-b border-slate-900/50 pb-3">
                             <span class="text-muted" data-i18n="resume_field_skill">Keahlian Utama</span>
                             <span class="font-semibold text-main text-right" data-i18n="resume_val_skill">Pengawasan Proyek & Drafter</span>
                         </div>
-                        <div class="flex justify-between border-b border-slate-900 pb-3">
+                        <div class="flex justify-between border-b border-slate-900/50 pb-3">
                             <span class="text-muted" data-i18n="resume_field_inter">Interdisipliner</span>
                             <span class="font-semibold text-teal-400" data-i18n="resume_val_inter">Konstruksi</span>
                         </div>
@@ -242,13 +243,14 @@
                             <span class="font-semibold text-main" data-i18n="resume_val_sib">Anak ke-3 dari 4</span>
                         </div>
                     </div>
-                    <div class="mt-8 pt-6 border-t border-slate-900">
+                    <div class="mt-8 pt-6 border-t border-slate-900/50">
                         <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=dark" alt="Dev Quote" class="w-full rounded-xl opacity-80">
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- 2. KEAHLIAN SECTION -->
         <section id="sec-skills" class="tab-section hidden py-12 px-4 max-w-6xl mx-auto sm:px-6 lg:px-8 w-full animate__animated animate__fadeIn">
             <div class="text-center">
                 <h2 class="text-3xl font-bold text-main tracking-tight mb-2" data-i18n="skills_title">Perangkat Kerja & Kompetensi</h2>
@@ -271,6 +273,7 @@
             </div>
         </section>
 
+        <!-- 3. PENGALAMAN KERJA SECTION -->
         <section id="sec-experience" class="tab-section hidden py-12 px-4 max-w-4xl mx-auto sm:px-6 lg:px-8 w-full animate__animated animate__fadeIn">
             <h2 class="text-3xl font-bold text-main tracking-tight mb-2 text-center" data-i18n="exp_title">Rekam Jejak Profesional</h2>
             <p class="text-muted text-center text-sm mb-12" data-i18n="exp_subtitle">Pengalaman kerja pengawasan teknis dan manajemen konstruksi di PT. ROSA AGUNG MULIA KONSULTAN.</p>
@@ -284,9 +287,11 @@
                             <h3 class="text-lg font-bold text-main mt-1" data-i18n="exp1_role">Civil Drafter & Pengawas</h3>
                             <p class="text-xs text-muted font-medium">PT. ROSA AGUNG MULIA KONSULTAN</p>
                             <p class="text-sm text-muted mb-3" data-i18n="exp1_desc">Melakukan pemodelan visual engineering, perancangan struktural, estimasi volume, sekaligus pengawasan operasional langsung di lapangan.</p>
-                            <span class="text-xs input-bg px-2 py-1 rounded border"><i class="fas fa-cube text-teal-400 mr-1"></i> SketchUp</span>
-                            <span class="text-xs input-bg px-2 py-1 rounded border"><i class="fas fa-cube text-teal-400 mr-1"></i> Autocad</span>
-                            <span class="text-xs input-bg px-2 py-1 rounded border"><i class="fas fa-calculator text-teal-400 mr-1"></i> RAB</span>
+                            <div class="flex flex-wrap gap-2 justify-start sm:justify-end">
+                                <span class="text-xs input-bg px-2 py-1 rounded border"><i class="fas fa-cube text-teal-400 mr-1"></i> SketchUp</span>
+                                <span class="text-xs input-bg px-2 py-1 rounded border"><i class="fas fa-cube text-teal-400 mr-1"></i> AutoCAD</span>
+                                <span class="text-xs input-bg px-2 py-1 rounded border"><i class="fas fa-calculator text-teal-400 mr-1"></i> RAB</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -317,7 +322,7 @@
                             <div class="flex flex-wrap gap-2 justify-start sm:justify-end">
                                 <span class="text-xs input-bg px-2 py-1 rounded border"><i class="fas fa-tasks text-blue-400 mr-1"></i> Manajemen Proyek</span>
                                 <span class="text-xs input-bg px-2 py-1 rounded border"><i class="fas fa-file-invoice-dollar text-blue-400 mr-1"></i> RAB</span>
-                                <span class="text-xs input-bg px-2 py-1 rounded border"><i class="fas fa-cube text-teal-400 mr-1"></i> Autocad</span>
+                                <span class="text-xs input-bg px-2 py-1 rounded border"><i class="fas fa-cube text-teal-400 mr-1"></i> AutoCAD</span>
                             </div>
                         </div>
                     </div>
@@ -356,6 +361,7 @@
             </div>
         </section>
 
+        <!-- 4. SERTIFIKAT SECTION -->
         <section id="sec-certificates" class="tab-section hidden py-12 px-4 max-w-5xl mx-auto sm:px-6 lg:px-8 w-full animate__animated animate__fadeIn">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div class="card-bg border p-6 rounded-2xl hover-lift flex flex-col justify-between">
@@ -388,8 +394,10 @@
             </div>
         </section>
 
+        <!-- 5. PORTOFOLIO SECTION (Setiap Gambar BISA DIKLIK untuk Buka File PDF / JPG di Tab Baru) -->
         <section id="sec-stats" class="tab-section hidden py-12 px-4 max-w-6xl mx-auto sm:px-6 lg:px-8 w-full animate__animated animate__fadeIn space-y-16">
             
+            <!-- PORTOFOLIO GAMBAR DED -->
             <div class="space-y-6">
                 <div class="border-l-4 border-blue-500 pl-4">
                     <h2 class="text-2xl font-bold tracking-tight text-main uppercase" data-i18n="portfolio_ded_title">Portofolio Gambar DED</h2>
@@ -397,10 +405,14 @@
                 </div>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="card-bg border p-4 rounded-3xl overflow-hidden hover-lift flex flex-col justify-between shadow-xl space-y-4">
-                        <div class="aspect-video w-full rounded-2xl bg-slate-950 flex items-center justify-center overflow-hidden border border-slate-800/40">
-                            <img src="Screenshot 2026-07-01 154539.png" alt="Screenshot DED" class="w-full h-full object-cover">
-                        </div>
+                    <!-- Kartu DED 1 (Arahkan href ke file PDF atau JPG Anda) -->
+                    <div class="card-bg border p-4 rounded-3xl overflow-hidden hover-lift flex flex-col justify-between shadow-xl space-y-4 group">
+                        <a href="https://uploads.onecompiler.io/44vrspbk4/1784534118712/WhatsApp%20Image%202026-07-09%20at%2011.41.30.jpeg" target="_blank" title="Klik untuk membuka file penuh" class="aspect-video w-full rounded-2xl input-bg flex items-center justify-center overflow-hidden border border-slate-800/40 relative block cursor-pointer">
+                            <img src="https://uploads.onecompiler.io/44vrspbk4/1784534391912/LOBBY%201.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80&w=600';" alt="DED Project 1" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                            <span class="absolute bottom-2 right-2 bg-slate-950/80 text-blue-400 text-[10px] px-2 py-1 rounded-md backdrop-blur-sm border border-slate-800 opacity-0 group-hover:opacity-100 transition-opacity">
+                                <i class="fas fa-external-link-alt mr-1"></i> Buka File
+                            </span>
+                        </a>
                         <div class="px-2">
                             <span class="text-[11px] font-bold text-blue-400">AUTODESK AUTOCAD / SKETCHUP</span>
                             <h3 class="text-lg font-bold text-main mt-0.5" data-i18n="ded_p1_title">Perancangan Gambar Struktur Komprehensif (DED)</h3>
@@ -408,10 +420,14 @@
                         </div>
                     </div>
 
-                    <div class="card-bg border p-4 rounded-3xl overflow-hidden hover-lift flex flex-col justify-between shadow-xl space-y-4">
-                        <div class="aspect-video w-full rounded-2xl bg-slate-950 flex items-center justify-center text-slate-700 overflow-hidden border border-slate-800/40">
-                            <i class="fas fa-drafting-compass text-5xl"></i>
-                        </div>
+                    <!-- Kartu DED 2 (Bisa diganti href="folder/nama-file.pdf" atau .jpg) -->
+                    <div class="card-bg border p-4 rounded-3xl overflow-hidden hover-lift flex flex-col justify-between shadow-xl space-y-4 group">
+                        <a href="foto/ded-3d-model.jpg" target="_blank" title="Klik untuk membuka file penuh" class="aspect-video w-full rounded-2xl input-bg flex items-center justify-center overflow-hidden border border-slate-800/40 relative block cursor-pointer">
+                            <img src="foto/ded-3d-model.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&q=80&w=600';" alt="DED Project 2" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                            <span class="absolute bottom-2 right-2 bg-slate-950/80 text-blue-400 text-[10px] px-2 py-1 rounded-md backdrop-blur-sm border border-slate-800 opacity-0 group-hover:opacity-100 transition-opacity">
+                                <i class="fas fa-external-link-alt mr-1"></i> Buka File
+                            </span>
+                        </a>
                         <div class="px-2">
                             <span class="text-[11px] font-bold text-blue-400">CIVIL ENGINEERING WORK</span>
                             <h3 class="text-lg font-bold text-main mt-0.5" data-i18n="ded_p2_title">Pemodelan Visual Rekayasa 3D Gedung Inap</h3>
@@ -419,10 +435,14 @@
                         </div>
                     </div>
 
-                    <div class="card-bg border p-4 rounded-3xl overflow-hidden hover-lift flex flex-col justify-between shadow-xl space-y-4">
-                        <div class="aspect-video w-full rounded-2xl bg-slate-950 flex items-center justify-center text-slate-700 overflow-hidden border border-slate-800/40">
-                            <i class="fas fa-map-marked-alt text-5xl"></i>
-                        </div>
+                    <!-- Kartu DED 3 -->
+                    <div class="card-bg border p-4 rounded-3xl overflow-hidden hover-lift flex flex-col justify-between shadow-xl space-y-4 group">
+                        <a href="foto/ded-plumbing.jpg" target="_blank" title="Klik untuk membuka file penuh" class="aspect-video w-full rounded-2xl input-bg flex items-center justify-center overflow-hidden border border-slate-800/40 relative block cursor-pointer">
+                            <img src="foto/ded-plumbing.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&q=80&w=600';" alt="DED Project 3" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                            <span class="absolute bottom-2 right-2 bg-slate-950/80 text-blue-400 text-[10px] px-2 py-1 rounded-md backdrop-blur-sm border border-slate-800 opacity-0 group-hover:opacity-100 transition-opacity">
+                                <i class="fas fa-external-link-alt mr-1"></i> Buka File
+                            </span>
+                        </a>
                         <div class="px-2">
                             <span class="text-[11px] font-bold text-blue-400">SANITASI & UTILITAS KAWASAN</span>
                             <h3 class="text-lg font-bold text-main mt-0.5" data-i18n="ded_p3_title">DED Sistem Plumbing & Saluran Air Regional</h3>
@@ -430,10 +450,14 @@
                         </div>
                     </div>
 
-                    <div class="card-bg border p-4 rounded-3xl overflow-hidden hover-lift flex flex-col justify-between shadow-xl space-y-4">
-                        <div class="aspect-video w-full rounded-2xl bg-slate-950 flex items-center justify-center text-slate-700 overflow-hidden border border-slate-800/40">
-                            <i class="fas fa-calculator text-5xl"></i>
-                        </div>
+                    <!-- Kartu DED 4 -->
+                    <div class="card-bg border p-4 rounded-3xl overflow-hidden hover-lift flex flex-col justify-between shadow-xl space-y-4 group">
+                        <a href="foto/ded-rab-sync.jpg" target="_blank" title="Klik untuk membuka file penuh" class="aspect-video w-full rounded-2xl input-bg flex items-center justify-center overflow-hidden border border-slate-800/40 relative block cursor-pointer">
+                            <img src="foto/ded-rab-sync.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=600';" alt="DED Project 4" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                            <span class="absolute bottom-2 right-2 bg-slate-950/80 text-blue-400 text-[10px] px-2 py-1 rounded-md backdrop-blur-sm border border-slate-800 opacity-0 group-hover:opacity-100 transition-opacity">
+                                <i class="fas fa-external-link-alt mr-1"></i> Buka File
+                            </span>
+                        </a>
                         <div class="px-2">
                             <span class="text-[11px] font-bold text-blue-400">RAB & ESTIMATION</span>
                             <h3 class="text-lg font-bold text-main mt-0.5" data-i18n="ded_p4_title">Integrasi Gambar Detail Kerja dengan Volume RAB</h3>
@@ -443,6 +467,7 @@
                 </div>
             </div>
 
+            <!-- PORTOFOLIO PENGAWASAN PROYEK -->
             <div class="space-y-6">
                 <div class="border-l-4 border-teal-400 pl-4">
                     <h2 class="text-2xl font-bold tracking-tight text-main uppercase" data-i18n="portfolio_super_title">Portofolio Pengawasan Proyek</h2>
@@ -450,11 +475,15 @@
                 </div>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="card-bg border p-4 rounded-3xl overflow-hidden hover-lift flex flex-col justify-between shadow-xl space-y-4">
-                        <div class="aspect-video w-full rounded-2xl bg-slate-950 flex items-center justify-center text-slate-700 overflow-hidden border border-slate-800/40 relative">
-                            <i class="fas fa-hospital text-5xl"></i>
-                            <span class="absolute top-3 right-3 text-[10px] uppercase font-bold tracking-wider px-2 py-1 rounded bg-teal-500/10 border border-teal-500/30 text-teal-400" data-i18n="port_status_done">Selesai</span>
-                        </div>
+                    <!-- Kartu Pengawasan 1 -->
+                    <div class="card-bg border p-4 rounded-3xl overflow-hidden hover-lift flex flex-col justify-between shadow-xl space-y-4 group">
+                        <a href="foto/pengawasan-poli.jpg" target="_blank" title="Klik untuk membuka file penuh" class="aspect-video w-full rounded-2xl input-bg flex items-center justify-center overflow-hidden border border-slate-800/40 relative block cursor-pointer">
+                            <img src="foto/pengawasan-poli.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=600';" alt="Supervision Project 1" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                            <span class="absolute top-3 right-3 text-[10px] uppercase font-bold tracking-wider px-2 py-1 rounded bg-teal-500/10 border border-teal-500/30 text-teal-400 z-10" data-i18n="port_status_done">Selesai</span>
+                            <span class="absolute bottom-2 right-2 bg-slate-950/80 text-teal-400 text-[10px] px-2 py-1 rounded-md backdrop-blur-sm border border-slate-800 opacity-0 group-hover:opacity-100 transition-opacity">
+                                <i class="fas fa-external-link-alt mr-1"></i> Buka File
+                            </span>
+                        </a>
                         <div class="px-2">
                             <span class="text-[11px] font-bold text-teal-400">PT. ROSA AGUNG MULIA KONSULTAN</span>
                             <h3 class="text-lg font-bold text-main mt-0.5" data-i18n="port_p1_title">Pengawas Pembangunan Renovasi Gedung Poli Spesialis Lt 3</h3>
@@ -463,11 +492,15 @@
                         </div>
                     </div>
 
-                    <div class="card-bg border p-4 rounded-3xl overflow-hidden hover-lift flex flex-col justify-between shadow-xl space-y-4">
-                        <div class="aspect-video w-full rounded-2xl bg-slate-950 flex items-center justify-center text-slate-700 overflow-hidden border border-slate-800/40 relative">
-                            <i class="fas fa-building text-5xl"></i>
-                            <span class="absolute top-3 right-3 text-[10px] uppercase font-bold tracking-wider px-2 py-1 rounded bg-teal-500/10 border border-teal-500/30 text-teal-400" data-i18n="port_status_done">Selesai</span>
-                        </div>
+                    <!-- Kartu Pengawasan 2 -->
+                    <div class="card-bg border p-4 rounded-3xl overflow-hidden hover-lift flex flex-col justify-between shadow-xl space-y-4 group">
+                        <a href="foto/pengawasan-anggrek.jpg" target="_blank" title="Klik untuk membuka file penuh" class="aspect-video w-full rounded-2xl input-bg flex items-center justify-center overflow-hidden border border-slate-800/40 relative block cursor-pointer">
+                            <img src="foto/pengawasan-anggrek.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1590069261209-f8e9b8642343?auto=format&fit=crop&q=80&w=600';" alt="Supervision Project 2" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                            <span class="absolute top-3 right-3 text-[10px] uppercase font-bold tracking-wider px-2 py-1 rounded bg-teal-500/10 border border-teal-500/30 text-teal-400 z-10" data-i18n="port_status_done">Selesai</span>
+                            <span class="absolute bottom-2 right-2 bg-slate-950/80 text-teal-400 text-[10px] px-2 py-1 rounded-md backdrop-blur-sm border border-slate-800 opacity-0 group-hover:opacity-100 transition-opacity">
+                                <i class="fas fa-external-link-alt mr-1"></i> Buka File
+                            </span>
+                        </a>
                         <div class="px-2">
                             <span class="text-[11px] font-bold text-teal-400">PT. ROSA AGUNG MULIA KONSULTAN</span>
                             <h3 class="text-lg font-bold text-main mt-0.5" data-i18n="port_p2_title">Pengawasan & Perencanaan Gedung Rawat Inap Anggrek 3 lt</h3>
@@ -476,11 +509,15 @@
                         </div>
                     </div>
 
-                    <div class="card-bg border p-4 rounded-3xl overflow-hidden hover-lift flex flex-col justify-between shadow-xl space-y-4">
-                        <div class="aspect-video w-full rounded-2xl bg-slate-950 flex items-center justify-center text-slate-700 overflow-hidden border border-slate-800/40 relative">
-                            <i class="fas fa-tools text-5xl"></i>
-                            <span class="absolute top-3 right-3 text-[10px] uppercase font-bold tracking-wider px-2 py-1 rounded bg-teal-500/10 border border-teal-500/30 text-teal-400" data-i18n="port_status_done">Selesai</span>
-                        </div>
+                    <!-- Kartu Pengawasan 3 -->
+                    <div class="card-bg border p-4 rounded-3xl overflow-hidden hover-lift flex flex-col justify-between shadow-xl space-y-4 group">
+                        <a href="foto/pengawasan-kanopi.jpg" target="_blank" title="Klik untuk membuka file penuh" class="aspect-video w-full rounded-2xl input-bg flex items-center justify-center overflow-hidden border border-slate-800/40 relative block cursor-pointer">
+                            <img src="foto/pengawasan-kanopi.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1517581177682-a085bb7ffb15?auto=format&fit=crop&q=80&w=600';" alt="Supervision Project 3" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                            <span class="absolute top-3 right-3 text-[10px] uppercase font-bold tracking-wider px-2 py-1 rounded bg-teal-500/10 border border-teal-500/30 text-teal-400 z-10" data-i18n="port_status_done">Selesai</span>
+                            <span class="absolute bottom-2 right-2 bg-slate-950/80 text-teal-400 text-[10px] px-2 py-1 rounded-md backdrop-blur-sm border border-slate-800 opacity-0 group-hover:opacity-100 transition-opacity">
+                                <i class="fas fa-external-link-alt mr-1"></i> Buka File
+                            </span>
+                        </a>
                         <div class="px-2">
                             <span class="text-[11px] font-bold text-teal-400">PT. ROSA AGUNG MULIA KONSULTAN</span>
                             <h3 class="text-lg font-bold text-main mt-0.5" data-i18n="port_p3_title">Pengawasan Pembangunan Kanopi SD & SMP</h3>
@@ -489,11 +526,15 @@
                         </div>
                     </div>
 
-                    <div class="card-bg border p-4 rounded-3xl overflow-hidden hover-lift flex flex-col justify-between shadow-xl space-y-4">
-                        <div class="aspect-video w-full rounded-2xl bg-slate-950 flex items-center justify-center text-slate-700 overflow-hidden border border-slate-800/40 relative">
-                            <i class="fas fa-layer-group text-5xl"></i>
-                            <span class="absolute top-3 right-3 text-[10px] uppercase font-bold tracking-wider px-2 py-1 rounded bg-teal-500/10 border border-teal-500/30 text-teal-400" data-i18n="port_status_done">Selesai</span>
-                        </div>
+                    <!-- Kartu Pengawasan 4 -->
+                    <div class="card-bg border p-4 rounded-3xl overflow-hidden hover-lift flex flex-col justify-between shadow-xl space-y-4 group">
+                        <a href="foto/pengawasan-mawar.jpg" target="_blank" title="Klik untuk membuka file penuh" class="aspect-video w-full rounded-2xl input-bg flex items-center justify-center overflow-hidden border border-slate-800/40 relative block cursor-pointer">
+                            <img src="foto/pengawasan-mawar.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&q=80&w=600';" alt="Supervision Project 4" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                            <span class="absolute top-3 right-3 text-[10px] uppercase font-bold tracking-wider px-2 py-1 rounded bg-teal-500/10 border border-teal-500/30 text-teal-400 z-10" data-i18n="port_status_done">Selesai</span>
+                            <span class="absolute bottom-2 right-2 bg-slate-950/80 text-teal-400 text-[10px] px-2 py-1 rounded-md backdrop-blur-sm border border-slate-800 opacity-0 group-hover:opacity-100 transition-opacity">
+                                <i class="fas fa-external-link-alt mr-1"></i> Buka File
+                            </span>
+                        </a>
                         <div class="px-2">
                             <span class="text-[11px] font-bold text-teal-400">PT. ROSA AGUNG MULIA KONSULTAN</span>
                             <h3 class="text-lg font-bold text-main mt-0.5" data-i18n="port_p4_title">Pengawasan Pembangunan Gedung Rawat Inap Mawar 3 lt</h3>
@@ -506,6 +547,7 @@
 
         </section>
 
+        <!-- 6. KONTAK SECTION -->
         <section id="sec-contact" class="tab-section hidden py-12 px-4 max-w-4xl mx-auto sm:px-6 lg:px-8 w-full animate__animated animate__fadeIn">
             <div class="card-bg border rounded-3xl p-8 md:p-12 text-center glow-effect">
                 <div class="w-16 h-16 bg-blue-600/10 border border-blue-500/20 text-blue-400 flex items-center justify-center rounded-2xl mx-auto text-2xl mb-6">
@@ -643,11 +685,9 @@
 
         // --- CORE INITIATION ---
         document.addEventListener('DOMContentLoaded', () => {
-            // Load Language
             const savedLang = localStorage.getItem('preferred-language') || 'id';
             changeLanguage(savedLang);
 
-            // Load Theme Preference
             const savedTheme = localStorage.getItem('current-theme') || 'dark';
             setTheme(savedTheme);
         });
