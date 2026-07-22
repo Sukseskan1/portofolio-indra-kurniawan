@@ -567,20 +567,58 @@
 
         </section>
 
-        <!-- 6. KONTAK SECTION -->
+        <!-- 6. KONTAK SECTION (PILIHAN GMAIL & TELEPON / WHATSAPP PROFESIONAL) -->
         <section id="sec-contact" class="tab-section hidden py-12 px-4 max-w-4xl mx-auto sm:px-6 lg:px-8 w-full animate__animated animate__fadeIn">
-            <div class="card-bg border rounded-3xl p-8 md:p-12 text-center glow-effect">
-                <div class="w-16 h-16 bg-blue-600/10 border border-blue-500/20 text-blue-400 flex items-center justify-center rounded-2xl mx-auto text-2xl mb-6">
-                    <i class="far fa-comments"></i>
+            <div class="card-bg border rounded-3xl p-8 md:p-12 text-center glow-effect space-y-8">
+                <div class="max-w-xl mx-auto">
+                    <div class="w-16 h-16 bg-blue-600/10 border border-blue-500/20 text-blue-400 flex items-center justify-center rounded-2xl mx-auto text-2xl mb-4">
+                        <i class="far fa-comments"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold text-main mb-2" data-i18n="contact_title">Mari Mulai Kolaborasi</h2>
+                    <p class="text-muted text-sm" data-i18n="contact_subtitle">Hubungi saya untuk kebutuhan konsultasi pengawasan teknis konstruksi rekayasa sipil atau integrasi sistem platform digital web.</p>
                 </div>
-                <h2 class="text-3xl font-bold text-main mb-2" data-i18n="contact_title">Mari Mulai Kolaborasi</h2>
-                <p class="text-muted max-w-lg mx-auto text-sm mb-8" data-i18n="contact_subtitle">Hubungi saya untuk kebutuhan konsultasi pengawasan teknis konstruksi rekayasa sipil atau integrasi sistem platform digital web.</p>
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <a href="mailto:megakurniawan1410@gmail.com" class="w-full sm:w-auto bg-blue-600 hover:bg-blue-500 text-white font-semibold px-8 py-4 rounded-xl transition-all flex items-center justify-center gap-2 shadow-lg shadow-blue-600/20 hover:scale-105">
-                        <i class="far fa-envelope text-lg"></i> <span data-i18n="contact_btn">Kirim Email Sekarang</span>
-                    </a>
+
+                <!-- Opsi Kontak Profesional (Grid 2 Kolom) -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2 text-left max-w-3xl mx-auto">
+                    
+                    <!-- OPSI 1: GMAIL -->
+                    <div class="input-bg border rounded-2xl p-6 hover-lift flex flex-col justify-between space-y-4 border-slate-800/80">
+                        <div>
+                            <div class="flex items-center justify-between mb-3">
+                                <div class="w-10 h-10 rounded-xl bg-red-500/10 border border-red-500/20 text-red-400 flex items-center justify-center text-lg">
+                                    <i class="far fa-envelope"></i>
+                                </div>
+                                <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-red-500/10 border border-red-500/20 text-red-400">Official Email</span>
+                            </div>
+                            <h3 class="font-bold text-main text-base">Gmail Direct</h3>
+                            <p class="text-xs text-muted mt-1">megakurniawan1410@gmail.com</p>
+                        </div>
+                        <a href="mailto:megakurniawan1410@gmail.com" class="w-full bg-slate-900 hover:bg-red-600 hover:text-white border border-slate-700 hover:border-red-500 text-slate-200 text-xs font-semibold py-3 px-4 rounded-xl transition-all flex items-center justify-center gap-2 group shadow-sm">
+                            <i class="far fa-paper-plane group-hover:scale-110 transition-transform"></i> <span data-i18n="contact_btn_email">Kirim Email Gmail</span>
+                        </a>
+                    </div>
+
+                    <!-- OPSI 2: WHATSAPP / HP -->
+                    <div class="input-bg border rounded-2xl p-6 hover-lift flex flex-col justify-between space-y-4 border-slate-800/80">
+                        <div>
+                            <div class="flex items-center justify-between mb-3">
+                                <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center text-lg">
+                                    <i class="fab fa-whatsapp"></i>
+                                </div>
+                                <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-emerald-500/10 border border-emerald-500/20 text-emerald-400">Fast Response</span>
+                            </div>
+                            <h3 class="font-bold text-main text-base">WhatsApp / Telepon</h3>
+                            <p class="text-xs text-muted mt-1">+62 895-6162-82500</p>
+                        </div>
+                        <a href="https://wa.me/62895616282500?text=Halo%20Indra%20Kurniawan,%20saya%20tertarik%20untuk%20berdiskusi%20mengenai%20proyek." target="_blank" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold py-3 px-4 rounded-xl transition-all flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/20 hover:scale-[1.02] active:scale-95">
+                            <i class="fab fa-whatsapp text-sm"></i> <span data-i18n="contact_btn_wa">Chat via WhatsApp</span>
+                        </a>
+                    </div>
+
                 </div>
-                <div class="mt-12 pt-8 border-t border-slate-900/40 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+
+                <!-- Footer Statistic Counter -->
+                <div class="pt-6 border-t border-slate-900/40 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
                     <div class="flex items-center gap-2">
                         <i class="fas fa-chart-line text-blue-500/60"></i>
                         <span data-i18n="contact_stats">Statistik Pengunjung Utama:</span>
@@ -673,8 +711,8 @@
                 descKey: "cert1_desc",
                 iconClass: "fas fa-hard-hat text-blue-500",
                 photos: [
-                    "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=800",
-                   
+                    "https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&q=80&w=800",
+                    "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=800"
                 ]
             },
             cert2: {
@@ -844,7 +882,7 @@
                 port_p3_title: "Pengawasan Pembangunan Kanopi SD & SMP", port_p3_desc: "Supervisi perakitan struktur baja ringan, monitoring kekuatan sambungan las dan baut gording, serta menjamin aspek keselamatan K3 lingkungan sekolah.",
                 port_p4_title: "Pengawasan Pembangunan Gedung Rawat Inap Mawar 3 lt", port_p4_desc: "Melakukan pengujian mutu slump test beton, pengawasan pembesian tulangan balok-kolom utama, serta mengendalikan progres kurva-S lapangan.",
                 contact_title: "Mari Mulai Kolaborasi", contact_subtitle: "Hubungi saya untuk kebutuhan konsultasi pengawasan teknis konstruksi rekayasa sipil atau integrasi sistem platform digital web.",
-                contact_btn: "Kirim Email Sekarang", contact_stats: "Statistik Pengunjung Utama:",
+                contact_btn_email: "Kirim Email Gmail", contact_btn_wa: "Chat via WhatsApp", contact_stats: "Statistik Pengunjung Utama:",
                 footer: "&copy; 2026 Indra Kurniawan. Hak Cipta Dilindungi."
             },
             en: {
@@ -875,7 +913,7 @@
                 port_p3_title: "Supervision of Elementary & Junior High School Canopy Construction", port_p3_desc: "Supervising light steel structure assembly, monitoring weld and purlin bolt connection durability, and ensuring strict site safety compliance.",
                 port_p4_title: "Supervision of 3-Story Mawar Inpatient Building Construction", port_p4_desc: "Conducting concrete slump testing, managing major beam-column steel reinforcement checkups, and controlling site S-curve progression.",
                 contact_title: "Let's Start a Collaboration", contact_subtitle: "Contact me for technical civil engineering consultation or full-stack web platform digital integration needs.",
-                contact_btn: "Send Email Now", contact_stats: "Main Visitor Statistics:",
+                contact_btn_email: "Send Gmail Message", contact_btn_wa: "Chat via WhatsApp", contact_stats: "Main Visitor Statistics:",
                 footer: "&copy; 2026 Indra Kurniawan. All Rights Reserved."
             }
         };
