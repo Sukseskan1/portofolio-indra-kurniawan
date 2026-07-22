@@ -361,40 +361,60 @@
             </div>
         </section>
 
-        <!-- 4. SERTIFIKAT SECTION -->
+        <!-- 4. SERTIFIKAT SECTION (Bisa diklik untuk membuka Pop-up Modal Internal dengan Galeri Foto) -->
         <section id="sec-certificates" class="tab-section hidden py-12 px-4 max-w-5xl mx-auto sm:px-6 lg:px-8 w-full animate__animated animate__fadeIn">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="card-bg border p-6 rounded-2xl hover-lift flex flex-col justify-between">
+                <!-- Sertifikat 1 -->
+                <div onclick="openCertModal('cert1')" class="card-bg border p-6 rounded-2xl hover-lift flex flex-col justify-between cursor-pointer group relative overflow-hidden">
                     <div>
-                        <div class="text-3xl text-blue-500 mb-4"><i class="fas fa-hard-hat"></i></div>
+                        <div class="text-3xl text-blue-500 mb-4 group-hover:scale-110 transition-transform"><i class="fas fa-hard-hat"></i></div>
                         <h3 class="text-md font-bold text-main" data-i18n="cert1_title">Sertifikat Ahli K3 Konstruksi</h3>
                         <p class="text-xs text-slate-500 mt-1" data-i18n="cert_body1">Badan Sertifikasi Nasional</p>
                         <p class="text-sm text-muted mt-3" data-i18n="cert1_desc">Kompetensi tingkat lanjut untuk pemeliharaan keselamatan, kesehatan kerja, dan penjaminan mutu zero-accident di lapangan.</p>
                     </div>
-                    <span class="inline-block text-xs font-semibold text-blue-400 mt-4 bg-blue-500/10 px-2.5 py-1 rounded-md w-max">Verified Credential</span>
+                    <div class="flex items-center justify-between mt-4">
+                        <span class="inline-block text-xs font-semibold text-blue-400 bg-blue-500/10 px-2.5 py-1 rounded-md">Verified Credential</span>
+                        <span class="text-xs text-blue-400 font-medium opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
+                            <i class="fas fa-images"></i> Lihat Galeri
+                        </span>
+                    </div>
                 </div>
-                <div class="card-bg border p-6 rounded-2xl hover-lift flex flex-col justify-between">
+
+                <!-- Sertifikat 2 -->
+                <div onclick="openCertModal('cert2')" class="card-bg border p-6 rounded-2xl hover-lift flex flex-col justify-between cursor-pointer group relative overflow-hidden">
                     <div>
-                        <div class="text-3xl text-teal-400 mb-4"><i class="fas fa-drafting-compass"></i></div>
+                        <div class="text-3xl text-teal-400 mb-4 group-hover:scale-110 transition-transform"><i class="fas fa-drafting-compass"></i></div>
                         <h3 class="text-md font-bold text-main" data-i18n="cert2_title">Keahlian AutoCAD & Perancangan</h3>
                         <p class="text-xs text-slate-500 mt-1">Autodesk Certification Center</p>
                         <p class="text-sm text-muted mt-3" data-i18n="cert2_desc">Sertifikasi kemahiran teknis penggambaran detail 2D/3D struktur jembatan, sanitasi kawasan, dan utilitas bangunan.</p>
                     </div>
-                    <span class="inline-block text-xs font-semibold text-teal-400 mt-4 bg-teal-500/10 px-2.5 py-1 rounded-md w-max">Professional</span>
+                    <div class="flex items-center justify-between mt-4">
+                        <span class="inline-block text-xs font-semibold text-teal-400 bg-teal-500/10 px-2.5 py-1 rounded-md">Professional</span>
+                        <span class="text-xs text-teal-400 font-medium opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
+                            <i class="fas fa-images"></i> Lihat Galeri
+                        </span>
+                    </div>
                 </div>
-                <div class="card-bg border p-6 rounded-2xl hover-lift flex flex-col justify-between">
+
+                <!-- Sertifikat 3 -->
+                <div onclick="openCertModal('cert3')" class="card-bg border p-6 rounded-2xl hover-lift flex flex-col justify-between cursor-pointer group relative overflow-hidden">
                     <div>
-                        <div class="text-3xl text-purple-400 mb-4"><i class="fas fa-code"></i></div>
+                        <div class="text-3xl text-purple-400 mb-4 group-hover:scale-110 transition-transform"><i class="fas fa-code"></i></div>
                         <h3 class="text-md font-bold text-main" data-i18n="cert3_title">Full-Stack Web Engineering</h3>
                         <p class="text-xs text-slate-500 mt-1">Tech Digital Academy</p>
                         <p class="text-sm text-muted mt-3" data-i18n="cert3_desc">Kompetensi integrasi arsitektur web modern menggunakan basis ekosistem JavaScript, pemrograman PHP, dan deployment server cloud.</p>
                     </div>
-                    <span class="inline-block text-xs font-semibold text-purple-400 mt-4 bg-purple-500/10 px-2.5 py-1 rounded-md w-max">Digital Competency</span>
+                    <div class="flex items-center justify-between mt-4">
+                        <span class="inline-block text-xs font-semibold text-purple-400 bg-purple-500/10 px-2.5 py-1 rounded-md">Digital Competency</span>
+                        <span class="text-xs text-purple-400 font-medium opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
+                            <i class="fas fa-images"></i> Lihat Galeri
+                        </span>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- 5. PORTOFOLIO SECTION (Setiap Gambar BISA DIKLIK untuk Buka File PDF / JPG di Tab Baru) -->
+        <!-- 5. PORTOFOLIO SECTION -->
         <section id="sec-stats" class="tab-section hidden py-12 px-4 max-w-6xl mx-auto sm:px-6 lg:px-8 w-full animate__animated animate__fadeIn space-y-16">
             
             <!-- PORTOFOLIO GAMBAR DED -->
@@ -405,7 +425,7 @@
                 </div>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <!-- Kartu DED 1 (Arahkan href ke file PDF atau JPG Anda) -->
+                    <!-- Kartu DED 1 -->
                     <div class="card-bg border p-4 rounded-3xl overflow-hidden hover-lift flex flex-col justify-between shadow-xl space-y-4 group">
                         <a href="https://uploads.onecompiler.io/44vrspbk4/1784534118712/WhatsApp%20Image%202026-07-09%20at%2011.41.30.jpeg" target="_blank" title="Klik untuk membuka file penuh" class="aspect-video w-full rounded-2xl input-bg flex items-center justify-center overflow-hidden border border-slate-800/40 relative block cursor-pointer">
                             <img src="https://uploads.onecompiler.io/44vrspbk4/1784534391912/LOBBY%201.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80&w=600';" alt="DED Project 1" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
@@ -420,7 +440,7 @@
                         </div>
                     </div>
 
-                    <!-- Kartu DED 2 (Bisa diganti href="folder/nama-file.pdf" atau .jpg) -->
+                    <!-- Kartu DED 2 -->
                     <div class="card-bg border p-4 rounded-3xl overflow-hidden hover-lift flex flex-col justify-between shadow-xl space-y-4 group">
                         <a href="foto/ded-3d-model.jpg" target="_blank" title="Klik untuk membuka file penuh" class="aspect-video w-full rounded-2xl input-bg flex items-center justify-center overflow-hidden border border-slate-800/40 relative block cursor-pointer">
                             <img src="foto/ded-3d-model.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&q=80&w=600';" alt="DED Project 2" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
@@ -572,11 +592,150 @@
 
     </main>
 
+    <!-- MODAL INTERNAL UNTUK GALERI SERTIFIKAT (TIDAK KELUAR DARI HALAMAN) -->
+    <div id="cert-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center bg-slate-950/80 backdrop-blur-md p-4 transition-all duration-300">
+        <div class="card-bg border rounded-3xl max-w-3xl w-full p-6 relative shadow-2xl flex flex-col space-y-4 animate__animated animate__zoomIn">
+            
+            <!-- Header Modal -->
+            <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+                <div class="flex items-center gap-3">
+                    <div id="modal-icon" class="text-2xl text-blue-500"><i class="fas fa-certificate"></i></div>
+                    <div>
+                        <h3 id="modal-title" class="text-lg font-bold text-main leading-tight">Judul Sertifikat</h3>
+                        <p id="modal-subtitle" class="text-xs text-slate-500">Penerbit Sertifikat</p>
+                    </div>
+                </div>
+                <button onclick="closeCertModal()" class="text-slate-400 hover:text-white text-xl p-2 rounded-xl bg-slate-900/80 hover:bg-slate-800 transition-all focus:outline-none">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <!-- Tampilan Foto / Gambar Galeri -->
+            <div class="relative aspect-video w-full rounded-2xl bg-slate-950 overflow-hidden border border-slate-800/60 flex items-center justify-center group">
+                <img id="modal-img" src="" alt="Foto Sertifikat" class="w-full h-full object-contain transition-all duration-300">
+                
+                <!-- Navigasi Gambar (Sebelumnya/Selanjutnya) -->
+                <button onclick="prevCertPhoto()" class="absolute left-3 top-1/2 -translate-y-1/2 bg-slate-900/80 hover:bg-blue-600 text-white p-3 rounded-full border border-slate-700 backdrop-blur-md transition-all opacity-80 group-hover:opacity-100 hover:scale-110">
+                    <i class="fas fa-chevron-left text-sm"></i>
+                </button>
+                <button onclick="nextCertPhoto()" class="absolute right-3 top-1/2 -translate-y-1/2 bg-slate-900/80 hover:bg-blue-600 text-white p-3 rounded-full border border-slate-700 backdrop-blur-md transition-all opacity-80 group-hover:opacity-100 hover:scale-110">
+                    <i class="fas fa-chevron-right text-sm"></i>
+                </button>
+
+                <!-- Indikator Posisi Foto -->
+                <div class="absolute bottom-3 left-1/2 -translate-x-1/2 bg-slate-950/90 text-slate-300 text-[11px] font-mono px-3 py-1 rounded-full border border-slate-800 backdrop-blur-md">
+                    Foto <span id="modal-photo-idx">1</span> / <span id="modal-photo-total">1</span>
+                </div>
+            </div>
+
+            <!-- Deskripsi Foto -->
+            <p id="modal-desc" class="text-sm text-muted leading-relaxed px-1">Deskripsi sertifikat...</p>
+
+            <!-- Footer Modal -->
+            <div class="flex justify-end pt-2 border-t border-slate-800/60">
+                <button onclick="closeCertModal()" class="px-5 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-xs font-semibold text-main transition-all">
+                    Tutup
+                </button>
+            </div>
+        </div>
+    </div>
+
     <footer class="bg-slate-950 border-t border-slate-900/50 py-6 text-center text-xs text-slate-600 tracking-wide" id="footer-text">
         &copy; 2026 Indra Kurniawan. Hak Cipta Dilindungi.
     </footer>
 
     <script>
+        // --- DATA GALERI SERTIFIKAT MODAL (Bisa ditambahkan foto berkali-kali) ---
+        const certData = {
+            cert1: {
+                titleKey: "cert1_title",
+                subtitleKey: "cert_body1",
+                descKey: "cert1_desc",
+                iconClass: "fas fa-hard-hat text-blue-500",
+                photos: [
+                    "https://images.unsplash.com/photo-1541888946425-", // Ganti dengan path foto Anda, cth: "foto/sertifikat-k3-1.jpg"
+                    "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=800",
+                    
+                ]
+            },
+            cert2: {
+                titleKey: "cert2_title",
+                subtitleKey: "Autodesk Certification Center",
+                descKey: "cert2_desc",
+                iconClass: "fas fa-drafting-compass text-teal-400",
+                photos: [
+                    "https://uploads.onecompiler.io/44vrspbk4/1784687925068/Indra%20Kurniawan_page-0001.jpg", // Ganti dengan foto AutoCAD Anda
+                     "https://uploads.onecompiler.io/44vrspbk4/1784687975552/Indra%20Kurniawan%20a_page-000.jpg",
+                    "https://uploads.onecompiler.io/44vrspbk4/1784687432044/WhatsApp%20Image%202025-12-18%20at%2022.35.34_faeb1362.jpg"
+                ]
+            },
+            cert3: {
+                titleKey: "cert3_title",
+                subtitleKey: "Tech Digital Academy",
+                descKey: "cert3_desc",
+                iconClass: "fas fa-code text-purple-400",
+                photos: [
+                    "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=800", // Ganti dengan foto Web Dev Anda
+                    "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800"
+                ]
+            }
+        };
+
+        let activeCert = null;
+        let activePhotoIdx = 0;
+
+        function openCertModal(certId) {
+            const data = certData[certId];
+            if (!data) return;
+
+            activeCert = data;
+            activePhotoIdx = 0;
+
+            const currentLang = localStorage.getItem('preferred-language') || 'id';
+
+            // Set Judul, Subtitle, & Deskripsi berdasarkan Bahasa
+            const titleText = i18n[currentLang][data.titleKey] || data.titleKey;
+            const subtitleText = i18n[currentLang][data.subtitleKey] || data.subtitleKey;
+            const descText = i18n[currentLang][data.descKey] || data.descKey;
+
+            document.getElementById('modal-title').innerText = titleText;
+            document.getElementById('modal-subtitle').innerText = subtitleText;
+            document.getElementById('modal-desc').innerText = descText;
+            document.getElementById('modal-icon').className = "text-2xl " + data.iconClass;
+
+            updateModalPhoto();
+
+            const modal = document.getElementById('cert-modal');
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Kunci scroll halaman belakang
+        }
+
+        function closeCertModal() {
+            const modal = document.getElementById('cert-modal');
+            modal.classList.add('hidden');
+            document.body.style.overflow = ''; // Kembalikan scroll
+        }
+
+        function updateModalPhoto() {
+            if (!activeCert || !activeCert.photos.length) return;
+            const imgEl = document.getElementById('modal-img');
+            imgEl.src = activeCert.photos[activePhotoIdx];
+            document.getElementById('modal-photo-idx').innerText = activePhotoIdx + 1;
+            document.getElementById('modal-photo-total').innerText = activeCert.photos.length;
+        }
+
+        function nextCertPhoto() {
+            if (!activeCert) return;
+            activePhotoIdx = (activePhotoIdx + 1) % activeCert.photos.length;
+            updateModalPhoto();
+        }
+
+        function prevCertPhoto() {
+            if (!activeCert) return;
+            activePhotoIdx = (activePhotoIdx - 1 + activeCert.photos.length) % activeCert.photos.length;
+            updateModalPhoto();
+        }
+
         // --- SYSTEM ENGINE TOGGLE MODE TERANG / GELAP (LIGHT & DARK MODE) ---
         function setTheme(theme) {
             const body = document.body;
@@ -620,6 +779,9 @@
                 exp4_date: "Mei 2024 - Agu 2024", exp4_role: "Pengawasan Pembangunan Kanopi SD & SMP", exp4_desc: "Memantau instalasi fabrikasi struktur atap kanopi lingkungan sekolah dasar dan menengah agar presisi serta aman digunakan.",
                 exp5_date: "Mei 2023 - Okt 2023", exp5_role: "Pengawasan Pembangunan Gedung Rawat Inap Mawar 3 lt", exp5_desc: "Melakukan fungsi monitoring mutu material beton, pengawasan pembesian, dan ketepatan schedule pembangunan berkala.",
                 exp_6m: "(6 bln)", exp_4m: "(4 bln)",
+                cert1_title: "Sertifikat Ahli K3 Konstruksi", cert_body1: "Badan Sertifikasi Nasional", cert1_desc: "Kompetensi tingkat lanjut untuk pemeliharaan keselamatan, kesehatan kerja, dan penjaminan mutu zero-accident di lapangan.",
+                cert2_title: "Keahlian AutoCAD & Perancangan", cert2_desc: "Sertifikasi kemahiran teknis penggambaran detail 2D/3D struktur jembatan, sanitasi kawasan, dan utilitas bangunan.",
+                cert3_title: "Full-Stack Web Engineering", cert3_desc: "Kompetensi integrasi arsitektur web modern menggunakan basis ekosistem JavaScript, pemrograman PHP, dan deployment server cloud.",
                 portfolio_ded_title: "Portofolio Gambar DED", portfolio_ded_subtitle: "Dokumentasi hasil pemodelan dan perancangan Detailed Engineering Design berkala.",
                 portfolio_super_title: "Portofolio Pengawasan Proyek", portfolio_super_subtitle: "Dokumentasi monitoring lapangan, manajemen risiko struktural, dan kendali mutu konstruksi.",
                 port_status_done: "Selesai",
@@ -648,6 +810,9 @@
                 exp4_date: "May 2024 - Aug 2024", exp4_role: "Supervision of Elementary & Junior High School Canopy Construction", exp4_desc: "Monitoring the installation and fabrication of canopy roof structures in primary and secondary school environments to ensure precision and safety.",
                 exp5_date: "May 2023 - Oct 2023", exp5_role: "Supervision of 3-Story Mawar Inpatient Building Construction", exp5_desc: "Conducting quality monitoring of concrete materials, steel reinforcement inspection, and ensuring periodic schedule precision.",
                 exp_6m: "(6 mos)", exp_4m: "(4 mos)",
+                cert1_title: "Construction Occupational Safety (K3) Certificate", cert_body1: "National Certification Board", cert1_desc: "Advanced competency for field occupational safety maintenance, health protocols, and zero-accident quality assurance.",
+                cert2_title: "AutoCAD & Structural Drafting Competency", cert2_desc: "Technical certification for detailed 2D/3D structural drafting, bridge elements, regional sanitation, and building utilities.",
+                cert3_title: "Full-Stack Web Engineering", cert3_desc: "Modern web architecture integration competency using JavaScript ecosystem, PHP, and cloud server deployment.",
                 portfolio_ded_title: "DED Drawing Portfolio", portfolio_ded_subtitle: "Documentation of modeling and Detailed Engineering Design results.",
                 portfolio_super_title: "Project Supervision Portfolio", portfolio_super_subtitle: "Documentation of field monitoring, structural risk management, and construction quality control.",
                 port_status_done: "Completed",
@@ -758,7 +923,7 @@
             });
         });
 
-        document.addEventListener('click', () => {
+        document.addEventListener('click', (e) => {
             if (mobileMenu.style.display === "block") {
                 closeMobileMenu();
             }
