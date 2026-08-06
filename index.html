@@ -58,7 +58,7 @@
             min-height: calc(100vh - 180px);
         }
         
-        /* MURNI CSS BACKGROUND BINTANG JATUH */
+        /* BACKGROUND BINTANG JATUH */
         .space-bg {
             position: relative;
             overflow: hidden;
@@ -112,6 +112,7 @@
 </head>
 <body class="dark-mode antialiased selection:bg-blue-500 selection:text-white flex flex-col min-h-screen">
 
+    <!-- NAVBAR -->
     <nav class="fixed top-0 left-0 right-0 z-50 nav-bg backdrop-blur-md border-b">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-17 flex items-center justify-between py-4">
             <div class="text-2xl font-black tracking-tighter bg-gradient-to-r from-blue-400 via-teal-400 to-blue-500 bg-clip-text text-transparent cursor-pointer" onclick="switchTab('about')">
@@ -186,7 +187,7 @@
                         <div class="relative group flex-shrink-0">
                             <div class="absolute -inset-1.5 bg-gradient-to-r from-blue-500 via-teal-400 to-purple-600 rounded-full blur opacity-75 group-hover:opacity-100 transition duration-500 animate-pulse"></div>
                             <div class="relative w-32 h-32 sm:w-36 sm:h-36 rounded-full overflow-hidden border-4 border-slate-950 bg-slate-900 flex items-center justify-center shadow-2xl">
-                                <img src="foto profil.jpeg" onerror="this.src='https://images.unsplash.com/photo-1590069261209-f8e9b8642343?auto=format&fit=crop&q=80&w=300&h=300';" alt="Indra Kurniawan" class="w-full h-full object-cover">
+                                <img src="foto/foto profil.jpeg" onerror="this.src='https://images.unsplash.com/photo-1590069261209-f8e9b8642343?auto=format&fit=crop&q=80&w=300&h=300';" alt="Indra Kurniawan" class="w-full h-full object-cover">
                             </div>
                         </div>
                         <div class="space-y-2 py-2 flex-grow">
@@ -414,7 +415,7 @@
             </div>
         </section>
 
-        <!-- 5. PORTOFOLIO SECTION -->
+        <!-- 5. PORTOFOLIO SECTION (MEMBUKA PREVIEW PDF INTERNAL TANPA KELUAR WEB) -->
         <section id="sec-stats" class="tab-section hidden py-12 px-4 max-w-6xl mx-auto sm:px-6 lg:px-8 w-full animate__animated animate__fadeIn space-y-16">
             
             <!-- PORTOFOLIO GAMBAR DED -->
@@ -427,12 +428,12 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <!-- Kartu DED 1 -->
                     <div class="card-bg border p-4 rounded-3xl overflow-hidden hover-lift flex flex-col justify-between shadow-xl space-y-4 group">
-                        <a href="ded/DED Gambar Rumah 2 lantai.pdf#toolbar=0" target="_blank" title="Klik untuk membuka file penuh" class="aspect-video w-full rounded-2xl input-bg flex items-center justify-center overflow-hidden border border-slate-800/40 relative block cursor-pointer">
+                        <div onclick="openPortfolioPdf('ded/DED Rumah Type 100.pdf#toolbar=0', 'Perancangan Gambar Struktur Komprehensif Rumah TYPE 100 (DED)')" title="Klik untuk membuka PDF di dalam modal" class="aspect-video w-full rounded-2xl input-bg flex items-center justify-center overflow-hidden border border-slate-800/40 relative block cursor-pointer">
                             <img src="https://uploads.onecompiler.io/44vrspbk4/1784706452144/ChatGPT%20Image%2022%20Jul%202026,%2014.47.08.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80&w=600';" alt="DED Project 1" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                             <span class="absolute bottom-2 right-2 bg-slate-950/80 text-blue-400 text-[10px] px-2 py-1 rounded-md backdrop-blur-sm border border-slate-800 opacity-0 group-hover:opacity-100 transition-opacity">
-                                <i class="fas fa-external-link-alt mr-1"></i> Buka File
+                                <i class="fas fa-file-pdf mr-1 text-red-400"></i> Buka Dokumen PDF
                             </span>
-                        </a>
+                        </div>
                         <div class="px-2">
                             <span class="text-[11px] font-bold text-blue-400">AUTODESK AUTOCAD / SKETCHUP</span>
                             <h3 class="text-lg font-bold text-main mt-0.5" data-i18n="ded_p1_title">Perancangan Gambar Struktur Komprehensif Rumah TYPE 100 (DED)</h3>
@@ -442,12 +443,12 @@
 
                     <!-- Kartu DED 2 -->
                     <div class="card-bg border p-4 rounded-3xl overflow-hidden hover-lift flex flex-col justify-between shadow-xl space-y-4 group">
-                        <a href="ded/DED_R1_RUMAH TYPE 45_170225-Model.pdf#toolbar=0" target="_blank" title="Klik untuk membuka file penuh" class="aspect-video w-full rounded-2xl input-bg flex items-center justify-center overflow-hidden border border-slate-800/40 relative block cursor-pointer">
+                        <div onclick="openPortfolioPdf('ded/DED_R1_RUMAH TYPE 45_170225-Model.pdf#toolbar=0', 'Perancangan Gambar Struktur Komprehensif Rumah TYPE 45 (DED)')" title="Klik untuk membuka PDF di dalam modal" class="aspect-video w-full rounded-2xl input-bg flex items-center justify-center overflow-hidden border border-slate-800/40 relative block cursor-pointer">
                             <img src="https://uploads.onecompiler.io/44vrspbk4/1784700831607/ChatGPT%20Image%2022%20Jul%202026,%2013.13.28.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&q=80&w=600';" alt="DED Project 2" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                             <span class="absolute bottom-2 right-2 bg-slate-950/80 text-blue-400 text-[10px] px-2 py-1 rounded-md backdrop-blur-sm border border-slate-800 opacity-0 group-hover:opacity-100 transition-opacity">
-                                <i class="fas fa-external-link-alt mr-1"></i> Buka File
+                                <i class="fas fa-file-pdf mr-1 text-red-400"></i> Buka Dokumen PDF
                             </span>
-                        </a>
+                        </div>
                         <div class="px-2">
                             <span class="text-[11px] font-bold text-blue-400">AUTODESK AUTOCAD / SKETCHUP</span>
                             <h3 class="text-lg font-bold text-main mt-0.5" data-i18n="ded_p2_title">Perancangan Gambar Struktur Komprehensif Rumah TYPE 45 (DED)</h3>
@@ -457,27 +458,27 @@
 
                     <!-- Kartu DED 3 -->
                     <div class="card-bg border p-4 rounded-3xl overflow-hidden hover-lift flex flex-col justify-between shadow-xl space-y-4 group">
-                        <a href="ded/DED Gambar Rumah 2 lantai_compressed.pdf#toolbar=0" target="_blank" title="Klik untuk membuka file penuh" class="aspect-video w-full rounded-2xl input-bg flex items-center justify-center overflow-hidden border border-slate-800/40 relative block cursor-pointer">
+                        <div onclick="openPortfolioPdf('ded/DED Gambar Rumah 2 lantai.pdf#toolbar=0', 'Perancangan Gambar Struktur Komprehensif Rumah tinggal 2 lantai (DED)')" title="Klik untuk membuka PDF di dalam modal" class="aspect-video w-full rounded-2xl input-bg flex items-center justify-center overflow-hidden border border-slate-800/40 relative block cursor-pointer">
                             <img src="https://uploads.onecompiler.io/44vrspbk4/1786013385033/ChatGPT%20Image%206%20Agu%202026,%2017.49.33.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&q=80&w=600';" alt="DED Project 3" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                             <span class="absolute bottom-2 right-2 bg-slate-950/80 text-blue-400 text-[10px] px-2 py-1 rounded-md backdrop-blur-sm border border-slate-800 opacity-0 group-hover:opacity-100 transition-opacity">
-                                <i class="fas fa-external-link-alt mr-1"></i> Buka File
+                                <i class="fas fa-file-pdf mr-1 text-red-400"></i> Buka Dokumen PDF
                             </span>
-                        </a>
+                        </div>
                         <div class="px-2">
                             <span class="text-[11px] font-bold text-blue-400">AUTODESK AUTOCAD / SKETCHUP</span>
-                            <h3 class="text-lg font-bold text-main mt-0.5" data-i18n="ded_p3_title">Perancangan Gambar Struktur Komprehensif Rumah tinggal 2 lantai  (DED)</h3>
+                            <h3 class="text-lg font-bold text-main mt-0.5" data-i18n="ded_p3_title">Perancangan Gambar Struktur Komprehensif Rumah tinggal 2 lantai (DED)</h3>
                             <p class="text-sm text-muted mt-2 leading-relaxed" data-i18n="ded_p3_desc">Penyusunan blueprint arsitektural & struktural detail pondasi, penulangan beton, sanitasi secara presisi.</p>
                         </div>
                     </div>
 
                     <!-- Kartu DED 4 -->
                     <div class="card-bg border p-4 rounded-3xl overflow-hidden hover-lift flex flex-col justify-between shadow-xl space-y-4 group">
-                        <a href="ded/DED_R1_RUMAH TYPE 45_170225-Model.pdf#toolbar=0" target="_blank" title="Klik untuk membuka file penuh" class="aspect-video w-full rounded-2xl input-bg flex items-center justify-center overflow-hidden border border-slate-800/40 relative block cursor-pointer">
+                        <div onclick="openPortfolioPdf('ded/DED_R1_RUMAH TYPE 45_170225-Model.pdf#toolbar=0', 'Integrasi Gambar Detail Kerja dengan Volume RAB')" title="Klik untuk membuka PDF di dalam modal" class="aspect-video w-full rounded-2xl input-bg flex items-center justify-center overflow-hidden border border-slate-800/40 relative block cursor-pointer">
                             <img src="https://uploads.onecompiler.io/44vrspbk4/1784700831607/ChatGPT%20Image%2022%20Jul%202026,%2013.13.28.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=600';" alt="DED Project 4" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                             <span class="absolute bottom-2 right-2 bg-slate-950/80 text-blue-400 text-[10px] px-2 py-1 rounded-md backdrop-blur-sm border border-slate-800 opacity-0 group-hover:opacity-100 transition-opacity">
-                                <i class="fas fa-external-link-alt mr-1"></i> Buka File
+                                <i class="fas fa-file-pdf mr-1 text-red-400"></i> Buka Dokumen PDF
                             </span>
-                        </a>
+                        </div>
                         <div class="px-2">
                             <span class="text-[11px] font-bold text-blue-400">RAB & ESTIMATION</span>
                             <h3 class="text-lg font-bold text-main mt-0.5" data-i18n="ded_p4_title">Integrasi Gambar Detail Kerja dengan Volume RAB</h3>
@@ -497,13 +498,13 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <!-- Kartu Pengawasan 1 -->
                     <div class="card-bg border p-4 rounded-3xl overflow-hidden hover-lift flex flex-col justify-between shadow-xl space-y-4 group">
-                        <a href="foto/pengawasan-poli.jpg" target="_blank" title="Klik untuk membuka file penuh" class="aspect-video w-full rounded-2xl input-bg flex items-center justify-center overflow-hidden border border-slate-800/40 relative block cursor-pointer">
+                        <div onclick="openPortfolioPreview('https://uploads.onecompiler.io/44vrspbk4/1786010990954/ChatGPT%20Image%206%20Agu%202026,%2017.09.35.png')" title="Klik untuk memperbesar gambar" class="aspect-video w-full rounded-2xl input-bg flex items-center justify-center overflow-hidden border border-slate-800/40 relative block cursor-pointer">
                             <img src="https://uploads.onecompiler.io/44vrspbk4/1786010990954/ChatGPT%20Image%206%20Agu%202026,%2017.09.35.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=600';" alt="Supervision Project 1" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                             <span class="absolute top-3 right-3 text-[10px] uppercase font-bold tracking-wider px-2 py-1 rounded bg-teal-500/10 border border-teal-500/30 text-teal-400 z-10" data-i18n="port_status_done">Selesai</span>
                             <span class="absolute bottom-2 right-2 bg-slate-950/80 text-teal-400 text-[10px] px-2 py-1 rounded-md backdrop-blur-sm border border-slate-800 opacity-0 group-hover:opacity-100 transition-opacity">
-                                <i class="fas fa-external-link-alt mr-1"></i> Buka File
+                                <i class="fas fa-search-plus mr-1"></i> Perbesar Gambar
                             </span>
-                        </a>
+                        </div>
                         <div class="px-2">
                             <span class="text-[11px] font-bold text-teal-400">PT. ROSA AGUNG MULIA KONSULTAN</span>
                             <h3 class="text-lg font-bold text-main mt-0.5" data-i18n="port_p1_title">Pengawas Pembangunan Renovasi Gedung Poli Spesialis Lt 3</h3>
@@ -514,13 +515,13 @@
 
                     <!-- Kartu Pengawasan 2 -->
                     <div class="card-bg border p-4 rounded-3xl overflow-hidden hover-lift flex flex-col justify-between shadow-xl space-y-4 group">
-                        <a href="foto/pengawasan-anggrek.jpg" target="_blank" title="Klik untuk membuka file penuh" class="aspect-video w-full rounded-2xl input-bg flex items-center justify-center overflow-hidden border border-slate-800/40 relative block cursor-pointer">
+                        <div onclick="openPortfolioPreview('https://uploads.onecompiler.io/44vrspbk4/1786014451155/WhatsApp%20Image%202026-08-06%20at%2017.52.52.jpeg')" title="Klik untuk memperbesar gambar" class="aspect-video w-full rounded-2xl input-bg flex items-center justify-center overflow-hidden border border-slate-800/40 relative block cursor-pointer">
                             <img src="https://uploads.onecompiler.io/44vrspbk4/1786014451155/WhatsApp%20Image%202026-08-06%20at%2017.52.52.jpeg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1590069261209-f8e9b8642343?auto=format&fit=crop&q=80&w=600';" alt="Supervision Project 2" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                             <span class="absolute top-3 right-3 text-[10px] uppercase font-bold tracking-wider px-2 py-1 rounded bg-teal-500/10 border border-teal-500/30 text-teal-400 z-10" data-i18n="port_status_done">Selesai</span>
                             <span class="absolute bottom-2 right-2 bg-slate-950/80 text-teal-400 text-[10px] px-2 py-1 rounded-md backdrop-blur-sm border border-slate-800 opacity-0 group-hover:opacity-100 transition-opacity">
-                                <i class="fas fa-external-link-alt mr-1"></i> Buka File
+                                <i class="fas fa-search-plus mr-1"></i> Perbesar Gambar
                             </span>
-                        </a>
+                        </div>
                         <div class="px-2">
                             <span class="text-[11px] font-bold text-teal-400">PT. ROSA AGUNG MULIA KONSULTAN</span>
                             <h3 class="text-lg font-bold text-main mt-0.5" data-i18n="port_p2_title">Pengawasan & Perencanaan Gedung Rawat Inap Anggrek 3 lt</h3>
@@ -531,13 +532,13 @@
 
                     <!-- Kartu Pengawasan 3 -->
                     <div class="card-bg border p-4 rounded-3xl overflow-hidden hover-lift flex flex-col justify-between shadow-xl space-y-4 group">
-                        <a href="foto/pengawasan-kanopi.jpg" target="_blank" title="Klik untuk membuka file penuh" class="aspect-video w-full rounded-2xl input-bg flex items-center justify-center overflow-hidden border border-slate-800/40 relative block cursor-pointer">
+                        <div onclick="openPortfolioPreview('https://uploads.onecompiler.io/44vrspbk4/1786014665107/ChatGPT%20Image%206%20Agu%202026,%2018.10.31.png')" title="Klik untuk memperbesar gambar" class="aspect-video w-full rounded-2xl input-bg flex items-center justify-center overflow-hidden border border-slate-800/40 relative block cursor-pointer">
                             <img src="https://uploads.onecompiler.io/44vrspbk4/1786014665107/ChatGPT%20Image%206%20Agu%202026,%2018.10.31.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1517581177682-a085bb7ffb15?auto=format&fit=crop&q=80&w=600';" alt="Supervision Project 3" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                             <span class="absolute top-3 right-3 text-[10px] uppercase font-bold tracking-wider px-2 py-1 rounded bg-teal-500/10 border border-teal-500/30 text-teal-400 z-10" data-i18n="port_status_done">Selesai</span>
                             <span class="absolute bottom-2 right-2 bg-slate-950/80 text-teal-400 text-[10px] px-2 py-1 rounded-md backdrop-blur-sm border border-slate-800 opacity-0 group-hover:opacity-100 transition-opacity">
-                                <i class="fas fa-external-link-alt mr-1"></i> Buka File
+                                <i class="fas fa-search-plus mr-1"></i> Perbesar Gambar
                             </span>
-                        </a>
+                        </div>
                         <div class="px-2">
                             <span class="text-[11px] font-bold text-teal-400">PT. ROSA AGUNG MULIA KONSULTAN</span>
                             <h3 class="text-lg font-bold text-main mt-0.5" data-i18n="port_p3_title">Pengawasan Pembangunan Kanopi SD & SMP</h3>
@@ -548,13 +549,13 @@
 
                     <!-- Kartu Pengawasan 4 -->
                     <div class="card-bg border p-4 rounded-3xl overflow-hidden hover-lift flex flex-col justify-between shadow-xl space-y-4 group">
-                        <a href="foto/pengawasan-mawar.jpg" target="_blank" title="Klik untuk membuka file penuh" class="aspect-video w-full rounded-2xl input-bg flex items-center justify-center overflow-hidden border border-slate-800/40 relative block cursor-pointer">
+                        <div onclick="openPortfolioPreview('https://uploads.onecompiler.io/44vrspbk4/1786014266460/Ganbar%20mawar.png')" title="Klik untuk memperbesar gambar" class="aspect-video w-full rounded-2xl input-bg flex items-center justify-center overflow-hidden border border-slate-800/40 relative block cursor-pointer">
                             <img src="https://uploads.onecompiler.io/44vrspbk4/1786014266460/Ganbar%20mawar.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&q=80&w=600';" alt="Supervision Project 4" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                             <span class="absolute top-3 right-3 text-[10px] uppercase font-bold tracking-wider px-2 py-1 rounded bg-teal-500/10 border border-teal-500/30 text-teal-400 z-10" data-i18n="port_status_done">Selesai</span>
                             <span class="absolute bottom-2 right-2 bg-slate-950/80 text-teal-400 text-[10px] px-2 py-1 rounded-md backdrop-blur-sm border border-slate-800 opacity-0 group-hover:opacity-100 transition-opacity">
-                                <i class="fas fa-external-link-alt mr-1"></i> Buka File
+                                <i class="fas fa-search-plus mr-1"></i> Perbesar Gambar
                             </span>
-                        </a>
+                        </div>
                         <div class="px-2">
                             <span class="text-[11px] font-bold text-teal-400">PT. ROSA AGUNG MULIA KONSULTAN</span>
                             <h3 class="text-lg font-bold text-main mt-0.5" data-i18n="port_p4_title">Pengawasan Pembangunan Gedung Rawat Inap Mawar 3 lt</h3>
@@ -567,7 +568,7 @@
 
         </section>
 
-        <!-- 6. KONTAK SECTION (PILIHAN GMAIL & TELEPON / WHATSAPP PROFESIONAL) -->
+        <!-- 6. KONTAK SECTION -->
         <section id="sec-contact" class="tab-section hidden py-12 px-4 max-w-4xl mx-auto sm:px-6 lg:px-8 w-full animate__animated animate__fadeIn">
             <div class="card-bg border rounded-3xl p-8 md:p-12 text-center glow-effect space-y-8">
                 <div class="max-w-xl mx-auto">
@@ -578,10 +579,7 @@
                     <p class="text-muted text-sm" data-i18n="contact_subtitle">Hubungi saya untuk kebutuhan konsultasi pengawasan teknis konstruksi rekayasa sipil atau integrasi sistem platform digital web.</p>
                 </div>
 
-                <!-- Opsi Kontak Profesional (Grid 2 Kolom) -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2 text-left max-w-3xl mx-auto">
-                    
-                    <!-- OPSI 1: GMAIL -->
                     <div class="input-bg border rounded-2xl p-6 hover-lift flex flex-col justify-between space-y-4 border-slate-800/80">
                         <div>
                             <div class="flex items-center justify-between mb-3">
@@ -598,7 +596,6 @@
                         </a>
                     </div>
 
-                    <!-- OPSI 2: WHATSAPP / HP -->
                     <div class="input-bg border rounded-2xl p-6 hover-lift flex flex-col justify-between space-y-4 border-slate-800/80">
                         <div>
                             <div class="flex items-center justify-between mb-3">
@@ -614,10 +611,8 @@
                             <i class="fab fa-whatsapp text-sm"></i> <span data-i18n="contact_btn_wa">Chat via WhatsApp</span>
                         </a>
                     </div>
-
                 </div>
 
-                <!-- Footer Statistic Counter -->
                 <div class="pt-6 border-t border-slate-900/40 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
                     <div class="flex items-center gap-2">
                         <i class="fas fa-chart-line text-blue-500/60"></i>
@@ -630,11 +625,10 @@
 
     </main>
 
-    <!-- MODAL INTERNAL UNTUK GALERI SERTIFIKAT & EMBED PDF -->
+    <!-- MODAL INTERNAL UNTUK EMBED DOCUMENT PDF & GALERI FOTO -->
     <div id="cert-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center bg-slate-950/80 backdrop-blur-md p-4 transition-all duration-300">
         <div class="card-bg border rounded-3xl max-w-4xl w-full p-6 relative shadow-2xl flex flex-col space-y-4 animate__animated animate__zoomIn">
             
-            <!-- Header Modal -->
             <div class="flex items-center justify-between border-b border-slate-800 pb-3">
                 <div class="flex items-center gap-3">
                     <div id="modal-icon" class="text-2xl text-blue-500"><i class="fas fa-certificate"></i></div>
@@ -648,10 +642,8 @@
                 </button>
             </div>
 
-            <!-- Tampilan Foto / PDF Viewer -->
             <div class="relative h-[65vh] w-full rounded-2xl bg-slate-950 overflow-hidden border border-slate-800/60 flex items-center justify-center group">
                 
-                <!-- Elemen Gambar (Dapat diklik untuk Fullscreen Zoom) -->
                 <div id="modal-img-container" onclick="openFullscreenViewer()" class="w-full h-full flex items-center justify-center cursor-zoom-in relative hidden group">
                     <img id="modal-img" src="" alt="Foto Sertifikat" class="w-full h-full object-contain transition-all duration-300">
                     <span class="absolute top-3 right-3 bg-slate-950/80 text-blue-400 text-xs px-3 py-1.5 rounded-lg border border-slate-800 backdrop-blur-md opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1.5 pointer-events-none">
@@ -659,27 +651,23 @@
                     </span>
                 </div>
                 
-                <!-- Elemen Viewer PDF Internal -->
+                <!-- IFRAME PEMBUKA PDF LOKAL / DOKUMEN INTERNAL -->
                 <iframe id="modal-pdf" src="" class="w-full h-full border-0 hidden"></iframe>
 
-                <!-- Navigasi Gambar/Dokumen (Sebelumnya/Selanjutnya) -->
-                <button onclick="prevCertPhoto()" class="absolute left-3 top-1/2 -translate-y-1/2 bg-slate-900/80 hover:bg-blue-600 text-white p-3 rounded-full border border-slate-700 backdrop-blur-md transition-all opacity-80 group-hover:opacity-100 hover:scale-110 z-10">
+                <button id="modal-nav-prev" onclick="prevCertPhoto()" class="absolute left-3 top-1/2 -translate-y-1/2 bg-slate-900/80 hover:bg-blue-600 text-white p-3 rounded-full border border-slate-700 backdrop-blur-md transition-all opacity-80 group-hover:opacity-100 hover:scale-110 z-10">
                     <i class="fas fa-chevron-left text-sm"></i>
                 </button>
-                <button onclick="nextCertPhoto()" class="absolute right-3 top-1/2 -translate-y-1/2 bg-slate-900/80 hover:bg-blue-600 text-white p-3 rounded-full border border-slate-700 backdrop-blur-md transition-all opacity-80 group-hover:opacity-100 hover:scale-110 z-10">
+                <button id="modal-nav-next" onclick="nextCertPhoto()" class="absolute right-3 top-1/2 -translate-y-1/2 bg-slate-900/80 hover:bg-blue-600 text-white p-3 rounded-full border border-slate-700 backdrop-blur-md transition-all opacity-80 group-hover:opacity-100 hover:scale-110 z-10">
                     <i class="fas fa-chevron-right text-sm"></i>
                 </button>
 
-                <!-- Indikator Posisi Berkas -->
-                <div class="absolute bottom-3 left-1/2 -translate-x-1/2 bg-slate-950/90 text-slate-300 text-[11px] font-mono px-3 py-1 rounded-full border border-slate-800 backdrop-blur-md z-10">
+                <div id="modal-counter-box" class="absolute bottom-3 left-1/2 -translate-x-1/2 bg-slate-950/90 text-slate-300 text-[11px] font-mono px-3 py-1 rounded-full border border-slate-800 backdrop-blur-md z-10">
                     Dokumen <span id="modal-photo-idx">1</span> / <span id="modal-photo-total">1</span>
                 </div>
             </div>
 
-            <!-- Deskripsi Foto -->
             <p id="modal-desc" class="text-sm text-muted leading-relaxed px-1">Deskripsi sertifikat...</p>
 
-            <!-- Footer Modal -->
             <div class="flex justify-end pt-2 border-t border-slate-800/60">
                 <button onclick="closeCertModal()" class="px-5 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-xs font-semibold text-main transition-all">
                     Tutup
@@ -688,13 +676,13 @@
         </div>
     </div>
 
-    <!-- MODAL FULLSCREEN ZOOM (UNTUK MEMPERBESAR FOTO FULL LAYAR TANPA PERNAH KELUAR SISTEM) -->
+    <!-- MODAL FULLSCREEN ZOOM (LIGHTBOX PROYEK HASIL DED) -->
     <div id="fullscreen-modal" onclick="closeFullscreenViewer()" class="fixed inset-0 z-[60] hidden flex items-center justify-center bg-slate-950/95 backdrop-blur-lg p-2 sm:p-6 transition-all duration-300 cursor-zoom-out">
         <div class="relative w-full h-full flex items-center justify-center">
             <button onclick="closeFullscreenViewer()" class="absolute top-4 right-4 text-white text-2xl p-3 rounded-2xl bg-slate-900/80 hover:bg-red-600 border border-slate-700 transition-all focus:outline-none z-20">
                 <i class="fas fa-times"></i>
             </button>
-            <img id="fullscreen-img" src="" alt="Fullscreen Sertifikat" class="max-w-full max-h-full object-contain rounded-xl shadow-2xl animate__animated animate__zoomIn">
+            <img id="fullscreen-img" src="" alt="Fullscreen Lightbox" class="max-w-full max-h-full object-contain rounded-xl shadow-2xl animate__animated animate__zoomIn">
         </div>
     </div>
 
@@ -703,7 +691,37 @@
     </footer>
 
     <script>
-        // --- DATA GALERI SERTIFIKAT MODAL (Mendukung URL Foto JPG/PNG maupun PDF) ---
+        // --- FUNGSI KHUSUS UNTUK MEMBUKA DOKUMEN PDF PORTOFOLIO DED DI MODAL ---
+        function openPortfolioPdf(pdfUrl, titleText) {
+            const modal = document.getElementById('cert-modal');
+            
+            document.getElementById('modal-title').innerText = titleText;
+            document.getElementById('modal-subtitle').innerText = "Detailed Engineering Design (PDF)";
+            document.getElementById('modal-desc').innerText = "Gunakan kontrol navigasi PDF pada layar di atas untuk memperbesar (zoom), menggulir halaman, atau mencetak berkas secara presisi.";
+            document.getElementById('modal-icon').className = "text-2xl fas fa-file-pdf text-red-500";
+
+            // Sembunyikan elemen gambar & navigasi foto sertifikat
+            document.getElementById('modal-img-container').classList.add('hidden');
+            document.getElementById('modal-nav-prev').classList.add('hidden');
+            document.getElementById('modal-nav-next').classList.add('hidden');
+            document.getElementById('modal-counter-box').classList.add('hidden');
+
+            // Tampilkan Iframe PDF
+            const pdfEl = document.getElementById('modal-pdf');
+            pdfEl.classList.remove('hidden');
+            pdfEl.src = pdfUrl;
+
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // --- FUNGSI MEMBUKA GAMBAR FOTO PENGAWASAN (LIGHTBOX) ---
+        function openPortfolioPreview(imgUrl) {
+            document.getElementById('fullscreen-img').src = imgUrl;
+            document.getElementById('fullscreen-modal').classList.remove('hidden');
+        }
+
+        // --- DATA GALERI SERTIFIKAT MODAL ---
         const certData = {
             cert1: {
                 titleKey: "cert1_title",
@@ -759,6 +777,11 @@
             document.getElementById('modal-desc').innerText = descText;
             document.getElementById('modal-icon').className = "text-2xl " + data.iconClass;
 
+            // Kembalikan tombol navigasi sertifikat jika sebelumnya disembunyikan PDF
+            document.getElementById('modal-nav-prev').classList.remove('hidden');
+            document.getElementById('modal-nav-next').classList.remove('hidden');
+            document.getElementById('modal-counter-box').classList.remove('hidden');
+
             updateModalPhoto();
 
             const modal = document.getElementById('cert-modal');
@@ -810,11 +833,10 @@
             updateModalPhoto();
         }
 
-        /* --- FITUR FULLSCREEN ZOOM FOTO (TETAP DI DALAM WEBSITE) --- */
         function openFullscreenViewer() {
             if (!activeCert) return;
             const currentUrl = activeCert.photos[activePhotoIdx];
-            if (currentUrl.toLowerCase().endsWith('.pdf')) return; // Khusus Gambar
+            if (currentUrl.toLowerCase().endsWith('.pdf')) return;
 
             document.getElementById('fullscreen-img').src = currentUrl;
             document.getElementById('fullscreen-modal').classList.remove('hidden');
@@ -873,9 +895,9 @@
                 portfolio_ded_title: "Portofolio Gambar DED", portfolio_ded_subtitle: "Dokumentasi hasil pemodelan dan perancangan Detailed Engineering Design berkala.",
                 portfolio_super_title: "Portofolio Pengawasan Proyek", portfolio_super_subtitle: "Dokumentasi monitoring lapangan, manajemen risiko struktural, dan kendali mutu konstruksi.",
                 port_status_done: "Selesai",
-                ded_p1_title: "Perancangan Gambar Struktur Komprehensif (DED)", ded_p1_desc: "Penyusunan blueprint arsitektural & struktural detail pondasi, penulangan beton, sanitasi utilitas kawasan gedung secara presisi.",
-                ded_p2_title: "Pemodelan Visual Rekayasa 3D Gedung Inap", ded_p2_desc: "Pembuatan visualisasi 3D modeling struktur beton bertingkat tiga untuk penentuan tata letak ruang zonasi fasilitas kesehatan.",
-                ded_p3_title: "DED Sistem Plumbing & Saluran Air Regional", ded_p3_desc: "Drafting teknis jaringan pipa air bersih, pengolahan limbah air kotor, dan integrasi drainase kawasan regional luar bangunan.",
+                ded_p1_title: "Perancangan Gambar Struktur Komprehensif Rumah TYPE 100 (DED)", ded_p1_desc: "Penyusunan blueprint arsitektural & struktural detail pondasi, penulangan beton, sanitasi secara presisi.",
+                ded_p2_title: "Perancangan Gambar Struktur Komprehensif Rumah TYPE 45 (DED)", ded_p2_desc: "Penyusunan blueprint arsitektural & struktural detail pondasi, penulangan beton, sanitasi secara presisi.",
+                ded_p3_title: "Perancangan Gambar Struktur Komprehensif Rumah tinggal 2 lantai (DED)", ded_p3_desc: "Penyusunan blueprint arsitektural & struktural detail pondasi, penulangan beton, sanitasi secara presisi.",
                 ded_p4_title: "Integrasi Gambar Detail Kerja dengan Volume RAB", ded_p4_desc: "Sinkronisasi hasil plotting gambar AutoCAD ke dalam spreadsheet perhitungan volume besi, semen, bekisting untuk nilai keekonomian proyek.",
                 port_p1_title: "Pengawas Pembangunan Renovasi Gedung Poli Spesialis Lt 3", port_p1_desc: "Melaksanakan kendali mutu operasional, verifikasi teknis gambar kerja di lapangan, koordinasi sub-kontraktor, dan pengawasan schedule berkala.",
                 port_p2_title: "Pengawasan & Perencanaan Gedung Rawat Inap Anggrek 3 lt", port_p2_desc: "Pengawasan struktural bangunan vertikal 3 lantai, monitoring jalannya pembetonan, manajemen risiko bekisting, serta kalkulasi volume RAB berkala.",
@@ -904,9 +926,9 @@
                 portfolio_ded_title: "DED Drawing Portfolio", portfolio_ded_subtitle: "Documentation of modeling and Detailed Engineering Design results.",
                 portfolio_super_title: "Project Supervision Portfolio", portfolio_super_subtitle: "Documentation of field monitoring, structural risk management, and construction quality control.",
                 port_status_done: "Completed",
-                ded_p1_title: "Comprehensive Structural Detailed Engineering Design (DED)", ded_p1_desc: "Assembling precise architectural & structural blueprints for foundations, concrete rebar reinforcements, and regional zone utility layouts.",
-                ded_p2_title: "3D Engineering Visual Modeling for Inpatient Facilities", ded_p2_desc: "Generating 3D structure visualizations of a three-story concrete building to dictate systematic division layouts.",
-                ded_p3_title: "DED Regional Plumbing & Drainage Systems", ded_p3_desc: "Technical mapping of clean water loops, wastewater management, and exterior regional facility storm water systems.",
+                ded_p1_title: "Comprehensive Structural Design for TYPE 100 House (DED)", ded_p1_desc: "Preparation of precise architectural & structural blueprints detailing foundations, concrete rebar, and plumbing systems.",
+                ded_p2_title: "Comprehensive Structural Design for TYPE 45 House (DED)", ded_p2_desc: "Preparation of precise architectural & structural blueprints detailing foundations, concrete rebar, and plumbing systems.",
+                ded_p3_title: "Comprehensive Structural Design for 2-Story House (DED)", ded_p3_desc: "Preparation of precise architectural & structural blueprints detailing foundations, concrete rebar, and plumbing systems.",
                 ded_p4_title: "Integrating Structural Details with Bill of Quantities (BOQ)", ded_p4_desc: "Synchronizing analytical AutoCAD plots directly with excel spreadsheets for reinforced steel, concrete volumes, and framework cost estimation.",
                 port_p1_title: "Supervisor for Phase 3 Specialist Clinic Building Renovation", port_p1_desc: "Executing operational quality control, verifying field shop drawings, coordinating subcontractors, and managing schedule tracking for medical facilities.",
                 port_p2_title: "Supervision & Design of 3-Story Anggrek Inpatient Building", port_p2_desc: "Structural supervision of a 3-story vertical building, concreting workflow monitoring, formwork risk assessment, and periodic budget evaluations.",
