@@ -57,6 +57,15 @@
         .content-wrapper {
             min-height: calc(100vh - 180px);
         }
+
+        /* HIGHLIGHT ANIMATION KETIKA NAVIGASI DARI PENGALAMAN KE PORTOFOLIO */
+        .highlight-target {
+            animation: highlightGlow 2s ease-in-out;
+        }
+        @keyframes highlightGlow {
+            0%, 100% { ring-width: 0px; }
+            50% { box-shadow: 0 0 30px 5px rgba(20, 184, 166, 0.8); border-color: #14b8a6; }
+        }
         
         /* BACKGROUND BINTANG JATUH */
         .space-bg {
@@ -187,7 +196,7 @@
                         <div class="relative group flex-shrink-0">
                             <div class="absolute -inset-1.5 bg-gradient-to-r from-blue-500 via-teal-400 to-purple-600 rounded-full blur opacity-75 group-hover:opacity-100 transition duration-500 animate-pulse"></div>
                             <div class="relative w-32 h-32 sm:w-36 sm:h-36 rounded-full overflow-hidden border-4 border-slate-950 bg-slate-900 flex items-center justify-center shadow-2xl">
-                                <img src="foto profil.jpeg" onerror="this.src='https://images.unsplash.com/photo-1590069261209-f8e9b8642343?auto=format&fit=crop&q=80&w=300&h=300';" alt="Indra Kurniawan" class="w-full h-full object-cover">
+                                <img src="foto/foto profil.jpeg" onerror="this.src='https://images.unsplash.com/photo-1590069261209-f8e9b8642343?auto=format&fit=crop&q=80&w=300&h=300';" alt="Indra Kurniawan" class="w-full h-full object-cover">
                             </div>
                         </div>
                         <div class="space-y-2 py-2 flex-grow">
@@ -274,21 +283,23 @@
             </div>
         </section>
 
-        <!-- 3. PENGALAMAN KERJA SECTION -->
+        <!-- 3. PENGALAMAN KERJA SECTION (TOTAL 7 ITEM: ITEM UTAMA DRAFTER/SEKARANG + 6 ITEM PROYEK) -->
         <section id="sec-experience" class="tab-section hidden py-12 px-4 max-w-4xl mx-auto sm:px-6 lg:px-8 w-full animate__animated animate__fadeIn">
             <h2 class="text-3xl font-bold text-main tracking-tight mb-2 text-center" data-i18n="exp_title">Rekam Jejak Profesional</h2>
-            <p class="text-muted text-center text-sm mb-12" data-i18n="exp_subtitle">Pengalaman kerja pengawasan teknis dan manajemen konstruksi di PT. ROSA AGUNG MULIA KONSULTAN.</p>
+            <p class="text-muted text-center text-sm mb-12" data-i18n="exp_subtitle">Pengalaman kerja pengawasan teknis dan manajemen konstruksi di PT. ROSA AGUNG MULIA KONSULTAN. (Klik kartu untuk melihat dokumentasi portofolio).</p>
             
             <div class="space-y-8 relative before:absolute before:inset-0 before:left-4 sm:before:left-1/2 before:w-0.5 before:bg-slate-800">
+                
+                <!-- Item Pengalaman 1 (Item Sebelumnya: Civil Drafter & Pengawas) -->
                 <div class="relative flex flex-col sm:flex-row items-start sm:items-center group">
-                    <div class="absolute left-4 sm:left-1/2 w-4 h-4 bg-blue-500 rounded-full border-4 border-slate-900 -translate-x-1.5 z-10"></div>
-                    <div class="w-full sm:w-1/2 sm:pr-8 pl-8 sm:pl-0 sm:text-right">
-                        <div class="p-6 card-bg border rounded-2xl hover-lift">
+                    <div class="absolute left-4 sm:left-1/2 w-4 h-4 bg-teal-400 rounded-full border-4 border-slate-900 -translate-x-1.5 z-10"></div>
+                    <div class="w-full sm:w-1/2 sm:pl-8 pl-8 sm:ml-auto">
+                        <div class="p-6 card-bg border rounded-2xl hover-lift transition-all border-slate-800 hover:border-teal-400">
                             <span class="text-xs font-bold text-blue-400" data-i18n="exp1_date">Mei 2023 - Sekarang</span>
                             <h3 class="text-lg font-bold text-main mt-1" data-i18n="exp1_role">Civil Drafter & Pengawas</h3>
-                            <p class="text-xs text-muted font-medium">PT. ROSA AGUNG MULIA KONSULTAN</p>
+                            <p class="text-xs text-muted font-medium mb-3">PT. ROSA AGUNG MULIA KONSULTAN</p>
                             <p class="text-sm text-muted mb-3" data-i18n="exp1_desc">Melakukan pemodelan visual engineering, perancangan struktural, estimasi volume, sekaligus pengawasan operasional langsung di lapangan.</p>
-                            <div class="flex flex-wrap gap-2 justify-start sm:justify-end">
+                            <div class="flex flex-wrap gap-2">
                                 <span class="text-xs input-bg px-2 py-1 rounded border"><i class="fas fa-cube text-teal-400 mr-1"></i> SketchUp</span>
                                 <span class="text-xs input-bg px-2 py-1 rounded border"><i class="fas fa-cube text-teal-400 mr-1"></i> AutoCAD</span>
                                 <span class="text-xs input-bg px-2 py-1 rounded border"><i class="fas fa-calculator text-teal-400 mr-1"></i> RAB</span>
@@ -296,47 +307,90 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Item Pengalaman 2 (Proyek 1: Gedung Rawat Inap Paru) -->
+                <div class="relative flex flex-col sm:flex-row items-start sm:items-center group">
+                    <div class="absolute left-4 sm:left-1/2 w-4 h-4 bg-blue-500 rounded-full border-4 border-slate-900 -translate-x-1.5 z-10"></div>
+                    <div class="w-full sm:w-1/2 sm:pr-8 pl-8 sm:pl-0 sm:text-right">
+                        <div onclick="navigateToPortfolio('port-super-1')" title="Klik untuk langsung melihat foto dokumentasi di Portofolio" class="p-6 card-bg border rounded-2xl hover-lift cursor-pointer transition-all border-slate-800 hover:border-blue-400 group-hover:shadow-lg">
+                            <div class="flex justify-between items-center mb-1 sm:flex-row-reverse">
+                                <span class="text-xs font-bold text-blue-400">Agustus 2026 - Okt 2026</span>
+                                <span class="text-[10px] text-blue-400 bg-blue-500/10 px-2 py-0.5 rounded border border-blue-500/20 group-hover:bg-blue-500 group-hover:text-slate-950 font-semibold transition-all">
+                                    Lihat Dokumentasi <i class="fas fa-arrow-right ml-1"></i>
+                                </span>
+                            </div>
+                            <h3 class="text-lg font-bold text-main mt-1" data-i18n="port_p5_title">Pengawasan Pembangunan Gedung Rawat Inap Paru</h3>
+                            <p class="text-xs text-muted font-medium mb-2">PT. ROSA AGUNG MULIA KONSULTAN</p>
+                            <p class="text-xs text-slate-500 mb-3">RS BHAYANGKARA PUSDIK PORONG SIDOARJO</p>
+                            <p class="text-sm text-muted mb-3" data-i18n="port_p5_desc">Pengawasan teknis struktur beton bertulang, evaluasi pengujian kualitas material, serta verifikasi instalasi utilitas medis secara profesional.</p>
+                            <div class="flex flex-wrap gap-2 justify-start sm:justify-end">
+                                <span class="text-xs input-bg px-2 py-1 rounded border"><i class="fas fa-tasks text-blue-400 mr-1"></i> Pengawasan Beton</span>
+                                <span class="text-xs input-bg px-2 py-1 rounded border"><i class="fas fa-file-invoice-dollar text-blue-400 mr-1"></i> Quality Control</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item Pengalaman 3 (Proyek 2: Poli Spesialis Lt 3) -->
                 <div class="relative flex flex-col sm:flex-row items-start sm:items-center group">
                     <div class="absolute left-4 sm:left-1/2 w-4 h-4 bg-teal-400 rounded-full border-4 border-slate-900 -translate-x-1.5 z-10"></div>
                     <div class="w-full sm:w-1/2 sm:pl-8 pl-8 sm:ml-auto">
-                        <div class="p-6 card-bg border rounded-2xl hover-lift">
-                            <span class="text-xs font-bold text-teal-400" data-i18n="exp2_date">Jun 2025 - Oktober 2025</span>
+                        <div onclick="navigateToPortfolio('port-super-2')" title="Klik untuk langsung melihat foto dokumentasi di Portofolio" class="p-6 card-bg border rounded-2xl hover-lift cursor-pointer transition-all border-slate-800 hover:border-teal-400 group-hover:shadow-lg">
+                            <div class="flex justify-between items-center mb-1">
+                                <span class="text-xs font-bold text-teal-400" data-i18n="exp2_date">Jun 2025 - Oktober 2025</span>
+                                <span class="text-[10px] text-teal-400 bg-teal-500/10 px-2 py-0.5 rounded border border-teal-500/20 group-hover:bg-teal-500 group-hover:text-slate-950 font-semibold transition-all">
+                                    Lihat Dokumentasi <i class="fas fa-arrow-right ml-1"></i>
+                                </span>
+                            </div>
                             <h3 class="text-lg font-bold text-main mt-1" data-i18n="exp2_role">Pengawas Pembangunan Renovasi Gedung Poli Spesialis Lt 3</h3>
-                            <p class="text-xs text-muted font-medium mb-3">PT. ROSA AGUNG MULIA KONSULTAN </p>
+                            <p class="text-xs text-muted font-medium mb-1">PT. ROSA AGUNG MULIA KONSULTAN</p>
                             <p class="text-xs text-slate-500 mb-3">RS BHAYANGKARA PUSDIK PORONG SIDOARJO</p>
                             <p class="text-sm text-muted mb-3" data-i18n="exp2_desc">Bertanggung jawab penuh atas pengawasan teknis pembangunan pelaksanaan renovasi berkala fasilitas kesehatan pada lantai 3 RS Bhayangkara Pusdik Sabhara Porong Sidoarjo.</p>
-                            <div class="flex flex-wrap gap-2 sm:justify-start">
+                            <div class="flex flex-wrap gap-2">
                                 <span class="text-xs input-bg px-2 py-1 rounded border"><i class="fas fa-cube text-teal-400 mr-1"></i> SketchUp</span>
                                 <span class="text-xs input-bg px-2 py-1 rounded border"><i class="fas fa-calculator text-teal-400 mr-1"></i> RAB</span>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <!-- Item Pengalaman 4 (Proyek 3: Drainase Kawasan) -->
                 <div class="relative flex flex-col sm:flex-row items-start sm:items-center group">
                     <div class="absolute left-4 sm:left-1/2 w-4 h-4 bg-blue-500 rounded-full border-4 border-slate-900 -translate-x-1.5 z-10"></div>
                     <div class="w-full sm:w-1/2 sm:pr-8 pl-8 sm:pl-0 sm:text-right">
-                        <div class="p-6 card-bg border rounded-2xl hover-lift">
-                            <span class="text-xs font-bold text-blue-400" data-i18n="exp3_date">Mei 2024 - Okt 2024</span>
+                        <div onclick="navigateToPortfolio('port-super-3')" title="Klik untuk langsung melihat foto dokumentasi di Portofolio" class="p-6 card-bg border rounded-2xl hover-lift cursor-pointer transition-all border-slate-800 hover:border-blue-400 group-hover:shadow-lg">
+                            <div class="flex justify-between items-center mb-1 sm:flex-row-reverse">
+                                <span class="text-xs font-bold text-blue-400">Januari 2025 - Mei 2025</span>
+                                <span class="text-[10px] text-blue-400 bg-blue-500/10 px-2 py-0.5 rounded border border-blue-500/20 group-hover:bg-blue-500 group-hover:text-slate-950 font-semibold transition-all">
+                                    Lihat Dokumentasi <i class="fas fa-arrow-right ml-1"></i>
+                                </span>
+                            </div>
+                            <h3 class="text-lg font-bold text-main mt-1" data-i18n="port_p6_title">Pengawasan Pekerjaan Infrastruktur & Drainase Kawasan</h3>
+                            <p class="text-xs text-muted font-medium mb-1">PT. ROSA AGUNG MULIA KONSULTAN</p>
+                            <p class="text-xs text-slate-500 mb-3">Kawasan Sidoarjo & Sekitarnya</p>
+                            <p class="text-sm text-muted mb-3" data-i18n="port_p6_desc">Monitoring pemasangan saluran u-ditch, perkerasan akses jalan, serta pengendalian debit aliran air dan mitigasi risiko genangan di area fasilitas publik.</p>
+                            <div class="flex flex-wrap gap-2 justify-start sm:justify-end">
+                                <span class="text-xs input-bg px-2 py-1 rounded border"><i class="fas fa-road text-blue-400 mr-1"></i> Drainase U-Ditch</span>
+                                <span class="text-xs input-bg px-2 py-1 rounded border"><i class="fas fa-drafting-compass text-blue-400 mr-1"></i> Elevasi Tanah</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item Pengalaman 5 (Proyek 4: Gedung Rawat Inap Anggrek 3 lt) -->
+                <div class="relative flex flex-col sm:flex-row items-start sm:items-center group">
+                    <div class="absolute left-4 sm:left-1/2 w-4 h-4 bg-teal-400 rounded-full border-4 border-slate-900 -translate-x-1.5 z-10"></div>
+                    <div class="w-full sm:w-1/2 sm:pl-8 pl-8 sm:ml-auto">
+                        <div onclick="navigateToPortfolio('port-super-4')" title="Klik untuk langsung melihat foto dokumentasi di Portofolio" class="p-6 card-bg border rounded-2xl hover-lift cursor-pointer transition-all border-slate-800 hover:border-teal-400 group-hover:shadow-lg">
+                            <div class="flex justify-between items-center mb-1">
+                                <span class="text-xs font-bold text-teal-400" data-i18n="exp3_date">Mei 2024 - Okt 2024</span>
+                                <span class="text-[10px] text-teal-400 bg-teal-500/10 px-2 py-0.5 rounded border border-teal-500/20 group-hover:bg-teal-500 group-hover:text-slate-950 font-semibold transition-all">
+                                    Lihat Dokumentasi <i class="fas fa-arrow-right ml-1"></i>
+                                </span>
+                            </div>
                             <h3 class="text-lg font-bold text-main mt-1" data-i18n="exp3_role">Pengawasan & Perencanaan Gedung Rawat Inap Anggrek 3 lt</h3>
                             <p class="text-xs text-muted font-medium mb-3">PT. ROSA AGUNG MULIA KONSULTAN <span data-i18n="exp_6m">(6 bln)</span></p>
                             <p class="text-sm text-muted mb-3" data-i18n="exp3_desc">Mengelola manajemen risiko struktural, merencanakan gambar arsitektural teknis, dan menghitung total rencana anggaran biaya bangunan.</p>
-                            <div class="flex flex-wrap gap-2 justify-start sm:justify-end">
-                                <span class="text-xs input-bg px-2 py-1 rounded border"><i class="fas fa-tasks text-blue-400 mr-1"></i> Manajemen Proyek</span>
-                                <span class="text-xs input-bg px-2 py-1 rounded border"><i class="fas fa-file-invoice-dollar text-blue-400 mr-1"></i> RAB</span>
-                                <span class="text-xs input-bg px-2 py-1 rounded border"><i class="fas fa-cube text-teal-400 mr-1"></i> AutoCAD</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="relative flex flex-col sm:flex-row items-start sm:items-center group">
-                    <div class="absolute left-4 sm:left-1/2 w-4 h-4 bg-teal-400 rounded-full border-4 border-slate-900 -translate-x-1.5 z-10"></div>
-                    <div class="w-full sm:w-1/2 sm:pl-8 pl-8 sm:ml-auto">
-                        <div class="p-6 card-bg border rounded-2xl hover-lift">
-                            <span class="text-xs font-bold text-teal-400" data-i18n="exp4_date">Mei 2024 - Agu 2024</span>
-                            <h3 class="text-lg font-bold text-main mt-1" data-i18n="exp4_role">Pengawasan Pembangunan Kanopi SD & SMP</h3>
-                            <p class="text-xs text-muted font-medium mb-1">PT. ROSA AGUNG MULIA KONSULTAN <span data-i18n="exp_4m">(4 bln)</span></p>
-                            <p class="text-xs text-slate-500 mb-3">Kemala Bhayangkari Porong Sidoarjo</p>
-                            <p class="text-sm text-muted mb-3" data-i18n="exp4_desc">Memantau instalasi fabrikasi struktur atap kanopi lingkungan sekolah dasar dan menengah agar presisi serta aman digunakan.</p>
                             <div class="flex flex-wrap gap-2">
                                 <span class="text-xs input-bg px-2 py-1 rounded border"><i class="fas fa-tasks text-teal-400 mr-1"></i> Manajemen Proyek</span>
                                 <span class="text-xs input-bg px-2 py-1 rounded border"><i class="fas fa-file-invoice-dollar text-teal-400 mr-1"></i> RAB</span>
@@ -344,21 +398,52 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Item Pengalaman 6 (Proyek 5: Kanopi SD & SMP) -->
                 <div class="relative flex flex-col sm:flex-row items-start sm:items-center group">
                     <div class="absolute left-4 sm:left-1/2 w-4 h-4 bg-blue-500 rounded-full border-4 border-slate-900 -translate-x-1.5 z-10"></div>
                     <div class="w-full sm:w-1/2 sm:pr-8 pl-8 sm:pl-0 sm:text-right">
-                        <div class="p-6 card-bg border rounded-2xl hover-lift">
-                            <span class="text-xs font-bold text-blue-400" data-i18n="exp5_date">Mei 2023 - Okt 2023</span>
-                            <h3 class="text-lg font-bold text-main mt-1" data-i18n="exp5_role">Pengawasan Pembangunan Gedung Rawat Inap Mawar 3 lt</h3>
-                            <p class="text-xs text-muted font-medium mb-3">PT. ROSA AGUNG MULIA KONSULTAN <span data-i18n="exp_6m">(6 bln)</span></p>
-                            <p class="text-sm text-muted mb-3" data-i18n="exp5_desc">Melakukan fungsi monitoring mutu material beton, pengawasan pembesian, dan ketepatan schedule pembangunan berkala.</p>
+                        <div onclick="navigateToPortfolio('port-super-5')" title="Klik untuk langsung melihat foto dokumentasi di Portofolio" class="p-6 card-bg border rounded-2xl hover-lift cursor-pointer transition-all border-slate-800 hover:border-blue-400 group-hover:shadow-lg">
+                            <div class="flex justify-between items-center mb-1 sm:flex-row-reverse">
+                                <span class="text-xs font-bold text-blue-400" data-i18n="exp4_date">Mei 2024 - Agu 2024</span>
+                                <span class="text-[10px] text-blue-400 bg-blue-500/10 px-2 py-0.5 rounded border border-blue-500/20 group-hover:bg-blue-500 group-hover:text-slate-950 font-semibold transition-all">
+                                    Lihat Dokumentasi <i class="fas fa-arrow-right ml-1"></i>
+                                </span>
+                            </div>
+                            <h3 class="text-lg font-bold text-main mt-1" data-i18n="exp4_role">Pengawasan Pembangunan Kanopi SD & SMP</h3>
+                            <p class="text-xs text-muted font-medium mb-1">PT. ROSA AGUNG MULIA KONSULTAN <span data-i18n="exp_4m">(4 bln)</span></p>
+                            <p class="text-xs text-slate-500 mb-3">Kemala Bhayangkari Porong Sidoarjo</p>
+                            <p class="text-sm text-muted mb-3" data-i18n="exp4_desc">Memantau instalasi fabrikasi struktur atap kanopi lingkungan sekolah dasar dan menengah agar presisi serta aman digunakan.</p>
                             <div class="flex flex-wrap gap-2 justify-start sm:justify-end">
-                                <span class="text-xs input-bg px-2 py-1 rounded border"><i class="fas fa-tasks text-blue-400 mr-1"></i> Manajemen Proyek</span>
-                                <span class="text-xs input-bg px-2 py-1 rounded border"><i class="fas fa-file-invoice-dollar text-blue-400 mr-1"></i> RAB</span>
+                                <span class="text-xs input-bg px-2 py-1 rounded border"><i class="fas fa-hard-hat text-blue-400 mr-1"></i> Struktur Baja</span>
+                                <span class="text-xs input-bg px-2 py-1 rounded border"><i class="fas fa-check-double text-blue-400 mr-1"></i> K3 Lapangan</span>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <!-- Item Pengalaman 7 (Proyek 6: Gedung Rawat Inap Mawar 3 lt) -->
+                <div class="relative flex flex-col sm:flex-row items-start sm:items-center group">
+                    <div class="absolute left-4 sm:left-1/2 w-4 h-4 bg-teal-400 rounded-full border-4 border-slate-900 -translate-x-1.5 z-10"></div>
+                    <div class="w-full sm:w-1/2 sm:pl-8 pl-8 sm:ml-auto">
+                        <div onclick="navigateToPortfolio('port-super-6')" title="Klik untuk langsung melihat foto dokumentasi di Portofolio" class="p-6 card-bg border rounded-2xl hover-lift cursor-pointer transition-all border-slate-800 hover:border-teal-400 group-hover:shadow-lg">
+                            <div class="flex justify-between items-center mb-1">
+                                <span class="text-xs font-bold text-teal-400" data-i18n="exp5_date">Mei 2023 - Okt 2023</span>
+                                <span class="text-[10px] text-teal-400 bg-teal-500/10 px-2 py-0.5 rounded border border-teal-500/20 group-hover:bg-teal-500 group-hover:text-slate-950 font-semibold transition-all">
+                                    Lihat Dokumentasi <i class="fas fa-arrow-right ml-1"></i>
+                                </span>
+                            </div>
+                            <h3 class="text-lg font-bold text-main mt-1" data-i18n="exp5_role">Pengawasan Pembangunan Gedung Rawat Inap Mawar 3 lt</h3>
+                            <p class="text-xs text-muted font-medium mb-3">PT. ROSA AGUNG MULIA KONSULTAN <span data-i18n="exp_6m">(6 bln)</span></p>
+                            <p class="text-sm text-muted mb-3" data-i18n="exp5_desc">Melakukan fungsi monitoring mutu material beton, pengawasan pembesian, dan ketepatan schedule pembangunan berkala.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-xs input-bg px-2 py-1 rounded border"><i class="fas fa-vial text-teal-400 mr-1"></i> Slump Test</span>
+                                <span class="text-xs input-bg px-2 py-1 rounded border"><i class="fas fa-chart-line text-teal-400 mr-1"></i> Kurva-S</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
 
@@ -415,13 +500,13 @@
             </div>
         </section>
 
-        <!-- 5. PORTOFOLIO SECTION (MEMBUKA PREVIEW PDF INTERNAL TANPA KELUAR WEB) -->
+        <!-- 5. PORTOFOLIO SECTION -->
         <section id="sec-stats" class="tab-section hidden py-12 px-4 max-w-6xl mx-auto sm:px-6 lg:px-8 w-full animate__animated animate__fadeIn space-y-16">
             
             <!-- PORTOFOLIO GAMBAR DED -->
             <div class="space-y-6">
                 <div class="border-l-4 border-blue-500 pl-4">
-                    <h2 class="text-2xl font-bold tracking-tight text-main uppercase" data-i18n="portfolio_ded_title">Portofolio Gambar DED </h2>
+                    <h2 class="text-2xl font-bold tracking-tight text-main uppercase" data-i18n="portfolio_ded_title">Portofolio Gambar DED</h2>
                     <p class="text-sm text-muted mt-1" data-i18n="portfolio_ded_subtitle">Dokumentasi hasil pemodelan dan perancangan Detailed Engineering Design berkala.</p>
                 </div>
                 
@@ -437,7 +522,7 @@
                         <div class="px-2">
                             <span class="text-[11px] font-bold text-blue-400">AUTODESK AUTOCAD / SKETCHUP</span>
                             <h3 class="text-lg font-bold text-main mt-0.5" data-i18n="ded_p1_title">Perancangan Gambar Struktur Komprehensif Rumah TYPE 100 (DED)</h3>
-                            <p class="text-sm text-muted mt-2 leading-relaxed" data-i18n="ded_p1_desc">Penyusunan blueprint arsitektural & struktural detail pondasi, penulangan beton, sanitasi secara presisi.</p>
+                            <p class="text-sm text-muted mt-2 leading-relaxed" data-i18n="ded_p1_desc">Penyusunan blueprint arsitektural &amp; struktural detail pondasi, penulangan beton, sanitasi secara presisi.</p>
                         </div>
                     </div>
 
@@ -452,7 +537,7 @@
                         <div class="px-2">
                             <span class="text-[11px] font-bold text-blue-400">AUTODESK AUTOCAD / SKETCHUP</span>
                             <h3 class="text-lg font-bold text-main mt-0.5" data-i18n="ded_p2_title">Perancangan Gambar Struktur Komprehensif Rumah TYPE 45 (DED)</h3>
-                            <p class="text-sm text-muted mt-2 leading-relaxed" data-i18n="ded_p2_desc">Penyusunan blueprint arsitektural & struktural detail pondasi, penulangan beton, sanitasi secara presisi.</p>
+                            <p class="text-sm text-muted mt-2 leading-relaxed" data-i18n="ded_p2_desc">Penyusunan blueprint arsitektural &amp; struktural detail pondasi, penulangan beton, sanitasi secara presisi.</p>
                         </div>
                     </div>
 
@@ -467,21 +552,21 @@
                         <div class="px-2">
                             <span class="text-[11px] font-bold text-blue-400">AUTODESK AUTOCAD / SKETCHUP</span>
                             <h3 class="text-lg font-bold text-main mt-0.5" data-i18n="ded_p3_title">Perancangan Gambar Struktur Komprehensif Rumah tinggal 2 lantai (DED)</h3>
-                            <p class="text-sm text-muted mt-2 leading-relaxed" data-i18n="ded_p3_desc">Penyusunan blueprint arsitektural & struktural detail pondasi, penulangan beton, sanitasi secara presisi.</p>
+                            <p class="text-sm text-muted mt-2 leading-relaxed" data-i18n="ded_p3_desc">Penyusunan blueprint arsitektural &amp; struktural detail pondasi, penulangan beton, sanitasi secara presisi.</p>
                         </div>
                     </div>
 
                     <!-- Kartu DED 4 -->
                     <div class="card-bg border p-4 rounded-3xl overflow-hidden hover-lift flex flex-col justify-between shadow-xl space-y-4 group">
-                        <div onclick="openPortfolioPdf('ded/DED_R1_RUMAH TYPE 45_170225-Model.pdf#toolbar=0', 'Integrasi Gambar Detail Kerja dengan Volume RAB')" title="Klik untuk membuka PDF di dalam modal" class="aspect-video w-full rounded-2xl input-bg flex items-center justify-center overflow-hidden border border-slate-800/40 relative block cursor-pointer">
-                            <img src="https://uploads.onecompiler.io/44vrspbk4/1784700831607/ChatGPT%20Image%2022%20Jul%202026,%2013.13.28.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=600';" alt="DED Project 4" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                        <div onclick="openPortfolioPdf('ded/GAMBAR DED WISMA PERMAI.pdf#toolbar=0', 'Integrasi Gambar Detail Kerja dengan Volume RAB')" title="Klik untuk membuka PDF di dalam modal" class="aspect-video w-full rounded-2xl input-bg flex items-center justify-center overflow-hidden border border-slate-800/40 relative block cursor-pointer">
+                            <img src="https://uploads.onecompiler.io/44vrspbk4/1786201537517/ChatGPT%20Image%208%20Agu%202026,%2022.05.24.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=600';" alt="DED Project 4" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                             <span class="absolute bottom-2 right-2 bg-slate-950/80 text-blue-400 text-[10px] px-2 py-1 rounded-md backdrop-blur-sm border border-slate-800 opacity-0 group-hover:opacity-100 transition-opacity">
                                 <i class="fas fa-file-pdf mr-1 text-red-400"></i> Buka Dokumen PDF
                             </span>
                         </div>
                         <div class="px-2">
-                            <span class="text-[11px] font-bold text-blue-400">RAB & ESTIMATION</span>
-                            <h3 class="text-lg font-bold text-main mt-0.5" data-i18n="ded_p4_title">Integrasi Gambar Detail Kerja dengan Volume RAB</h3>
+                            <span class="text-[11px] font-bold text-blue-400">RAB &amp; ESTIMATION</span>
+                            <h3 class="text-lg font-bold text-main mt-0.5" data-i18n="ded_p4_title">Gambar Detail Kerja dengan Volume RAB</h3>
                             <p class="text-sm text-muted mt-2 leading-relaxed" data-i18n="ded_p4_desc">Sinkronisasi hasil plotting gambar AutoCAD ke dalam spreadsheet perhitungan volume besi, semen, bekisting untuk nilai keekonomian proyek.</p>
                         </div>
                     </div>
@@ -497,9 +582,26 @@
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <!-- Kartu Pengawasan 1 -->
-                    <div class="card-bg border p-4 rounded-3xl overflow-hidden hover-lift flex flex-col justify-between shadow-xl space-y-4 group">
+                    <div id="port-super-1" class="card-bg border p-4 rounded-3xl overflow-hidden hover-lift flex flex-col justify-between shadow-xl space-y-4 group transition-all">
+                        <div onclick="openPortfolioPreview('https://uploads.onecompiler.io/44vrspbk4/1786208840990/ChatGPT%20Image%206%20Agu%202026,%2017.56.05.png')" title="Klik untuk memperbesar gambar" class="aspect-video w-full rounded-2xl input-bg flex items-center justify-center overflow-hidden border border-slate-800/40 relative block cursor-pointer">
+                            <img src="https://uploads.onecompiler.io/44vrspbk4/1786208840990/ChatGPT%20Image%206%20Agu%202026,%2017.56.05.png" alt="Supervision Project 5" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                            <span class="absolute top-3 right-3 text-[10px] uppercase font-bold tracking-wider px-2 py-1 rounded bg-teal-500/10 border border-teal-500/30 text-teal-400 z-10" data-i18n="port_status_done">Selesai</span>
+                            <span class="absolute bottom-2 right-2 bg-slate-950/80 text-teal-400 text-[10px] px-2 py-1 rounded-md backdrop-blur-sm border border-slate-800 opacity-0 group-hover:opacity-100 transition-opacity">
+                                <i class="fas fa-search-plus mr-1"></i> Perbesar Gambar
+                            </span>
+                        </div>
+                        <div class="px-2">
+                            <span class="text-[11px] font-bold text-teal-400">PT. ROSA AGUNG MULIA KONSULTAN</span>
+                            <h3 class="text-lg font-bold text-main mt-0.5" data-i18n="port_p5_title">Pengawasan Pembangunan Gedung Rawat Inap Paru</h3>
+                            <p class="text-xs text-slate-500 mt-1">RS BHAYANGKARA PUSDIK PORONG SIDOARJO</p>
+                            <p class="text-sm text-muted mt-3 leading-relaxed" data-i18n="port_p5_desc">Pengawasan teknis struktur beton bertulang, evaluasi pengujian kualitas material, serta verifikasi instalasi utilitas medis secara profesional.</p>
+                        </div>
+                    </div>
+
+                    <!-- Kartu Pengawasan 2 -->
+                    <div id="port-super-2" class="card-bg border p-4 rounded-3xl overflow-hidden hover-lift flex flex-col justify-between shadow-xl space-y-4 group transition-all">
                         <div onclick="openPortfolioPreview('https://uploads.onecompiler.io/44vrspbk4/1786010990954/ChatGPT%20Image%206%20Agu%202026,%2017.09.35.png')" title="Klik untuk memperbesar gambar" class="aspect-video w-full rounded-2xl input-bg flex items-center justify-center overflow-hidden border border-slate-800/40 relative block cursor-pointer">
-                            <img src="https://uploads.onecompiler.io/44vrspbk4/1786010990954/ChatGPT%20Image%206%20Agu%202026,%2017.09.35.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=600';" alt="Supervision Project 1" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                            <img src="https://uploads.onecompiler.io/44vrspbk4/1786010990954/ChatGPT%20Image%206%20Agu%202026,%2017.09.35.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&amp;fit=crop&amp;q=80&amp;w=600';" alt="Supervision Project 1" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                             <span class="absolute top-3 right-3 text-[10px] uppercase font-bold tracking-wider px-2 py-1 rounded bg-teal-500/10 border border-teal-500/30 text-teal-400 z-10" data-i18n="port_status_done">Selesai</span>
                             <span class="absolute bottom-2 right-2 bg-slate-950/80 text-teal-400 text-[10px] px-2 py-1 rounded-md backdrop-blur-sm border border-slate-800 opacity-0 group-hover:opacity-100 transition-opacity">
                                 <i class="fas fa-search-plus mr-1"></i> Perbesar Gambar
@@ -513,10 +615,10 @@
                         </div>
                     </div>
 
-                    <!-- Kartu Pengawasan 2 -->
-                    <div class="card-bg border p-4 rounded-3xl overflow-hidden hover-lift flex flex-col justify-between shadow-xl space-y-4 group">
-                        <div onclick="openPortfolioPreview('https://uploads.onecompiler.io/44vrspbk4/1786014451155/WhatsApp%20Image%202026-08-06%20at%2017.52.52.jpeg')" title="Klik untuk memperbesar gambar" class="aspect-video w-full rounded-2xl input-bg flex items-center justify-center overflow-hidden border border-slate-800/40 relative block cursor-pointer">
-                            <img src="https://uploads.onecompiler.io/44vrspbk4/1786014451155/WhatsApp%20Image%202026-08-06%20at%2017.52.52.jpeg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1590069261209-f8e9b8642343?auto=format&fit=crop&q=80&w=600';" alt="Supervision Project 2" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                    <!-- Kartu Pengawasan 3 -->
+                    <div id="port-super-3" class="card-bg border p-4 rounded-3xl overflow-hidden hover-lift flex flex-col justify-between shadow-xl space-y-4 group transition-all">
+                        <div onclick="openPortfolioPreview('https://uploads.onecompiler.io/44vrspbk4/1786202010480/WhatsApp%20Image%202026-08-06%20at%2017.52.53.jpeg')" title="Klik untuk memperbesar gambar" class="aspect-video w-full rounded-2xl input-bg flex items-center justify-center overflow-hidden border border-slate-800/40 relative block cursor-pointer">
+                            <img src="https://uploads.onecompiler.io/44vrspbk4/1786202010480/WhatsApp%20Image%202026-08-06%20at%2017.52.53.jpeg" alt="Supervision Project 6" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                             <span class="absolute top-3 right-3 text-[10px] uppercase font-bold tracking-wider px-2 py-1 rounded bg-teal-500/10 border border-teal-500/30 text-teal-400 z-10" data-i18n="port_status_done">Selesai</span>
                             <span class="absolute bottom-2 right-2 bg-slate-950/80 text-teal-400 text-[10px] px-2 py-1 rounded-md backdrop-blur-sm border border-slate-800 opacity-0 group-hover:opacity-100 transition-opacity">
                                 <i class="fas fa-search-plus mr-1"></i> Perbesar Gambar
@@ -524,16 +626,33 @@
                         </div>
                         <div class="px-2">
                             <span class="text-[11px] font-bold text-teal-400">PT. ROSA AGUNG MULIA KONSULTAN</span>
-                            <h3 class="text-lg font-bold text-main mt-0.5" data-i18n="port_p2_title">Pengawasan & Perencanaan Gedung Rawat Inap Anggrek 3 lt</h3>
+                            <h3 class="text-lg font-bold text-main mt-0.5" data-i18n="port_p6_title">Pengawasan Pekerjaan Infrastruktur &amp; Drainase Kawasan</h3>
+                            <p class="text-xs text-slate-500 mt-1">Kawasan Sidoarjo &amp; Sekitarnya</p>
+                            <p class="text-sm text-muted mt-3 leading-relaxed" data-i18n="port_p6_desc">Monitoring pemasangan saluran u-ditch, perkerasan akses jalan, serta pengendalian debit aliran air dan mitigasi risiko genangan di area fasilitas publik.</p>
+                        </div>
+                    </div>
+
+                    <!-- Kartu Pengawasan 4 -->
+                    <div id="port-super-4" class="card-bg border p-4 rounded-3xl overflow-hidden hover-lift flex flex-col justify-between shadow-xl space-y-4 group transition-all">
+                        <div onclick="openPortfolioPreview('https://uploads.onecompiler.io/44vrspbk4/1786014451155/WhatsApp%20Image%202026-08-06%20at%2017.52.52.jpeg')" title="Klik untuk memperbesar gambar" class="aspect-video w-full rounded-2xl input-bg flex items-center justify-center overflow-hidden border border-slate-800/40 relative block cursor-pointer">
+                            <img src="https://uploads.onecompiler.io/44vrspbk4/1786014451155/WhatsApp%20Image%202026-08-06%20at%2017.52.52.jpeg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1590069261209-f8e9b8642343?auto=format&amp;fit=crop&amp;q=80&amp;w=600';" alt="Supervision Project 2" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                            <span class="absolute top-3 right-3 text-[10px] uppercase font-bold tracking-wider px-2 py-1 rounded bg-teal-500/10 border border-teal-500/30 text-teal-400 z-10" data-i18n="port_status_done">Selesai</span>
+                            <span class="absolute bottom-2 right-2 bg-slate-950/80 text-teal-400 text-[10px] px-2 py-1 rounded-md backdrop-blur-sm border border-slate-800 opacity-0 group-hover:opacity-100 transition-opacity">
+                                <i class="fas fa-search-plus mr-1"></i> Perbesar Gambar
+                            </span>
+                        </div>
+                        <div class="px-2">
+                            <span class="text-[11px] font-bold text-teal-400">PT. ROSA AGUNG MULIA KONSULTAN</span>
+                            <h3 class="text-lg font-bold text-main mt-0.5" data-i18n="port_p2_title">Pengawasan &amp; Perencanaan Gedung Rawat Inap Anggrek 3 lt</h3>
                             <p class="text-xs text-slate-500 mt-1">PT. ROSA AGUNG MULIA KONSULTAN</p>
                             <p class="text-sm text-muted mt-3 leading-relaxed" data-i18n="port_p2_desc">Melakukan pengawasan struktural bangunan vertikal 3 lantai, monitoring bekisting, manajemen risiko beton pratekan, serta kalkulasi estimasi volume RAB untuk pelaporan kemajuan berkala.</p>
                         </div>
                     </div>
 
-                    <!-- Kartu Pengawasan 3 -->
-                   <div class="card-bg border p-4 rounded-3xl overflow-hidden hover-lift flex flex-col justify-between shadow-xl space-y-4 group">
+                    <!-- Kartu Pengawasan 5 -->
+                    <div id="port-super-5" class="card-bg border p-4 rounded-3xl overflow-hidden hover-lift flex flex-col justify-between shadow-xl space-y-4 group transition-all">
                         <div onclick="openPortfolioPreview('https://uploads.onecompiler.io/44vrspbk4/1786029395566/Gemini_Generated_Image_zcdjdyzcdjdyzcdj.png')" title="Klik untuk memperbesar gambar" class="aspect-video w-full rounded-2xl input-bg flex items-center justify-center overflow-hidden border border-slate-800/40 relative block cursor-pointer">
-                            <img src="https://uploads.onecompiler.io/44vrspbk4/1786029395566/Gemini_Generated_Image_zcdjdyzcdjdyzcdj.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1517581177682-a085bb7ffb15?auto=format&fit=crop&q=80&w=600';" alt="Supervision Project 3" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                            <img src="https://uploads.onecompiler.io/44vrspbk4/1786029395566/Gemini_Generated_Image_zcdjdyzcdjdyzcdj.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1517581177682-a085bb7ffb15?auto=format&amp;fit=crop&amp;q=80&amp;w=600';" alt="Supervision Project 3" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                             <span class="absolute top-3 right-3 text-[10px] uppercase font-bold tracking-wider px-2 py-1 rounded bg-teal-500/10 border border-teal-500/30 text-teal-400 z-10" data-i18n="port_status_done">Selesai</span>
                             <span class="absolute bottom-2 right-2 bg-slate-950/80 text-teal-400 text-[10px] px-2 py-1 rounded-md backdrop-blur-sm border border-slate-800 opacity-0 group-hover:opacity-100 transition-opacity">
                                 <i class="fas fa-search-plus mr-1"></i> Perbesar Gambar
@@ -541,16 +660,16 @@
                         </div>
                         <div class="px-2">
                             <span class="text-[11px] font-bold text-teal-400">PT. ROSA AGUNG MULIA KONSULTAN</span>
-                            <h3 class="text-lg font-bold text-main mt-0.5" data-i18n="port_p3_title">Pengawasan Pembangunan Kanopi SD & SMP</h3>
+                            <h3 class="text-lg font-bold text-main mt-0.5" data-i18n="port_p3_title">Pengawasan Pembangunan Kanopi SD &amp; SMP</h3>
                             <p class="text-xs text-slate-500 mt-1">Kemala Bhayangkari Porong Sidoarjo</p>
                             <p class="text-sm text-muted mt-3 leading-relaxed" data-i18n="port_p3_desc">Supervisi perakitan struktur baja ringan, monitoring kekuatan sambungan las dan baut gording, serta menjamin aspek keselamatan K3 lingkungan sekolah selama proyek fabrikasi berlangsung.</p>
                         </div>
                     </div>
 
-                    <!-- Kartu Pengawasan 4 -->
-                    <div class="card-bg border p-4 rounded-3xl overflow-hidden hover-lift flex flex-col justify-between shadow-xl space-y-4 group">
+                    <!-- Kartu Pengawasan 6 -->
+                    <div id="port-super-6" class="card-bg border p-4 rounded-3xl overflow-hidden hover-lift flex flex-col justify-between shadow-xl space-y-4 group transition-all">
                         <div onclick="openPortfolioPreview('https://uploads.onecompiler.io/44vrspbk4/1786014266460/Ganbar%20mawar.png')" title="Klik untuk memperbesar gambar" class="aspect-video w-full rounded-2xl input-bg flex items-center justify-center overflow-hidden border border-slate-800/40 relative block cursor-pointer">
-                            <img src="https://uploads.onecompiler.io/44vrspbk4/1786014266460/Ganbar%20mawar.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&q=80&w=600';" alt="Supervision Project 4" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                            <img src="https://uploads.onecompiler.io/44vrspbk4/1786014266460/Ganbar%20mawar.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&amp;fit=crop&amp;q=80&amp;w=600';" alt="Supervision Project 4" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                             <span class="absolute top-3 right-3 text-[10px] uppercase font-bold tracking-wider px-2 py-1 rounded bg-teal-500/10 border border-teal-500/30 text-teal-400 z-10" data-i18n="port_status_done">Selesai</span>
                             <span class="absolute bottom-2 right-2 bg-slate-950/80 text-teal-400 text-[10px] px-2 py-1 rounded-md backdrop-blur-sm border border-slate-800 opacity-0 group-hover:opacity-100 transition-opacity">
                                 <i class="fas fa-search-plus mr-1"></i> Perbesar Gambar
@@ -561,6 +680,75 @@
                             <h3 class="text-lg font-bold text-main mt-0.5" data-i18n="port_p4_title">Pengawasan Pembangunan Gedung Rawat Inap Mawar 3 lt</h3>
                             <p class="text-xs text-slate-500 mt-1">PT. ROSA AGUNG MULIA KONSULTAN</p>
                             <p class="text-sm text-muted mt-3 leading-relaxed" data-i18n="port_p4_desc">Melakukan pengujian mutu slump test beton, pengawasan pembesian tulangan balok-kolom utama, serta mengendalikan deviasi waktu pengerjaan di lapangan agar sesuai dengan kurva-S proyek.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PORTOFOLIO WEBSITE & SOFTWARE (DENGAN EMBED PREVIEW INTERAKTIF TANPA KELUAR WEB) -->
+            <div class="space-y-6">
+                <div class="border-l-4 border-purple-500 pl-4">
+                    <h2 class="text-2xl font-bold tracking-tight text-main uppercase" data-i18n="portfolio_web_title">Portofolio Website &amp; Software</h2>
+                    <p class="text-sm text-muted mt-1" data-i18n="portfolio_web_subtitle">Pengembangan sistem aplikasi web, landing page interaktif, dan alat manajemen digital konstruksi.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Kartu Website 1 -->
+                    <div class="card-bg border p-4 rounded-3xl overflow-hidden hover-lift flex flex-col justify-between shadow-xl space-y-4 group">
+                        <div onclick="openWebModal('https://sukseskan1.github.io/Wibsite-inn/', 'Sistem Informasi Management Proyek &amp; Pengawasan Lapangan')" title="Klik untuk melihat pratinjau website interaktif di situs ini" class="aspect-video w-full rounded-2xl input-bg flex items-center justify-center overflow-hidden border border-slate-800/40 relative block cursor-pointer bg-slate-900/60 p-2">
+                            <img src="https://uploads.onecompiler.io/44vrspbk4/1786103847273/Screenshot%202026-08-07%20185010.png" alt="Web Project 1" class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105">
+                            <span class="absolute top-3 right-3 text-[10px] uppercase font-bold tracking-wider px-2 py-1 rounded bg-purple-500/10 border border-purple-500/30 text-purple-400 z-10" data-i18n="port_status_live">Live Web App</span>
+                            <span class="absolute bottom-2 right-2 bg-slate-950/80 text-purple-400 text-[10px] px-2 py-1 rounded-md backdrop-blur-sm border border-slate-800 opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
+                                <i class="fas fa-globe text-xs"></i> Pratinjau Website Di Sini
+                            </span>
+                        </div>
+                        <div class="px-2">
+                            <div class="flex flex-wrap gap-1.5 mb-2">
+                                <span class="text-[10px] font-bold bg-purple-500/10 text-purple-400 px-2 py-0.5 rounded border border-purple-500/20">TAILWIND CSS</span>
+                                <span class="text-[10px] font-bold bg-amber-500/10 text-amber-400 px-2 py-0.5 rounded border border-amber-500/20">JAVASCRIPT ES6</span>
+                                <span class="text-[10px] font-bold bg-blue-500/10 text-blue-400 px-2 py-0.5 rounded border border-blue-500/20">PHP</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-main mt-0.5" data-i18n="web_p1_title">Sistem Informasi Management Proyek &amp; Pengawasan Lapangan</h3>
+                            <p class="text-sm text-muted mt-2 leading-relaxed" data-i18n="web_p1_desc">Aplikasi web internal untuk mencatat progres mingguan, kurva-S, alokasi material, serta dokumentasi foto laporan lapangan secara *real-time*.</p>
+                        </div>
+                    </div>
+
+                    <!-- Kartu Website 2 -->
+                    <div class="card-bg border p-4 rounded-3xl overflow-hidden hover-lift flex flex-col justify-between shadow-xl space-y-4 group">
+                        <div onclick="openWebModal('https://sukseskan1.github.io/coffe-Shop/', 'Personal Interactive Portfolio &amp; Engineering Showcase')" title="Klik untuk melihat pratinjau website interaktif di situs ini" class="aspect-video w-full rounded-2xl input-bg flex items-center justify-center overflow-hidden border border-slate-800/40 relative block cursor-pointer bg-slate-900/60 p-2">
+                            <img src="https://uploads.onecompiler.io/44vrspbk4/1786104718414/Screenshot%202026-08-07%20191042.png" alt="Web Project 2" class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105">
+                            <span class="absolute top-3 right-3 text-[10px] uppercase font-bold tracking-wider px-2 py-1 rounded bg-blue-500/10 border border-blue-500/30 text-blue-400 z-10" data-i18n="port_status_active">Active Online</span>
+                            <span class="absolute bottom-2 right-2 bg-slate-950/80 text-blue-400 text-[10px] px-2 py-1 rounded-md backdrop-blur-sm border border-slate-800 opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
+                                <i class="fas fa-globe text-xs"></i> Pratinjau Website Di Sini
+                            </span>
+                        </div>
+                        <div class="px-2">
+                            <div class="flex flex-wrap gap-1.5 mb-2">
+                                <span class="text-[10px] font-bold bg-teal-500/10 text-teal-400 px-2 py-0.5 rounded border border-teal-500/20">HTML5 / CSS3</span>
+                                <span class="text-[10px] font-bold bg-amber-500/10 text-amber-400 px-2 py-0.5 rounded border border-amber-500/20">JAVASCRIPT</span>
+                                <span class="text-[10px] font-bold bg-purple-500/10 text-purple-400 px-2 py-0.5 rounded border border-purple-500/20">i18n ENGINE</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-main mt-0.5" data-i18n="web_p2_title">Personal Interactive Portfolio &amp; Engineering Showcase</h3>
+                            <p class="text-sm text-muted mt-2 leading-relaxed" data-i18n="web_p2_desc">Website portofolio rekayasa sipil &amp; web dev yang responsif, dilengkapi fitur dark/light mode, *multi-language support*, PDF viewer internal, dan animasi dinamis.</p>
+                        </div>
+                    </div>
+
+                    <!-- Kartu Website 3 -->
+                    <div class="card-bg border p-4 rounded-3xl overflow-hidden hover-lift flex flex-col justify-between shadow-xl space-y-4 group">
+                        <div onclick="openWebModal('https://sukseskan1.github.io/portofolio-indra-kurniawan/', 'Aplikasi Web Estimator RAB &amp; Perhitungan Volume Struktur')" title="Klik untuk melihat pratinjau website interaktif di situs ini" class="aspect-video w-full rounded-2xl input-bg flex items-center justify-center overflow-hidden border border-slate-800/40 relative block cursor-pointer bg-slate-900/60 p-2">
+                            <img src="https://uploads.onecompiler.io/44vrspbk4/1786208184564/Screenshot%202026-07-25%20210702.png" alt="Web Project 3" class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105">
+                            <span class="absolute top-3 right-3 text-[10px] uppercase font-bold tracking-wider px-2 py-1 rounded bg-purple-500/10 border border-purple-500/30 text-purple-400 z-10" data-i18n="port_status_live">Kalkulator Web</span>
+                            <span class="absolute bottom-2 right-2 bg-slate-950/80 text-purple-400 text-[10px] px-2 py-1 rounded-md backdrop-blur-sm border border-slate-800 opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
+                                <i class="fas fa-globe text-xs"></i> Pratinjau Website Di Sini
+                            </span>
+                        </div>
+                        <div class="px-2">
+                            <div class="flex flex-wrap gap-1.5 mb-2">
+                                <span class="text-[10px] font-bold bg-emerald-500/10 text-emerald-400 px-2 py-0.5 rounded border border-emerald-500/20">NODE.JS / PHP</span>
+                                <span class="text-[10px] font-bold bg-blue-500/10 text-blue-400 px-2 py-0.5 rounded border border-blue-500/20">CIVIL CALC ENGINE</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-main mt-0.5" data-i18n="web_p3_title">Aplikasi Web Estimator RAB &amp; Perhitungan Volume Struktur</h3>
+                            <p class="text-sm text-muted mt-2 leading-relaxed" data-i18n="web_p3_desc">Sistem kalkulator online presisi untuk menghitung kebutuhan volume semen, pasir, koral, serta estimasi biaya RAB otomatis untuk pengerjaan konstruksi.</p>
                         </div>
                     </div>
                 </div>
@@ -618,14 +806,14 @@
                         <i class="fas fa-chart-line text-blue-500/60"></i>
                         <span data-i18n="contact_stats">Statistik Pengunjung Utama:</span>
                     </div>
-                    <img src="https://visitcount.itsvg.in/api?id=Sukseskan1&icon=0&color=0" alt="Visitor Count" class="opacity-60">
+                    <img src="https://visitcount.itsvg.in/api?id=Sukseskan1&amp;icon=0&amp;color=0" alt="Visitor Count" class="opacity-60">
                 </div>
             </div>
         </section>
 
     </main>
 
-    <!-- MODAL INTERNAL UNTUK EMBED DOCUMENT PDF & GALERI FOTO -->
+    <!-- MODAL INTERNAL UNTUK EMBED DOCUMENT PDF, WEB INTERAKTIF & GALERI FOTO -->
     <div id="cert-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center bg-slate-950/80 backdrop-blur-md p-4 transition-all duration-300">
         <div class="card-bg border rounded-3xl max-w-4xl w-full p-6 relative shadow-2xl flex flex-col space-y-4 animate__animated animate__zoomIn">
             
@@ -651,7 +839,7 @@
                     </span>
                 </div>
                 
-                <!-- IFRAME PEMBUKA PDF LOKAL / DOKUMEN INTERNAL -->
+                <!-- IFRAME PEMBUKA PDF LOKAL / WEB PREVIEW INTERNAL -->
                 <iframe id="modal-pdf" src="" class="w-full h-full border-0 hidden"></iframe>
 
                 <button id="modal-nav-prev" onclick="prevCertPhoto()" class="absolute left-3 top-1/2 -translate-y-1/2 bg-slate-900/80 hover:bg-blue-600 text-white p-3 rounded-full border border-slate-700 backdrop-blur-md transition-all opacity-80 group-hover:opacity-100 hover:scale-110 z-10">
@@ -676,7 +864,7 @@
         </div>
     </div>
 
-    <!-- MODAL FULLSCREEN ZOOM (LIGHTBOX PROYEK HASIL DED) -->
+    <!-- MODAL FULLSCREEN ZOOM (LIGHTBOX PROYEK HASIL DED & WEB) -->
     <div id="fullscreen-modal" onclick="closeFullscreenViewer()" class="fixed inset-0 z-[60] hidden flex items-center justify-center bg-slate-950/95 backdrop-blur-lg p-2 sm:p-6 transition-all duration-300 cursor-zoom-out">
         <div class="relative w-full h-full flex items-center justify-center">
             <button onclick="closeFullscreenViewer()" class="absolute top-4 right-4 text-white text-2xl p-3 rounded-2xl bg-slate-900/80 hover:bg-red-600 border border-slate-700 transition-all focus:outline-none z-20">
@@ -691,6 +879,23 @@
     </footer>
 
     <script>
+        // --- FUNGSI NAVIGASI LANGSUNG DARI PENGALAMAN KE PORTOFOLIO PENGAWASAN ---
+        function navigateToPortfolio(targetId) {
+            switchTab('stats'); 
+
+            setTimeout(() => {
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    
+                    targetElement.classList.add('highlight-target');
+                    setTimeout(() => {
+                        targetElement.classList.remove('highlight-target');
+                    }, 2000);
+                }
+            }, 150);
+        }
+
         // --- FUNGSI KHUSUS UNTUK MEMBUKA DOKUMEN PDF PORTOFOLIO DED DI MODAL ---
         function openPortfolioPdf(pdfUrl, titleText) {
             const modal = document.getElementById('cert-modal');
@@ -700,13 +905,11 @@
             document.getElementById('modal-desc').innerText = "Gunakan kontrol navigasi PDF pada layar di atas untuk memperbesar (zoom), menggulir halaman, atau mencetak berkas secara presisi.";
             document.getElementById('modal-icon').className = "text-2xl fas fa-file-pdf text-red-500";
 
-            // Sembunyikan elemen gambar & navigasi foto sertifikat
             document.getElementById('modal-img-container').classList.add('hidden');
             document.getElementById('modal-nav-prev').classList.add('hidden');
             document.getElementById('modal-nav-next').classList.add('hidden');
             document.getElementById('modal-counter-box').classList.add('hidden');
 
-            // Tampilkan Iframe PDF
             const pdfEl = document.getElementById('modal-pdf');
             pdfEl.classList.remove('hidden');
             pdfEl.src = pdfUrl;
@@ -715,7 +918,29 @@
             document.body.style.overflow = 'hidden';
         }
 
-        // --- FUNGSI MEMBUKA GAMBAR FOTO PENGAWASAN (LIGHTBOX) ---
+        // --- FUNGSI KHUSUS UNTUK MEMBUKA PREVIEW WEBSITE DI DALAM MODAL (TANPA KELUAR HALAMAN) ---
+        function openWebModal(webUrl, titleText) {
+            const modal = document.getElementById('cert-modal');
+            
+            document.getElementById('modal-title').innerText = titleText;
+            document.getElementById('modal-subtitle').innerText = "Live Web Application Preview";
+            document.getElementById('modal-desc').innerText = "Pratinjau langsung aplikasi web interaktif di dalam portofolio tanpa meninggalkan halaman situs saat ini.";
+            document.getElementById('modal-icon').className = "text-2xl fas fa-globe text-purple-400";
+
+            document.getElementById('modal-img-container').classList.add('hidden');
+            document.getElementById('modal-nav-prev').classList.add('hidden');
+            document.getElementById('modal-nav-next').classList.add('hidden');
+            document.getElementById('modal-counter-box').classList.add('hidden');
+
+            const pdfEl = document.getElementById('modal-pdf');
+            pdfEl.classList.remove('hidden');
+            pdfEl.src = webUrl;
+
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // --- FUNGSI MEMBUKA GAMBAR FOTO PENGAWASAN & WEB (LIGHTBOX) ---
         function openPortfolioPreview(imgUrl) {
             document.getElementById('fullscreen-img').src = imgUrl;
             document.getElementById('fullscreen-modal').classList.remove('hidden');
@@ -777,7 +1002,6 @@
             document.getElementById('modal-desc').innerText = descText;
             document.getElementById('modal-icon').className = "text-2xl " + data.iconClass;
 
-            // Kembalikan tombol navigasi sertifikat jika sebelumnya disembunyikan PDF
             document.getElementById('modal-nav-prev').classList.remove('hidden');
             document.getElementById('modal-nav-next').classList.remove('hidden');
             document.getElementById('modal-counter-box').classList.remove('hidden');
@@ -884,25 +1108,32 @@
                 skills_title: "Perangkat Kerja & Kompetensi", skills_subtitle: "Kombinasi sistem rekayasa sipil modern dan tumpukan teknologi pengembangan web.",
                 exp_title: "Rekam Jejak Profesional", exp_subtitle: "Pengalaman kerja pengawasan teknis dan manajemen konstruksi di PT. ROSA AGUNG MULIA KONSULTAN.",
                 exp1_date: "Mei 2023 - Sekarang", exp1_role: "Civil Drafter & Pengawas", exp1_desc: "Melakukan pemodelan visual engineering, perancangan struktural, estimasi volume, sekaligus pengawasan operasional langsung di lapangan.",
+                exp_rs_date: "Agustus 2026 - Okt 2026", exp_rs_role: "Pengawasan Renovasi Gedung RS Bhayangkara Pusdik Porong", exp_rs_desc: "Mengelola manajemen proyek, bertanggung jawab penuh atas pengawasan teknis pembangunan pelaksanaan renovasi berkala fasilitas kesehatan, dan menghitung total rencana anggaran biaya bangunan.",
                 exp2_date: "Jun 2025 - Oktober 2025", exp2_role: "Pengawas Pembangunan Renovasi Gedung Poli Spesialis Lt 3", exp2_desc: "Bertanggung jawab penuh atas pengawasan teknis pembangunan pelaksanaan renovasi berkala fasilitas kesehatan pada lantai 3 RS Bhayangkara Pusdik Sabhara Porong Sidoarjo.",
                 exp3_date: "Mei 2024 - Okt 2024", exp3_role: "Pengawasan & Perencanaan Gedung Rawat Inap Anggrek 3 lt", exp3_desc: "Mengelola manajemen risiko struktural, merencanakan gambar arsitektural teknis, dan menghitung total rencana anggaran biaya bangunan.",
                 exp4_date: "Mei 2024 - Agu 2024", exp4_role: "Pengawasan Pembangunan Kanopi SD & SMP", exp4_desc: "Memantau instalasi fabrikasi struktur atap kanopi lingkungan sekolah dasar dan menengah agar presisi serta aman digunakan.",
                 exp5_date: "Mei 2023 - Okt 2023", exp5_role: "Pengawasan Pembangunan Gedung Rawat Inap Mawar 3 lt", exp5_desc: "Melakukan fungsi monitoring mutu material beton, pengawasan pembesian, dan ketepatan schedule pembangunan berkala.",
-                exp_6m: "(6 bln)", exp_4m: "(4 bln)",
+                exp_6m: "(6 bln)", exp_4m: "(4 bln)", exp_3m: "(3 bln)",
                 cert1_title: "Sertifikat Ahli K3 Konstruksi", cert_body1: "Badan Sertifikasi Nasional", cert1_desc: "Kompetensi tingkat lanjut untuk pemeliharaan keselamatan, kesehatan kerja, dan penjaminan mutu zero-accident di lapangan.",
                 cert2_title: "Keahlian AutoCAD & Perancangan", cert2_desc: "Sertifikasi kemahiran teknis penggambaran detail 2D/3D struktur jembatan, sanitasi kawasan, dan utilitas bangunan.",
                 cert3_title: "Full-Stack Web Engineering", cert3_desc: "Kompetensi integrasi arsitektur web modern menggunakan basis ekosistem JavaScript, pemrograman PHP, dan deployment server cloud.",
                 portfolio_ded_title: "Portofolio Gambar DED", portfolio_ded_subtitle: "Dokumentasi hasil pemodelan dan perancangan Detailed Engineering Design berkala.",
                 portfolio_super_title: "Portofolio Pengawasan Proyek", portfolio_super_subtitle: "Dokumentasi monitoring lapangan, manajemen risiko struktural, dan kendali mutu konstruksi.",
-                port_status_done: "Selesai",
+                portfolio_web_title: "Portofolio Website & Software", portfolio_web_subtitle: "Pengembangan sistem aplikasi web, landing page interaktif, dan alat manajemen digital konstruksi.",
+                port_status_done: "Selesai", port_status_live: "Live Web App", port_status_active: "Active Online",
                 ded_p1_title: "Perancangan Gambar Struktur Komprehensif Rumah TYPE 100 (DED)", ded_p1_desc: "Penyusunan blueprint arsitektural & struktural detail pondasi, penulangan beton, sanitasi secara presisi.",
                 ded_p2_title: "Perancangan Gambar Struktur Komprehensif Rumah TYPE 45 (DED)", ded_p2_desc: "Penyusunan blueprint arsitektural & struktural detail pondasi, penulangan beton, sanitasi secara presisi.",
                 ded_p3_title: "Perancangan Gambar Struktur Komprehensif Rumah tinggal 2 lantai (DED)", ded_p3_desc: "Penyusunan blueprint arsitektural & struktural detail pondasi, penulangan beton, sanitasi secara presisi.",
                 ded_p4_title: "Integrasi Gambar Detail Kerja dengan Volume RAB", ded_p4_desc: "Sinkronisasi hasil plotting gambar AutoCAD ke dalam spreadsheet perhitungan volume besi, semen, bekisting untuk nilai keekonomian proyek.",
                 port_p1_title: "Pengawas Pembangunan Renovasi Gedung Poli Spesialis Lt 3", port_p1_desc: "Melaksanakan kendali mutu operasional, verifikasi teknis gambar kerja di lapangan, koordinasi sub-kontraktor, dan pengawasan schedule berkala.",
                 port_p2_title: "Pengawasan & Perencanaan Gedung Rawat Inap Anggrek 3 lt", port_p2_desc: "Pengawasan struktural bangunan vertikal 3 lantai, monitoring jalannya pembetonan, manajemen risiko bekisting, serta kalkulasi volume RAB berkala.",
-                port_p3_title: "Pengawasan Pembangunan Kanopi SD & SMP", port_p3_desc: "Supervisi perakitan struktur baja ringan, monitoring kekuatan sambungan las dan baut gording, serta menjamin aspek keselamatan K3 lingkungan sekolah.",
+                port_p3_title: "Pengawasan Pembangunan Kanopi SD & SMP", port_p3_desc: "Supervisi perakitan struktur baja ringan, monitoring kekuatan sambungan las dan baut gording, serta menjamin keselamatan K3 lingkungan sekolah.",
                 port_p4_title: "Pengawasan Pembangunan Gedung Rawat Inap Mawar 3 lt", port_p4_desc: "Melakukan pengujian mutu slump test beton, pengawasan pembesian tulangan balok-kolom utama, serta mengendalikan progres kurva-S lapangan.",
+                port_p5_title: "Pengawasan Pembangunan Gedung Rawat Inap Paru", port_p5_desc: "Pengawasan teknis struktur beton bertulang, evaluasi pengujian kualitas material, serta verifikasi instalasi utilitas medis secara profesional.",
+                port_p6_title: "Pengawasan Pekerjaan Infrastruktur & Drainase Kawasan", port_p6_desc: "Monitoring pemasangan saluran u-ditch, perkerasan akses jalan, serta pengendalian debit aliran air dan mitigasi risiko genangan di area fasilitas publik.",
+                web_p1_title: "Sistem Informasi Management Proyek & Pengawasan Lapangan", web_p1_desc: "Aplikasi web internal untuk mencatat progres mingguan, kurva-S, alokasi material, serta dokumentasi foto laporan lapangan secara real-time.",
+                web_p2_title: "Personal Interactive Portfolio & Engineering Showcase", web_p2_desc: "Website portofolio rekayasa sipil & web dev yang responsif, dilengkapi fitur dark/light mode, multi-language support, PDF viewer internal, dan animasi dinamis.",
+                web_p3_title: "Aplikasi Web Estimator RAB & Perhitungan Volume Struktur", web_p3_desc: "Sistem kalkulator online presisi untuk menghitung kebutuhan volume semen, pasir, koral, serta estimasi biaya RAB otomatis untuk pengerjaan konstruksi.",
                 contact_title: "Mari Mulai Kolaborasi", contact_subtitle: "Hubungi saya untuk kebutuhan konsultasi pengawasan teknis konstruksi rekayasa sipil atau integrasi sistem platform digital web.",
                 contact_btn_email: "Kirim Email Gmail", contact_btn_wa: "Chat via WhatsApp", contact_stats: "Statistik Pengunjung Utama:",
                 footer: "&copy; 2026 Indra Kurniawan. Hak Cipta Dilindungi."
@@ -915,17 +1146,19 @@
                 skills_title: "Tools & Competencies", skills_subtitle: "A combination of modern civil engineering systems and full-stack web development technologies.",
                 exp_title: "Professional Track Record", exp_subtitle: "Work experience in technical supervision and construction management at PT. ROSA AGUNG MULIA KONSULTAN.",
                 exp1_date: "May 2023 - Present", exp1_role: "Civil Drafter & Supervisor", exp1_desc: "Performing visual engineering modeling, structural design, volume estimation, and direct operational field supervision.",
+                exp_rs_date: "August 2026 - Oct 2026", exp_rs_role: "Supervision of RS Bhayangkara Pusdik Porong Renovation", exp_rs_desc: "Managing project management, fully responsible for technical supervision of periodic healthcare facility renovations, and calculating total cost estimations.",
                 exp2_date: "Jun 2025 - October 2025", exp2_role: "Supervisor for Phase 3 Specialist Clinic Building Renovation", exp2_desc: "Fully responsible for the technical supervision of the periodic renovation of healthcare facilities on the 3rd floor of RS Bhayangkara Pusdik Sabhara Porong Sidoarjo.",
                 exp3_date: "May 2024 - Oct 2024", exp3_role: "Supervision & Design of 3-Story Anggrek Inpatient Building", exp3_desc: "Managing structural risk control, planning detailed technical architectural drawings, and calculating the total budget estimation.",
                 exp4_date: "May 2024 - Aug 2024", exp4_role: "Supervision of Elementary & Junior High School Canopy Construction", exp4_desc: "Monitoring the installation and fabrication of canopy roof structures in primary and secondary school environments to ensure precision and safety.",
                 exp5_date: "May 2023 - Oct 2023", exp5_role: "Supervision of 3-Story Mawar Inpatient Building Construction", exp5_desc: "Conducting quality monitoring of concrete materials, steel reinforcement inspection, and ensuring periodic schedule precision.",
-                exp_6m: "(6 mos)", exp_4m: "(4 mos)",
+                exp_6m: "(6 mos)", exp_4m: "(4 mos)", exp_3m: "(3 mos)",
                 cert1_title: "Construction Occupational Safety (K3) Certificate", cert_body1: "National Certification Board", cert1_desc: "Advanced competency for field occupational safety maintenance, health protocols, and zero-accident quality assurance.",
                 cert2_title: "AutoCAD & Structural Drafting Competency", cert2_desc: "Technical certification for detailed 2D/3D structural drafting, bridge elements, regional sanitation, and building utilities.",
                 cert3_title: "Full-Stack Web Engineering", cert3_desc: "Modern web architecture integration competency using JavaScript ecosystem, PHP, and cloud server deployment.",
                 portfolio_ded_title: "DED Drawing Portfolio", portfolio_ded_subtitle: "Documentation of modeling and Detailed Engineering Design results.",
                 portfolio_super_title: "Project Supervision Portfolio", portfolio_super_subtitle: "Documentation of field monitoring, structural risk management, and construction quality control.",
-                port_status_done: "Completed",
+                portfolio_web_title: "Website & Software Portfolio", portfolio_web_subtitle: "Development of web applications, interactive landing pages, and digital construction management tools.",
+                port_status_done: "Completed", port_status_live: "Live Web App", port_status_active: "Active Online",
                 ded_p1_title: "Comprehensive Structural Design for TYPE 100 House (DED)", ded_p1_desc: "Preparation of precise architectural & structural blueprints detailing foundations, concrete rebar, and plumbing systems.",
                 ded_p2_title: "Comprehensive Structural Design for TYPE 45 House (DED)", ded_p2_desc: "Preparation of precise architectural & structural blueprints detailing foundations, concrete rebar, and plumbing systems.",
                 ded_p3_title: "Comprehensive Structural Design for 2-Story House (DED)", ded_p3_desc: "Preparation of precise architectural & structural blueprints detailing foundations, concrete rebar, and plumbing systems.",
@@ -934,6 +1167,11 @@
                 port_p2_title: "Supervision & Design of 3-Story Anggrek Inpatient Building", port_p2_desc: "Structural supervision of a 3-story vertical building, concreting workflow monitoring, formwork risk assessment, and periodic budget evaluations.",
                 port_p3_title: "Supervision of Elementary & Junior High School Canopy Construction", port_p3_desc: "Supervising light steel structure assembly, monitoring weld and purlin bolt connection durability, and ensuring strict site safety compliance.",
                 port_p4_title: "Supervision of 3-Story Mawar Inpatient Building Construction", port_p4_desc: "Conducting concrete slump testing, managing major beam-column steel reinforcement checkups, and controlling site S-curve progression.",
+                port_p5_title: "Supervision of Pulmonary Inpatient Building Construction", port_p5_desc: "Technical supervision of reinforced concrete structures, material testing evaluations, and professional verification of medical utility installations.",
+                port_p6_title: "Supervision of Regional Drainage & Infrastructure Works", port_p6_desc: "Monitoring u-ditch installation, road access paving, water flow discharge control, and flood mitigation in public facility areas.",
+                web_p1_title: "Site Progress & Project Management Information System", web_p1_desc: "Internal web app for tracking weekly progress, S-curve analytics, material allocation, and real-time site photo logs.",
+                web_p2_title: "Personal Interactive Portfolio & Engineering Showcase", web_p2_desc: "Responsive civil engineering & web dev portfolio featuring dark/light mode, multi-language support, embedded PDF viewer, and dynamic animations.",
+                web_p3_title: "BOQ Estimator & Structural Concrete Volume Calculator", web_p3_desc: "Precision web calculation system for calculating cement, sand, gravel volume requirements and automated construction budget estimations.",
                 contact_title: "Let's Start a Collaboration", contact_subtitle: "Contact me for technical civil engineering consultation or full-stack web platform digital integration needs.",
                 contact_btn_email: "Send Gmail Message", contact_btn_wa: "Chat via WhatsApp", contact_stats: "Main Visitor Statistics:",
                 footer: "&copy; 2026 Indra Kurniawan. All Rights Reserved."
